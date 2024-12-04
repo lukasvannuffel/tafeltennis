@@ -1,0 +1,131 @@
+color: null
+fieldLayouts:
+  1c966379-e58f-4fca-99bc-3b2bdb132c69:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-04T11:24:07+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 187540cb-823f-4de3-b5df-806005b716e1
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T11:37:35+00:00'
+            elementCondition: null
+            fieldUid: 34efd35b-67c2-4437-8ed9-9ae98f2ff641 # Gebruiker
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 66272469-2e95-42ea-ad1c-32d517dc2696
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T11:38:52+00:00'
+            elementCondition: null
+            fieldUid: 64e0c57c-083f-4231-994c-328a261a8126 # Datum
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5e345234-60de-447f-97fa-d0eba27aabf9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T11:37:35+00:00'
+            elementCondition: null
+            fieldUid: 74e47521-7291-4e41-acad-9ce0f4e319c8 # Drankje
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 652032d4-06a0-4bd3-be48-fe45482dfb08
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T11:37:35+00:00'
+            elementCondition: null
+            fieldUid: c9bd182c-cb7b-4d2c-95aa-3ca8e1f6c2e2 # Aantal
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 369e6160-2c97-4eac-9f2b-473faeb48e19
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T11:37:35+00:00'
+            elementCondition: null
+            fieldUid: e0b4b115-08c1-4bec-b6aa-a11f85202928 # Betaald?
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: db2711cc-1f43-4b19-a30a-dad7f631601d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: d1a4ff85-c5cc-45b9-966d-07d9dac8450c
+        userCondition: null
+handle: rekeningen
+hasTitleField: true
+icon: ''
+name: Rekeningen
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{gebruiker}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

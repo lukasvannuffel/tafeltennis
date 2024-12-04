@@ -1,0 +1,99 @@
+color: null
+fieldLayouts:
+  33308c5c-b71d-484e-84ed-12f84b777b63:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-04T15:06:27+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 1bd28e5f-be4e-43fc-9b66-70b56337cf66
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T15:05:06+00:00'
+            elementCondition: null
+            fieldUid: 64e0c57c-083f-4231-994c-328a261a8126 # Datum
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e6ec6585-cf91-42d1-b5b1-3da49fd82e8d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T15:05:06+00:00'
+            elementCondition: null
+            fieldUid: 271816ba-39ea-4493-b88d-2fba50eab52c # Ploeg
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e5e5b14d-aae5-416b-8d35-4d1c02459b50
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T15:05:06+00:00'
+            elementCondition: null
+            fieldUid: 1fba546c-8988-41ac-841e-dd0018f94985 # Spelers
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ab3f317e-a4a5-487e-b8a9-f046db64dc4e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b9a1dff6-f45c-4226-b3ca-8873ba7b9618
+        userCondition: null
+handle: speeldagen
+hasTitleField: true
+icon: ''
+name: Speeldagen
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: 'Voeg hier nog een ploeg & datum toe!'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

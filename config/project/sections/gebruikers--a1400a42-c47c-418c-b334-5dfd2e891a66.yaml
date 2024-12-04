@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - d6f691ca-05ab-4d3d-851a-3974878a4a7a # Gebruikers
+handle: gebruikers
+maxAuthors: 1
+name: Gebruikers
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
+    enabledByDefault: true
+    hasUrls: true
+    template: gebruikers/_entry.twig
+    uriFormat: 'gebruikers/{slug}'
+type: channel

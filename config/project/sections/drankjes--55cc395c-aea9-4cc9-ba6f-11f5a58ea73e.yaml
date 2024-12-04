@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - c29ffaff-3889-4344-a4eb-90d3c9b4daad # Drankjes
+handle: drankjes
+maxAuthors: 1
+name: Drankjes
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
+    enabledByDefault: true
+    hasUrls: true
+    template: drankjes/_entry.twig
+    uriFormat: 'drankjes/{slug}'
+type: channel

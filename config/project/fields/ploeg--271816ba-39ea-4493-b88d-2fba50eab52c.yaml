@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: ploeg
+instructions: null
+name: Ploeg
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Ploeg 1'
+        -
+          - value
+          - ploeg1
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Ploeg 2'
+        -
+          - value
+          - ploeg2
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Ploeg 3'
+        -
+          - value
+          - ploeg3
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

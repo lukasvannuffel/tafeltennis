@@ -1,0 +1,44 @@
+dateModified: 1733326694
+email:
+  fromEmail: lukasvannuffel02@gmail.com
+  fromName: werkstuk-tafeltennis-lukasvannuffel
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    1fba546c-8988-41ac-841e-dd0018f94985: Spelers # Spelers
+    5c93ee1d-ec63-4cf7-ba9d-7111d3aa0f73: Rekeningen # Rekeningen
+    8c96c385-7ae2-4955-a437-f910e682658e: Speeldagen # Speeldagen
+    33fb3089-2bd6-474e-9c53-ca57f6c6bb77: 'Public Schema' # Public Schema
+    34efd35b-67c2-4437-8ed9-9ae98f2ff641: Gebruiker # Gebruiker
+    55cc395c-aea9-4cc9-ba6f-11f5a58ea73e: Drankjes # Drankjes
+    64e0c57c-083f-4231-994c-328a261a8126: Datum # Datum
+    74e47521-7291-4e41-acad-9ce0f4e319c8: Drankje # Drankje
+    3624d35f-9f04-4fc6-ae1c-0d6b1cf75c20: Speeldagen # Speeldagen
+    271816ba-39ea-4493-b88d-2fba50eab52c: Ploeg # Ploeg
+    667217cb-2377-42e5-9960-0713cfb1262e: Rol # Rol
+    a1400a42-c47c-418c-b334-5dfd2e891a66: Gebruikers # Gebruikers
+    ac383a6b-ebac-4924-a5cd-c296993ed2de: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
+    b1b5283f-c9ee-434b-b009-9c073788101d: Prijs # Prijs
+    b179a167-1bb1-4794-acb3-26224f6b33b7: Voornaam # Voornaam
+    b14077b8-fe60-4309-8204-c3e4f04abd23: Rekeningen # Rekeningen
+    bb631c41-7448-4870-9182-2ccb95691176: Emailadres # Emailadres
+    c9bd182c-cb7b-4d2c-95aa-3ca8e1f6c2e2: Aantal # Aantal
+    c29ffaff-3889-4344-a4eb-90d3c9b4daad: Drankjes # Drankjes
+    d6f691ca-05ab-4d3d-851a-3974878a4a7a: Gebruikers # Gebruikers
+    dc8e3d48-33c2-4fb2-a99c-7ade8c40c048: Wachtwoord # Wachtwoord
+    e0b4b115-08c1-4bec-b6aa-a11f85202928: 'Betaald?' # Betaald?
+    e0fe4a95-5a6e-4260-a633-8d65ec4d2715: Achternaam # Achternaam
+    f4b1d9ae-cf5d-4862-be19-a850752f1182: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
+system:
+  edition: solo
+  live: true
+  name: werkstuk-tafeltennis-lukasvannuffel
+  schemaVersion: 5.5.0.0
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

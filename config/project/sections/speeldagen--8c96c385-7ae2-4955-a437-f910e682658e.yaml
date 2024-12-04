@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 3624d35f-9f04-4fc6-ae1c-0d6b1cf75c20 # Speeldagen
+handle: speeldagen
+maxAuthors: 1
+name: Speeldagen
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
+    enabledByDefault: true
+    hasUrls: true
+    template: speeldagen/_entry.twig
+    uriFormat: 'speeldagen/{slug}'
+type: channel

@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-US
+name: werkstuk-tafeltennis-lukasvannuffel
+primary: true
+siteGroup: f4b1d9ae-cf5d-4862-be19-a850752f1182 # werkstuk-tafeltennis-lukasvannuffel
+sortOrder: 1

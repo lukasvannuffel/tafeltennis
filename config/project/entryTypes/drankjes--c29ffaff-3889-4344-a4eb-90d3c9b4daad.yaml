@@ -1,0 +1,67 @@
+color: null
+fieldLayouts:
+  6ed1a424-92c8-4107-baa4-cb326585b44f:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-04T10:59:59+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: Title
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 42d90d70-0bd3-4647-8b5b-b62a28cc3a13
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-04T11:18:13+00:00'
+            elementCondition: null
+            fieldUid: b1b5283f-c9ee-434b-b009-9c073788101d # Prijs
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b4bf238d-960f-4feb-aee6-abe334edfd8b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b4aed88c-e2ae-46c2-98ce-713e40715e12
+        userCondition: null
+handle: drankjes
+hasTitleField: true
+icon: ''
+name: Drankjes
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
