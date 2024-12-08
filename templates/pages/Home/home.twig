@@ -1,0 +1,35 @@
+{% extends "index.twig" %}
+
+{% block title %}Home - HNO Assenede{% endblock %}
+
+{% block content %}
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Welkom bij <span>HNO Assenede</span></h1>
+      <p>De beste tafeltennisclub van Assenede en omstreken. Digitaliseer jouw drankjes en speeldagen eenvoudig met onze tool.</p>
+      <a href="/drankregistratie" class="btn-primary">Drankjes Registreren</a>
+      <a href="/beschikbaarheid" class="btn-secondary">Bekijk Beschikbaarheid</a>
+    </div>
+  </header>
+
+  <section class="features">
+    <h2>Wat biedt onze tool?</h2>
+    <div class="features-container">
+      <div class="feature">
+        <i class="icon-drink"></i>
+        <h3>Drankregistratie</h3>
+        <p>Eenvoudig jouw consumpties bijhouden en direct betalen via QR-code of later via lopende rekeningen.</p>
+      </div>
+      <div class="feature">
+        <i class="icon-calendar"></i>
+        <h3>Speeldagenbeheer</h3>
+        <p>Plan je speeldagen of geef je beschikbaarheid door met slechts een paar klikken.</p>
+      </div>
+      <div class="feature">
+        <i class="icon-wallet"></i>
+        <h3>Financieel Overzicht</h3>
+        <p>Altijd inzicht in openstaande en betaalde rekeningen. Voor leden én beheerders.</p>
+      </div>
+    </div>
+  </section>
+{% endblock %}

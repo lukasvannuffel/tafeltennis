@@ -1,10 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - b14077b8-fe60-4309-8204-c3e4f04abd23 # Rekeningen
-handle: rekeningen
+  - 3624d35f-9f04-4fc6-ae1c-0d6b1cf75c20 # Speeldagen
+handle: beschikbaarheid
 maxAuthors: 1
-name: Rekeningen
+name: Beschikbaarheid
 previewTargets:
   -
     __assoc__:
@@ -22,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: pages/Rekeningen/rekeningen.twig
-    uriFormat: 'rekeningen/{slug}'
+    template: pages/Beschikbaarheid/beschikbaarheid.twig
+    uriFormat: 'beschikbaarheid/{slug}'
 type: channel

@@ -2,9 +2,9 @@ defaultPlacement: end
 enableVersioning: true
 entryTypes:
   - c29ffaff-3889-4344-a4eb-90d3c9b4daad # Drankjes
-handle: drankjes
+handle: drankenregistratie
 maxAuthors: 1
-name: Drankjes
+name: Drankenregistratie
 previewTargets:
   -
     __assoc__:
@@ -22,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: drankjes/_entry.twig
-    uriFormat: 'drankjes/{slug}'
+    template: pages/Drankenregistratie/drankenregistratie.twig
+    uriFormat: 'drankenregistratie/{slug}'
 type: channel

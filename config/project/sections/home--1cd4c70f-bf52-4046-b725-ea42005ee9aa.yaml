@@ -1,10 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - 3624d35f-9f04-4fc6-ae1c-0d6b1cf75c20 # Speeldagen
-handle: speeldagen
+  - 1a6f7e14-d517-4e48-aeca-ae1c2d532c93 # Home
+handle: home
 maxAuthors: 1
-name: Speeldagen
+name: Home
 previewTargets:
   -
     __assoc__:
@@ -22,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: speeldagen/_entry.twig
-    uriFormat: 'speeldagen/{slug}'
-type: channel
+    template: pages/Home/home.twig
+    uriFormat: __home__
+type: single
