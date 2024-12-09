@@ -7,33 +7,43 @@
 {% block styles %}
 <link rel="stylesheet" href="{{ siteUrl }}static/css/pages/Home/home.css">
 {% endblock %}
-  <header class="hero">
-    <div class="hero-text">
-      <h1>Welkom bij <span>HNO Assenede</span></h1>
-      <p>De beste tafeltennisclub van Assenede en omstreken. Digitaliseer jouw drankjes en speeldagen eenvoudig met onze tool.</p>
-      <a href="/pages/Drankenregistratie/drankenregistratie" class="btn-primary">Drankjes Registreren</a>
-      <a href="/pages/Beschikbaarheid/beschikbaarheid" class="btn-secondary">Bekijk Beschikbaarheid</a>
-    </div>
-  </header>
 
-  <section class="features">
-    <h2>Wat biedt onze tool?</h2>
-    <div class="features-container">
-      <div class="feature">
-        <i class="icon-drink"></i>
-        <h3>Drankregistratie</h3>
-        <p>Eenvoudig jouw consumpties bijhouden en direct betalen via QR-code of later via lopende rekeningen.</p>
-      </div>
-      <div class="feature">
-        <i class="icon-calendar"></i>
-        <h3>Speeldagenbeheer</h3>
-        <p>Plan je speeldagen of geef je beschikbaarheid door met slechts een paar klikken.</p>
-      </div>
-      <div class="feature">
-        <i class="icon-wallet"></i>
-        <h3>Financieel Overzicht</h3>
-        <p>Altijd inzicht in openstaande en betaalde rekeningen. Voor leden én beheerders.</p>
-      </div>
+{# Geuploade bannerimage tonen #}
+{% set images = home.banner_image.all() %}
+{% set firstImage = home.banner_image.one() %}
+
+<header class="hero" style="background-image: url('{{ firstImage.url() }}');">
+  <div class="hero-text">
+    <h1>{{ home.title }}</h1>
+    <p>{{ home.subtitle }}</p>
+    <a href="/pages/Drankenregistratie/drankenregistratie" class="btn-primary">Drankjes Registreren</a>
+    <a href="/pages/Beschikbaarheid/beschikbaarheid" class="btn-secondary">Bekijk Beschikbaarheid</a>
+  </div>
+</header>
+
+{# {% for image in images %}
+  <img src="{{ image.url() }}" alt="{{ image.title }}">
+{% endfor %} #}
+
+<section class="features">
+  <h2>Wat biedt onze tool?</h2>
+  <div class="features-container">
+    <div class="feature">
+      <i class="icon-drink"></i>
+      <h3>Drankregistratie</h3>
+      <p>Eenvoudig jouw consumpties bijhouden en direct betalen via QR-code of later via lopende rekeningen.</p>
     </div>
-  </section>
+    <div class="feature">
+      <i class="icon-calendar"></i>
+      <h3>Speeldagenbeheer</h3>
+      <p>Plan je speeldagen of geef je beschikbaarheid door met slechts een paar klikken.</p>
+    </div>
+    <div class="feature">
+      <i class="icon-wallet"></i>
+      <h3>Financieel Overzicht</h3>
+      <p>Altijd inzicht in openstaande en betaalde rekeningen. Voor leden én beheerders.</p>
+    </div>
+  </div>
+</section>
+
 {% endblock %}

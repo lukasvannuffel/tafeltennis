@@ -1,4 +1,4 @@
-color: null
+color: yellow
 fieldLayouts:
   a7ac5a4a-d22a-43db-9abd-f46f2d6e8891:
     tabs:
@@ -35,12 +35,44 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Content
+          -
+            dateAdded: '2024-12-09T13:13:20+00:00'
+            elementCondition: null
+            fieldUid: 93ebd873-a0a2-437b-a0d7-a50ca4be4d53 # Image
+            handle: banner_image
+            includeInCards: false
+            instructions: null
+            label: 'Banner Image'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e7050a5d-a3f8-40c4-9daf-18df5e1f12cf
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-09T12:56:53+00:00'
+            elementCondition: null
+            fieldUid: 6fa0c7ef-bc6d-4121-8057-43a1cbe549eb # Subtitle
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1f454a9b-cd73-4b28-aed8-77ef6e18c53f
+            userCondition: null
+            warning: null
+            width: 100
+        name: Banner
         uid: 2962ccc2-e809-4acb-9c84-c53e244b35db
         userCondition: null
 handle: home
 hasTitleField: true
-icon: ''
+icon: house
 name: Home
 showSlugField: true
 showStatusField: true
