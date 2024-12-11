@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - c29ffaff-3889-4344-a4eb-90d3c9b4daad # Drankjes
+  - c29ffaff-3889-4344-a4eb-90d3c9b4daad # Drankenregistratie
 handle: drankenregistratie
 maxAuthors: 1
 name: Drankenregistratie

@@ -1,4 +1,4 @@
-dateModified: 1733752731
+dateModified: 1733919533
 email:
   fromEmail: lukasvannuffel02@gmail.com
   fromName: werkstuk-tafeltennis-lukasvannuffel
@@ -36,7 +36,7 @@ meta:
     b14077b8-fe60-4309-8204-c3e4f04abd23: Rekeningen # Rekeningen
     bb631c41-7448-4870-9182-2ccb95691176: Emailadres # Emailadres
     c9bd182c-cb7b-4d2c-95aa-3ca8e1f6c2e2: Aantal # Aantal
-    c29ffaff-3889-4344-a4eb-90d3c9b4daad: Drankjes # Drankjes
+    c29ffaff-3889-4344-a4eb-90d3c9b4daad: Drankenregistratie # Drankenregistratie
     d6f691ca-05ab-4d3d-851a-3974878a4a7a: Gebruikers # Gebruikers
     d9c2dacc-097d-4008-ae8d-342559a5d4dc: Login # Login
     dc8e3d48-33c2-4fb2-a99c-7ade8c40c048: Wachtwoord # Wachtwoord
@@ -44,8 +44,14 @@ meta:
     e0b4b115-08c1-4bec-b6aa-a11f85202928: 'Betaald?' # Betaald?
     e0fe4a95-5a6e-4260-a633-8d65ec4d2715: Achternaam # Achternaam
     f4b1d9ae-cf5d-4862-be19-a850752f1182: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
+plugins:
+  graphql-authentication:
+    edition: standard
+    enabled: true
+    licenseKey: ZSF5ESBFHTM8PNY203MSEO8N
+    schemaVersion: 1.3.0
 system:
-  edition: solo
+  edition: pro
   live: true
   name: werkstuk-tafeltennis-lukasvannuffel
   schemaVersion: 5.5.0.0

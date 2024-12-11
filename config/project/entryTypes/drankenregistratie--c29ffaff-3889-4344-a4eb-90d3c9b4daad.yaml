@@ -1,10 +1,26 @@
-color: null
+color: blue
 fieldLayouts:
   6ed1a424-92c8-4107-baa4-cb326585b44f:
     tabs:
       -
         elementCondition: null
         elements:
+          -
+            dateAdded: '2024-12-11T11:06:56+00:00'
+            elementCondition: null
+            fieldUid: 93ebd873-a0a2-437b-a0d7-a50ca4be4d53 # Image
+            handle: banner_image
+            includeInCards: false
+            instructions: null
+            label: banner_image
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8450ee00-a408-4af0-b379-766832b86973
+            userCondition: null
+            warning: null
+            width: 100
           -
             autocapitalize: true
             autocomplete: false
@@ -25,7 +41,7 @@ fieldLayouts:
             placeholder: null
             providesThumbs: false
             readonly: false
-            required: true
+            required: false
             size: null
             step: null
             tip: null
@@ -36,28 +52,28 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2024-12-04T11:18:13+00:00'
+            dateAdded: '2024-12-11T11:06:56+00:00'
             elementCondition: null
-            fieldUid: b1b5283f-c9ee-434b-b009-9c073788101d # Prijs
+            fieldUid: 6fa0c7ef-bc6d-4121-8057-43a1cbe549eb # Subtitle
             handle: null
             includeInCards: false
             instructions: null
             label: null
             providesThumbs: false
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b4bf238d-960f-4feb-aee6-abe334edfd8b
+            uid: d5d9d3a8-8a26-42b9-989b-8ed15d14949b
             userCondition: null
             warning: null
             width: 100
-        name: Content
+        name: Hero
         uid: b4aed88c-e2ae-46c2-98ce-713e40715e12
         userCondition: null
-handle: drankjes
+handle: drankenregistratie
 hasTitleField: true
-icon: ''
-name: Drankjes
+icon: cup-straw
+name: Drankenregistratie
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

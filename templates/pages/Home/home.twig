@@ -12,7 +12,7 @@
 {% set images = home.banner_image.all() %}
 {% set firstImage = home.banner_image.one() %}
 
-<header class="hero" style="background-image: url('{{ firstImage.url() }}');">
+<header class="hero" style="background-image: url('{{ firstImage.url() }} '); background-size: cover; background-position: center;">
   <div class="hero-text">
     <h1>{{ home.title }}</h1>
     <p>{{ home.subtitle }}</p>

@@ -9,9 +9,21 @@
 {% endblock %}
 
 
+{# Geuploade bannerimage tonen #}
 
 
+{% set images = drankenregistratie.banner_image.all() %}
+{% set firstImage = drankenregistratie.banner_image.one() %}
 
+{# <header class="hero" style="background-image: url('{{ firstImage.url() }} '); background-size: cover; background-position: center;">
+  <div class="hero-text">
+    <h1>{{ drankenregistratie.title }}</h1>
+    <p>{{ drankenregistratie.subtitle }}</p>
+    <a href="/pages/Drankenregistratie/drankenregistratie" class="btn-primary">Drankjes Registreren</a>
+    <a href="/pages/Beschikbaarheid/beschikbaarheid" class="btn-secondary">Bekijk Beschikbaarheid</a>
+  </div>
+</header> #}
+{# 
 
 {# HTML CONTENT HERE #}
 
