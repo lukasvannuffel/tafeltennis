@@ -16,11 +16,15 @@
       </div>
       <nav class="nav">
         <ul>
-          <li><a href="/"><i class="icon-home"></i> Home</a></li>
+          <li><a href="/home"><i class="icon-home"></i> Home</a></li>
           <li><a href="/drankenregistratie"><i class="icon-drink"></i> Drankregistratie</a></li>
           <li><a href="/beschikbaarheid"><i class="icon-calendar"></i> Beschikbaarheid</a></li>
-          <li><a href="/mijn-rekening"><i class="icon-wallet"></i>Mijn rekening</a></li>
-          <li><a href="/login"><i class="icon-login"></i> Log in</a></li>
+          <li><a href="/mijn-rekening"><i class="icon-wallet"></i> Mijn rekening</a></li>
+          {% if currentUser %}
+            <li><a href="/profile"><i class="icon-person"></i> Mijn profiel</a></li>
+          {% else %}
+            <li><a href="/login">Login</a></li>
+          {% endif %}
         </ul>
       </nav>
     </aside>

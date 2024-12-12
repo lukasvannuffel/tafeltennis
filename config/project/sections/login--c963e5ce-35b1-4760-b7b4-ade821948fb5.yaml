@@ -23,5 +23,5 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: login/_entry.twig
-    uriFormat: login
+    uriFormat: __home__
 type: single

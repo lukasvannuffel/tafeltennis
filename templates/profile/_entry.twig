@@ -1,0 +1,118 @@
+{% extends "index.twig" %}
+
+{% block content %}
+{# Require that a user is logged in to view this form. #}
+{% requireLogin %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ siteUrl }}static/css/pages/Profile/profile.css">
+{% endblock %}
+
+{% macro errorList(errors) %}
+  {% if errors %}
+    {{ ul(errors, {class: 'errors'}) }}
+  {% endif %}
+{% endmacro %}
+
+{# If there were any validation errors, a `user` variable will be passed to the
+   template, which contains the posted values and validation errors. If that’s not
+   set, we’ll default to the current user. #}
+{% set user = user ?? currentUser %}
+
+{% if user.hasErrors() %}
+  <p>Unable to save your profile.</p>
+{% endif %}
+
+<form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+  {{ csrfInput() }}
+  {{ actionInput('users/save-user') }}
+  {{ hiddenInput('userId', user.id) }}
+  {{ redirectInput('profile') }}
+
+  {# In Craft 4, `firstName` and `lastName` were combined into a single property: #}
+  <label for="full-name">Full Name</label>
+  {{ input('text', 'fullName', user.fullName, {
+    id: 'full-name',
+    class: user.hasErrors('fullName') ? 'error',
+    autocomplete: 'name',
+  }) }}
+  {{ _self.errorList(user.getErrors('fullName')) }}
+
+  {% if user.photo %}
+    <label>Photo</label>
+    {{ user.photo.getImg({width: 150, height: 150})|attr({
+      id: 'user-photo',
+      alt: user.friendlyName,
+    }) }}
+
+    <label for="delete-photo">
+      {{ input('checkbox', 'deletePhoto', '1', {
+        id: 'delete-photo',
+      }) }}
+      Delete photo
+    </label>
+  {% endif %}
+
+  <label for="photo">Upload a new photo</label>
+  {{ input('file', 'photo', null, {
+    id: 'photo',
+    accept: 'image/png,image/jpeg',
+  }) }}
+
+  {% if not craft.app.config.general.useEmailAsUsername %}
+    <label for="username">Username</label>
+    {{ input('text', 'username', user.username, {
+      id: 'username',
+      class: user.hasErrors('username') ? 'error',
+      autocomplete: 'username',
+    }) }}
+    {{ _self.errorList(user.getErrors('username')) }}
+  {% endif %}
+
+  <label for="email">Email</label>
+  {{ input('text', 'email', user.unverifiedEmail ?? user.email, {
+    id: 'email',
+    class: user.hasErrors('email') ? 'error',
+    autocomplete: 'email',
+  }) }}
+  {{ _self.errorList(user.getErrors('username')) }}
+
+  {% if craft.app.projectConfig.get('users.requireEmailVerification') %}
+    <p>New email addresses need to be verified.</p>
+  {% endif %}
+
+  <label for="new-password">New Password</label>
+  {{ input('password', 'newPassword', null, {
+    id: 'new-password',
+    class: user.hasErrors('newPassword') ? 'error',
+    autocomplete: 'new-password',
+  }) }}
+  {{ _self.errorList(user.getErrors('newPassword')) }}
+
+  <label for="current-password">Current Password</label>
+  {{ input('password', 'password', null, {
+    id: 'current-password',
+    class: user.hasErrors('currentPassword') ? 'error',
+    autocomplete: 'current-password',
+  }) }}
+  {{ _self.errorList(user.getErrors('currentPassword')) }}
+
+  {# Custom “Bio” field #}
+  <label for="bio">Bio</label>
+  {{ tag('textarea', {
+    text: user.bio,
+    id: 'bio',
+    name: 'fields[bio]',
+    class: user.hasErrors('bio') ? 'error',
+  }) }}
+  {{ _self.errorList(user.getErrors('bio')) }}
+
+  <button> Save Profile</button>
+<form  method="post" action="{{ url('logout') }}">
+  {{ csrfInput() }}
+  <button class="logout-btn" type="submit">Log uit</button>
+
+</form>
+</form>
+
+{% endblock %}

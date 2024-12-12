@@ -13,6 +13,7 @@
 <form method="post" accept-charset="UTF-8">
   {{ csrfInput() }}
   {{ actionInput('users/login') }}
+  {{ redirectInput('home') }}
 
   <label for="loginName">Username or email</label>
   {{ input('text', 'loginName', craft.app.user.rememberedUsername, {

@@ -1,4 +1,4 @@
-dateModified: 1733998601
+dateModified: 1734000094
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -42,6 +42,7 @@ meta:
     74e47521-7291-4e41-acad-9ce0f4e319c8: Drankje # Drankje
     93ebd873-a0a2-437b-a0d7-a50ca4be4d53: Image # Image
     637a3d3c-476e-4943-8eab-36dd28c4aaa3: Spelers # Spelers
+    979a2e8a-14f1-4bf4-972a-a6f8537ed8fa: Login # Login
     3624d35f-9f04-4fc6-ae1c-0d6b1cf75c20: Speeldagen # Speeldagen
     271816ba-39ea-4493-b88d-2fba50eab52c: Ploeg # Ploeg
     667217cb-2377-42e5-9960-0713cfb1262e: Rol # Rol
@@ -62,6 +63,7 @@ meta:
     d94afcc3-617e-4ee5-9a41-d22e68040c74: 'Mijn rekening' # Mijn rekening
     e0b4b115-08c1-4bec-b6aa-a11f85202928: 'Betaald?' # Betaald?
     f4b1d9ae-cf5d-4862-be19-a850752f1182: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
+    f358877f-62fa-4726-9045-c6afb46fe030: bio # bio
 plugins:
   graphql-authentication:
     edition: standard
