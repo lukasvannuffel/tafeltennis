@@ -23,6 +23,7 @@
 <form method="post" accept-charset="UTF-8">
   {{ csrfInput() }}
   {{ actionInput('users/save-user') }}
+    {{ redirectInput('profile') }}
 
   <label for="username">Username</label>
   {{ input('text', 'username', user.username ?? null, {

@@ -1,4 +1,4 @@
-dateModified: 1734000094
+dateModified: 1734012263
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -73,6 +73,7 @@ plugins:
   mollie-payments:
     edition: standard
     enabled: true
+    licenseKey: JGHTYR2SDQ519C99GYYW3RXP
     schemaVersion: 5.0.0
     settings:
       apiKey: test_KSysEm8rvFNfNudt8ajG8mw5BpD8sH

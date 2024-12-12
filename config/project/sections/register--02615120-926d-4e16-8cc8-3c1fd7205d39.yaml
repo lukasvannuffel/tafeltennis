@@ -22,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: pages/Register/register.twig
-    uriFormat: 'register/{slug}'
-type: channel
+    template: register/_entry.twig
+    uriFormat: register
+type: single

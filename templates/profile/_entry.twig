@@ -38,26 +38,6 @@
   }) }}
   {{ _self.errorList(user.getErrors('fullName')) }}
 
-  {% if user.photo %}
-    <label>Photo</label>
-    {{ user.photo.getImg({width: 150, height: 150})|attr({
-      id: 'user-photo',
-      alt: user.friendlyName,
-    }) }}
-
-    <label for="delete-photo">
-      {{ input('checkbox', 'deletePhoto', '1', {
-        id: 'delete-photo',
-      }) }}
-      Delete photo
-    </label>
-  {% endif %}
-
-  <label for="photo">Upload a new photo</label>
-  {{ input('file', 'photo', null, {
-    id: 'photo',
-    accept: 'image/png,image/jpeg',
-  }) }}
 
   {% if not craft.app.config.general.useEmailAsUsername %}
     <label for="username">Username</label>
@@ -108,11 +88,13 @@
   {{ _self.errorList(user.getErrors('bio')) }}
 
   <button> Save Profile</button>
-<form  method="post" action="{{ url('logout') }}">
-  {{ csrfInput() }}
-  <button class="logout-btn" type="submit">Log uit</button>
 
 </form>
+
+{# Log uit-knop #}
+<form method="post" action="{{ url('logout') }}" class="logout-form">
+  {{ csrfInput() }}
+  <button type="submit" class="logout-button">Log uit</button>
 </form>
 
 {% endblock %}
