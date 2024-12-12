@@ -1,0 +1,83 @@
+color: null
+fieldLayouts:
+  60d30444-34ab-4e3a-96ce-0a42b262657c:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-12-12T14:30:44+00:00'
+            elementCondition: null
+            fieldUid: 93ebd873-a0a2-437b-a0d7-a50ca4be4d53 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 48833b32-1841-4de8-ab44-dccd1cb9549e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-12T14:29:14+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: e04dbee0-2fa8-411f-961e-08e24c70dc7f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-12T14:30:44+00:00'
+            elementCondition: null
+            fieldUid: b1b5283f-c9ee-434b-b009-9c073788101d # Prijs
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e6769cfe-f69f-4e72-8606-49cbdee2deaa
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5aeb27e4-e459-40ad-9592-bbfe66bfee83
+        userCondition: null
+handle: drankjes
+hasTitleField: true
+icon: ''
+name: Drankjes
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

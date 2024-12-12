@@ -4,19 +4,13 @@ instructions: null
 name: Drankje
 searchable: false
 settings:
-  allowSelfRelations: false
-  branchLimit: null
-  maintainHierarchy: false
-  maxRelations: null
-  minRelations: null
-  selectionLabel: null
-  showCardsInGrid: false
-  showSiteMenu: false
-  sources:
-    - 'section:55cc395c-aea9-4cc9-ba6f-11f5a58ea73e'
-  targetSiteId: null
-  validateRelatedElements: false
-  viewMode: list
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Entries
+type: craft\fields\PlainText

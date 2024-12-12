@@ -1,22 +1,71 @@
+/* Hero-sectie */
 .hero {
-    color: #fff;
-    padding: 50px 20px;
-    text-align: center;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    
-  }
-  
-  .hero h1 {
-    font-size: 36px;
-    margin: 0 0 20px;
-  }
-  
-  .hero h1 span {
-    color: #ffcc00;
-  }
-  
-  .hero p {
-    font-size: 18px;
-    margin: 0 0 30px;
-  }
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h1 {
+  font-size: 36px;
+  margin: 0 0 20px;
+}
+
+.hero h1 span {
+  color: #ffcc00;
+}
+
+.hero p {
+  font-size: 18px;
+  margin: 0 0 30px;
+}
+
+/* Drankjes container */
+.drankjes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  justify-content: center;
+}
+
+/* Drankje card */
+.drankje-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: calc(33.333% - 20px);
+  max-width: 300px;
+  text-align: center;
+  padding: 20px;
+}
+
+.drankje-image-container {
+  width: 100%;
+  height: 200px; /* Pas de hoogte aan naar wens */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drankje-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.drankje-card h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.drankje-card p {
+  font-size: 18px;
+  color: #666;
+}

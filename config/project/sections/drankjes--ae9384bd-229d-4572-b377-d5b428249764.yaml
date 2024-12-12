@@ -2,10 +2,9 @@ defaultPlacement: end
 enableVersioning: true
 entryTypes:
   - e3dd8d5e-7b15-4c2f-a1b6-9c8670dcc18c # Drankjes
-  - c29ffaff-3889-4344-a4eb-90d3c9b4daad # Drankenregistratie
-handle: drankenregistratie
+handle: drankjes
 maxAuthors: 1
-name: Drankenregistratie
+name: Drankjes
 previewTargets:
   -
     __assoc__:
@@ -24,5 +23,5 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: drankenregistratie/_entry.twig
-    uriFormat: drankenregistratie
-type: single
+    uriFormat: 'drankenregistratie/{slug}'
+type: channel

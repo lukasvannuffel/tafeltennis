@@ -1,4 +1,4 @@
-dateModified: 1734012263
+dateModified: 1734014341
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -49,6 +49,7 @@ meta:
     02615120-926d-4e16-8cc8-3c1fd7205d39: Register # Register
     ac383a6b-ebac-4924-a5cd-c296993ed2de: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
     ad7cf296-5131-49cd-b076-f65b65700d3a: Register # Register
+    ae9384bd-229d-4572-b377-d5b428249764: Drankjes # Drankjes
     b1b5283f-c9ee-434b-b009-9c073788101d: Prijs # Prijs
     b81bc918-86b4-4998-abe1-b49438f074cc: Profile # Profile
     b14077b8-fe60-4309-8204-c3e4f04abd23: Rekeningen # Rekeningen
@@ -62,6 +63,7 @@ meta:
     d18ddf66-9e9c-4f66-a02c-8195fdda702d: Profile # Profile
     d94afcc3-617e-4ee5-9a41-d22e68040c74: 'Mijn rekening' # Mijn rekening
     e0b4b115-08c1-4bec-b6aa-a11f85202928: 'Betaald?' # Betaald?
+    e3dd8d5e-7b15-4c2f-a1b6-9c8670dcc18c: Drankjes # Drankjes
     f4b1d9ae-cf5d-4862-be19-a850752f1182: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
     f358877f-62fa-4726-9045-c6afb46fe030: bio # bio
 plugins:
@@ -85,5 +87,6 @@ system:
   edition: pro
   live: true
   name: werkstuk-tafeltennis-lukasvannuffel
+  retryDuration: null
   schemaVersion: 5.5.0.0
   timeZone: America/Los_Angeles

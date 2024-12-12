@@ -10,27 +10,32 @@
 <link rel="stylesheet" href="{{ siteUrl }}static/css/pages/Drankenregistratie/drankenregistratie.css">
 {% endblock %}
 
-
 {# Geuploade bannerimage tonen #}
-
-
 {% set image = entry.banner_image.one() %}
 <header class="hero" style="background-image: url('{{ image.url }} '); background-size: cover; background-position: center;">
   <div class="hero-text">
-    <h1>{{ drankenregistratie.title }}</h1>
-    <p>{{ drankenregistratie.subtitle }}</p>
-    <a href="/pages/Drankenregistratie/drankenregistratie" class="btn-primary">Drankjes Registreren</a>
-    <a href="/pages/Beschikbaarheid/beschikbaarheid" class="btn-secondary">Bekijk Beschikbaarheid</a>
+    <h1>{{ entry.title }}</h1>
+    <p>{{ entry.subtitle }}</p>
   </div>
 </header>
-{# 
-
-{# HTML CONTENT HERE #}
 
 
-
-
-
-
+<div class="drankjes-container">
+  {% for drankje in craft.entries.section('drankjes').all() %}
+    {% set image = drankje.image.one() %}
+    <div class="drankje-card">
+      <div class="drankje-image-container">
+        <img src="{{ image.url }}" alt="{{ drankje.title }}">
+      </div>
+      <h2>{{ drankje.title }}</h2>
+      <p>€{{ drankje.prijs }}</p>
+      <form method="post" action="{{ url('rekeningen/add') }}">
+        {{ csrfInput() }}
+        <input type="hidden" name="drankjeId" value="{{ drankje.id }}">
+        <button type="submit" class="btn-add">Toevoegen aan rekening</button>
+      </form>
+    </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
