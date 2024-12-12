@@ -29,7 +29,7 @@
       </div>
       <h2>{{ drankje.title }}</h2>
       <p>€{{ drankje.prijs }}</p>
-      <form method="post" action="{{ url('rekeningen/add') }}">
+      <form method="post" action="{{ url('mijn-rekening/') }}">
         {{ csrfInput() }}
         <input type="hidden" name="drankjeId" value="{{ drankje.id }}">
         <button type="submit" class="btn-add">Toevoegen aan rekening</button>
