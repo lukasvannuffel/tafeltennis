@@ -13,7 +13,7 @@ settings:
   showCardsInGrid: false
   showSiteMenu: false
   sources:
-    - 'section:55cc395c-aea9-4cc9-ba6f-11f5a58ea73e' # Drankenregistratie
+    - 'section:55cc395c-aea9-4cc9-ba6f-11f5a58ea73e'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list

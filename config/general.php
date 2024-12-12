@@ -26,5 +26,6 @@ return GeneralConfig::create()
         '@webroot' => dirname(__DIR__) . '/web',
         '@assetBaseUrl' => "@web/uploads",
         '@assetBasePath' => "@webroot/uploads",
+        // '@mollieApiKey' => "test_KSysEm8rvFNfNudt8ajG8mw5BpD8sH",
     ])
 ;

@@ -1,0 +1,58 @@
+{% extends "index.twig" %}
+
+{% block title %}
+    Registreer - HNO Assenede
+{% endblock %}
+
+{% block content %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ siteUrl }}static/css/pages/Register/register.css">
+{% endblock %}
+
+
+{% macro errorList(errors) %}
+  {% if errors %}
+    {{ ul(errors, {class: 'errors'}) }}
+  {% endif %}
+{% endmacro %}
+
+{# `user` is defined if the form returns validation errors. #}
+{% set user = user ?? null %}
+
+<form method="post" accept-charset="UTF-8">
+  {{ csrfInput() }}
+  {{ actionInput('users/save-user') }}
+
+  <label for="username">Username</label>
+  {{ input('text', 'username', user.username ?? null, {
+    id: 'username',
+    autocomplete: 'username',
+  }) }}
+  {{ user ? _self.errorList(user.getErrors('username')) }}
+
+  {# In Craft 4, `firstName` and `lastName` were combined into a single property: #}
+  <label for="full-name">Full Name</label>
+  {{ input('text', 'fullName', user.fullName ?? null, {
+    id: 'full-name',
+    autocomplete: 'name',
+  }) }}
+  {{ user ? _self.errorList(user.getErrors('fullName')) }}
+
+  <label for="email">Email</label>
+  {{ input('email', 'email', user.email ?? null, {
+    id: 'email',
+    autocomplete: 'email',
+  }) }}
+  {{ user ? _self.errorList(user.getErrors('email')) }}
+
+  <label for="password">Password</label>
+  {{ input('password', 'password', null, {
+    id: 'password',
+  }) }}
+  {{ user ? _self.errorList(user.getErrors('password')) }}
+
+  <button>Register</button>
+</form>
+
+{% endblock %}

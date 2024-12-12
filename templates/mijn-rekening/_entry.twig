@@ -1,0 +1,36 @@
+{% extends "index.twig" %}
+
+{% block title %}Mijn rekening(en) - HNO Assenede{% endblock %}
+
+{% block content %}
+
+{# {% block styles %}
+<link rel="stylesheet" href="{{ siteUrl }}static/css/pages/Drankenregistratie/drankenregistratie.css">
+{% endblock %} #}
+
+
+{# Geuploade bannerimage tonen #}
+
+
+<header class="hero">
+  <div class="hero-text">
+    <h1>{{ entry.title }}</h1>
+    <p>{{ entry.subtitle }}</p>
+  </div>
+</header>
+
+
+{% for rekening in craft.entries.section('rekeningen').all() %}
+    <div class="rekening">
+        <h2>{{ rekening.title }}</h2>
+    </div>
+{% endfor %}
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -4,6 +4,7 @@
   "require": {
     "craftcms/cms": "^5.0.0",
     "jamesedmonston/graphql-authentication": "^3.0.0-RC3",
+    "studioespresso/craft-mollie-payments": "^5.1.0",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {
@@ -25,5 +26,10 @@
     "post-root-package-install": [
       "@php -r \"file_exists('.env') || copy('.env.example.dev', '.env');\""
     ]
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\winkelmandje\\": "winkelmandje/src/"
+    }
   }
 }

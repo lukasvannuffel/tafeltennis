@@ -38,7 +38,7 @@ fieldLayouts:
           -
             dateAdded: '2024-12-04T10:58:25+00:00'
             elementCondition: null
-            fieldUid: b179a167-1bb1-4794-acb3-26224f6b33b7 # Voornaam
+            fieldUid: b179a167-1bb1-4794-acb3-26224f6b33b7
             handle: null
             includeInCards: false
             instructions: null
@@ -54,7 +54,7 @@ fieldLayouts:
           -
             dateAdded: '2024-12-04T10:58:25+00:00'
             elementCondition: null
-            fieldUid: e0fe4a95-5a6e-4260-a633-8d65ec4d2715 # Achternaam
+            fieldUid: e0fe4a95-5a6e-4260-a633-8d65ec4d2715
             handle: null
             includeInCards: false
             instructions: null
@@ -86,7 +86,7 @@ fieldLayouts:
           -
             dateAdded: '2024-12-04T10:58:25+00:00'
             elementCondition: null
-            fieldUid: dc8e3d48-33c2-4fb2-a99c-7ade8c40c048 # Wachtwoord
+            fieldUid: dc8e3d48-33c2-4fb2-a99c-7ade8c40c048
             handle: null
             includeInCards: false
             instructions: null

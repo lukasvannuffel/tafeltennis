@@ -1,10 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - 1a6f7e14-d517-4e48-aeca-ae1c2d532c93 # Home
-handle: home
+  - d9c2dacc-097d-4008-ae8d-342559a5d4dc # Login
+handle: login
 maxAuthors: 1
-name: Home
+name: Login
 previewTargets:
   -
     __assoc__:
@@ -22,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: home/_entry.twig
-    uriFormat: __home__
+    template: login/_entry.twig
+    uriFormat: login
 type: single

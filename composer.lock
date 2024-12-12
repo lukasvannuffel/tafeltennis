@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e29b358e46810694259fa82f2c2c7bba",
+    "content-hash": "69e64d037a504c77cff556898c7a8bbd",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2644,6 +2644,98 @@
             "time": "2023-04-19T08:25:22+00:00"
         },
         {
+            "name": "mollie/mollie-api-php",
+            "version": "v2.75.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mollie/mollie-api-php.git",
+                "reference": "ac2052855c631b90092768cf6657f6d5b2f5dd9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mollie/mollie-api-php/zipball/ac2052855c631b90092768cf6657f6d5b2f5dd9f",
+                "reference": "ac2052855c631b90092768cf6657f6d5b2f5dd9f",
+                "shasum": ""
+            },
+            "require": {
+                "composer/ca-bundle": "^1.2",
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "eloquent/liberator": "^2.0||^3.0",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "guzzlehttp/guzzle": "^6.3 || ^7.0",
+                "phpstan/phpstan": "^1.12",
+                "phpunit/phpunit": "^8.5 || ^9.5"
+            },
+            "suggest": {
+                "mollie/oauth2-mollie-php": "Use OAuth to authenticate with the Mollie API. This is needed for some endpoints. Visit https://docs.mollie.com/ for more information."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mollie\\Api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Mollie B.V.",
+                    "email": "info@mollie.com"
+                }
+            ],
+            "description": "Mollie API client library for PHP. Mollie is a European Payment Service provider and offers international payment methods such as Mastercard, VISA, American Express and PayPal, and local payment methods such as iDEAL, Bancontact, SOFORT Banking, SEPA direct debit, Belfius Direct Net, KBC Payment Button and various gift cards such as Podiumcadeaukaart and fashioncheque.",
+            "homepage": "https://www.mollie.com/en/developers",
+            "keywords": [
+                "Apple Pay",
+                "CBC",
+                "Przelewy24",
+                "api",
+                "bancontact",
+                "banktransfer",
+                "belfius",
+                "belfius direct net",
+                "charges",
+                "creditcard",
+                "direct debit",
+                "fashioncheque",
+                "gateway",
+                "gift cards",
+                "ideal",
+                "inghomepay",
+                "intersolve",
+                "kbc",
+                "klarna",
+                "mistercash",
+                "mollie",
+                "paylater",
+                "payment",
+                "payments",
+                "paypal",
+                "paysafecard",
+                "podiumcadeaukaart",
+                "recurring",
+                "refunds",
+                "sepa",
+                "service",
+                "sliceit",
+                "sofort",
+                "sofortbanking",
+                "subscriptions"
+            ],
+            "support": {
+                "issues": "https://github.com/mollie/mollie-api-php/issues",
+                "source": "https://github.com/mollie/mollie-api-php/tree/v2.75.0"
+            },
+            "time": "2024-11-21T10:33:16+00:00"
+        },
+        {
             "name": "moneyphp/money",
             "version": "v4.6.0",
             "source": {
@@ -4421,6 +4513,66 @@
                 }
             ],
             "time": "2024-03-30T18:03:49+00:00"
+        },
+        {
+            "name": "studioespresso/craft-mollie-payments",
+            "version": "5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/studioespresso/craft-mollie-payments.git",
+                "reference": "2854644cd57f9dab50b08c6b396f6333e454fde9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/studioespresso/craft-mollie-payments/zipball/2854644cd57f9dab50b08c6b396f6333e454fde9",
+                "reference": "2854644cd57f9dab50b08c6b396f6333e454fde9",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.2",
+                "mollie/mollie-api-php": "^2.0"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Mollie Payments",
+                "handle": "mollie-payments",
+                "hasCpSettings": true,
+                "hasCpSection": true,
+                "class": "studioespresso\\molliepayments\\MolliePayments"
+            },
+            "autoload": {
+                "psr-4": {
+                    "studioespresso\\molliepayments\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Studio Espresso",
+                    "homepage": "https://www.studioespresso.co"
+                }
+            ],
+            "description": "Easily accept payments with Mollie Payments",
+            "keywords": [
+                "Craft",
+                "cms",
+                "craft-plugin",
+                "craftcms",
+                "mollie payments"
+            ],
+            "support": {
+                "docs": "https://studioespresso.github.io/craft-mollie-payments/",
+                "issues": "https://github.com/studioespresso/craft-mollie-payments/issues",
+                "source": "https://github.com/studioespresso/craft-mollie-payments/tree/5.1.0"
+            },
+            "time": "2024-08-26T18:34:36+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

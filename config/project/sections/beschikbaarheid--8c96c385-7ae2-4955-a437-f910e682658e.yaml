@@ -22,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: pages/Beschikbaarheid/beschikbaarheid.twig
-    uriFormat: 'beschikbaarheid/{slug}'
-type: channel
+    template: beschikbaarheid/_entry.twig
+    uriFormat: beschikbaarheid
+type: single

@@ -1,0 +1,67 @@
+color: null
+fieldLayouts:
+  e152f608-d9eb-4629-ab4b-fe90598b290a:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2024-12-11T14:37:37+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 120e62a1-3fd9-4b79-a875-cf484009931b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-11T14:38:52+00:00'
+            elementCondition: null
+            fieldUid: 6fa0c7ef-bc6d-4121-8057-43a1cbe549eb # Subtitle
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ee78650f-dda3-494c-af35-4c5f670bb0a2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: aaeb0026-b96e-44b4-a4fa-9e84d5f2815f
+        userCondition: null
+handle: mijnRekening
+hasTitleField: true
+icon: ''
+name: 'Mijn rekening'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
