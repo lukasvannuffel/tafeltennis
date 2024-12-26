@@ -20,4 +20,7 @@
         'route' => 'winkelmandje-module/stash/remove-item',
         'verb' => 'POST',
     ],
+    // [
+    //     'beschikbaarheid' => 'modules/beschikbaarheid/src/index',
+    // ]
 ];
