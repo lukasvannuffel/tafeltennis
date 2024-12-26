@@ -6,36 +6,41 @@
 
 {% block content %}
 
-{% block styles %}
-<link rel="stylesheet" href="{{ siteUrl }}static/css/pages/Drankenregistratie/drankenregistratie.css">
-{% endblock %}
-
-{# Geuploade bannerimage tonen #}
+{# Geüploade bannerimage tonen met een donkerblauwe overlay #}
 {% set image = entry.banner_image.one() %}
-<header class="hero" style="background-image: url('{{ image.url }} '); background-size: cover; background-position: center;">
-  <div class="hero-text">
-    <h1>{{ entry.title }}</h1>
-    <p>{{ entry.subtitle }}</p>
+<header class="relative bg-blue-700 text-white" style="background-image: url('{{ image.url }}'); background-size: cover; background-position: center;">
+  <div class="bg-blue-900 bg-opacity-60 absolute inset-0"></div>
+  <div class="relative z-10 max-w-5xl mx-auto py-20 px-8 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ entry.title }}</h1>
+    <p class="text-lg md:text-xl mb-6">{{ entry.subtitle }}</p>
   </div>
 </header>
 
-
-<div class="drankjes-container">
-  {% for drankje in craft.entries.section('drankjes').all() %}
-    {% set image = drankje.image.one() %}
-    <div class="drankje-card">
-      <div class="drankje-image-container">
-        <img src="{{ image.url }}" alt="{{ drankje.title }}">
-      </div>
-      <h2>{{ drankje.title }}</h2>
-      <p>€{{ drankje.prijs }}</p>
-      <form method="post" action="{{ url('mijn-rekening/') }}">
-        {{ csrfInput() }}
-        <input type="hidden" name="drankjeId" value="{{ drankje.id }}">
-        <button type="submit" class="btn-add">Voeg toe</button>
-      </form>
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-12">Beschikbare Drankjes</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {% for drankje in craft.entries.section('drankjes').all() %}
+        {% set image = drankje.image.one() %}
+        <div class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div class="h-48 bg-gray-200">
+            <img src="{{ image.url }}" alt="{{ drankje.title }}" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-blue-700 mb-2">{{ drankje.title }}</h3>
+            <p class="text-gray-600 text-sm mb-4">€{{ drankje.prijs }}</p>
+            <form method="post" action="{{ url('mijn-rekening/') }}">
+              {{ csrfInput() }}
+              <input type="hidden" name="drankjeId" value="{{ drankje.id }}">
+              <button type="submit" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
+                Voeg toe
+              </button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
     </div>
-  {% endfor %}
-</div>
+  </div>
+</section>
 
 {% endblock %}

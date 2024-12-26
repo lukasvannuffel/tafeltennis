@@ -3,45 +3,51 @@
 {% block title %}Home - HNO Assenede{% endblock %}
 
 {% block content %}
-
-{% block styles %}
-<link rel="stylesheet" href="{{ siteUrl }}static/css/pages/Home/home.css">
-{% endblock %}
-
-{# Geuploade bannerimage tonen #}
+{# Geüploade bannerimage tonen #}
 {% set images = home.banner_image.all() %}
 {% set firstImage = home.banner_image.one() %}
 
-<header class="hero" style="background-image: url('{{ firstImage.url() }} '); background-size: cover; background-position: center;">
-  <div class="hero-text">
-    <h1>{{ home.title }}</h1>
-    <p>{{ home.subtitle }}</p>
-    <a href="/pages/Drankenregistratie/drankenregistratie" class="btn-primary">Drankjes Registreren</a>
-    <a href="/pages/Beschikbaarheid/beschikbaarheid" class="btn-secondary">Bekijk Beschikbaarheid</a>
+<header class="relative text-white" style="background-image: url('{{ firstImage.url() }}'); background-size: cover; background-position: center;">
+  <div class="bg-blue-900 bg-opacity-80 absolute inset-0"></div>
+  <div class="relative z-10 max-w-5xl mx-auto py-20 px-8 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ home.title }}</h1>
+    <p class="text-lg md:text-xl mb-6">{{ home.subtitle }}</p>
+    <div class="flex justify-center space-x-4">
+      <a href="/drankenregistratie" class="bg-orange-500 text-white font-semibold py-3 px-6 rounded-md hover:bg-orange-400 transition-colors">
+        Drankjes Registreren
+      </a>
+      <a href="/beschikbaarheid" class="bg-white text-blue-900 font-semibold py-3 px-6 rounded-md hover:bg-gray-100 transition-colors">
+        Bekijk Beschikbaarheid
+      </a>
+    </div>
   </div>
 </header>
 
-{# {% for image in images %}
-  <img src="{{ image.url() }}" alt="{{ image.title }}">
-{% endfor %} #}
-
-<section class="features">
-  <h2>Wat biedt onze tool?</h2>
-  <div class="features-container">
-    <div class="feature">
-      <i class="icon-drink"></i>
-      <h3>Drankregistratie</h3>
-      <p>Eenvoudig jouw consumpties bijhouden en direct betalen via QR-code of later via lopende rekeningen.</p>
-    </div>
-    <div class="feature">
-      <i class="icon-calendar"></i>
-      <h3>Speeldagenbeheer</h3>
-      <p>Plan je speeldagen of geef je beschikbaarheid door met slechts een paar klikken.</p>
-    </div>
-    <div class="feature">
-      <i class="icon-wallet"></i>
-      <h3>Financieel Overzicht</h3>
-      <p>Altijd inzicht in openstaande en betaalde rekeningen. Voor leden én beheerders.</p>
+<section class="py-16 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-8">
+    <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Wat biedt onze tool?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center bg-white shadow-lg rounded-lg p-6">
+        <div class="flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-500 rounded-full mx-auto mb-4">
+          <i class="icon-drink text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-blue-900 mb-3">Drankregistratie</h3>
+        <p class="text-gray-600">Eenvoudig jouw consumpties bijhouden en direct betalen via QR-code of later via lopende rekeningen.</p>
+      </div>
+      <div class="text-center bg-white shadow-lg rounded-lg p-6">
+        <div class="flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-500 rounded-full mx-auto mb-4">
+          <i class="icon-calendar text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-blue-900 mb-3">Speeldagenbeheer</h3>
+        <p class="text-gray-600">Plan je speeldagen of geef je beschikbaarheid door met slechts een paar klikken.</p>
+      </div>
+      <div class="text-center bg-white shadow-lg rounded-lg p-6">
+        <div class="flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-500 rounded-full mx-auto mb-4">
+          <i class="icon-wallet text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-blue-900 mb-3">Financieel Overzicht</h3>
+        <p class="text-gray-600">Altijd inzicht in openstaande en betaalde rekeningen. Voor leden én beheerders.</p>
+      </div>
     </div>
   </div>
 </section>

@@ -1,104 +1,114 @@
-/* Login Page Styles */
+/* Ensure the body and html take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Center the login-container */
 .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 60px); /* Houd rekening met footer-hoogte */
-    padding: 1rem;
-    background-color: #f4f4f9; /* Zorg dat de achtergrond consistent blijft */
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #f4f4f9; /* Ensure consistent background */
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 450px;
+}
+
+form {
+  background-color: #ffffff;
+  padding: 2.5rem; /* Increase padding around content */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px; /* Slightly increase max width */
+}
+
+form label {
+  display: block;
+  font-size: 0.9rem;
+  color: #333333;
+  margin-bottom: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="checkbox"] {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  color: #333333;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+  border-color: #0066cc;
+  box-shadow: 0 0 4px rgba(0, 102, 204, 0.3);
+}
+
+form button {
+  background-color: #0066cc;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+form button:hover {
+  background-color: #004c99;
+}
+
+form p {
+  font-size: 0.9rem;
+  color: #666666;
+  text-align: center;
+  margin-top: 1.5rem; /* Extra margin above text */
+}
+
+form a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+form a:hover {
+  text-decoration: underline;
+}
+
+/* Error Message Styling */
+form p.error-message {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
   form {
-    background-color: #ffffff;
-    padding: 2.5rem; /* Vergroot de padding rondom de inhoud */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 450px; /* Maak de maximale breedte iets groter */
+    padding: 1.5rem;
   }
-  
-  
+
   form label {
-    display: block;
-    font-size: 0.9rem;
-    color: #333333;
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
   }
-  
-  form input[type="text"],
-  form input[type="password"],
-  form input[type="checkbox"] {
-    display: block;
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 0.9rem;
-    color: #333333;
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    outline: none;
-  }
-  
-  form input[type="text"]:focus,
-  form input[type="password"]:focus {
-    border-color: #0066cc;
-    box-shadow: 0 0 4px rgba(0, 102, 204, 0.3);
-  }
-  
+
   form button {
-    background-color: #0066cc;
-    color: #ffffff;
-    font-size: 1rem;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%;
-  }
-  
-  form button:hover {
-    background-color: #004c99;
-  }
-  
-  form p {
     font-size: 0.9rem;
-    color: #666666;
-    text-align: center;
-    margin-top: 1.5rem; /* Extra marge boven de tekst */
   }
-  
-  
-  form a {
-    color: #0066cc;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  form a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Error Message Styling */
-  form p.error-message {
-    color: #ff0000;
-    font-size: 0.9rem;
-    margin-top: 1rem;
-    text-align: center;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 480px) {
-    form {
-      padding: 1.5rem;
-    }
-  
-    form label {
-      font-size: 0.8rem;
-    }
-  
-    form button {
-      font-size: 0.9rem;
-    }
-  }
-  
+}

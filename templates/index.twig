@@ -4,42 +4,126 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}HNO Assenede{% endblock %}</title>
-  <link rel="stylesheet" href="{{ siteUrl }}static/css/style.css">
-    {% block styles %}{% endblock %}
+  {% block styles %}
+  <link rel="stylesheet" href="{{ siteUrl }}/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hidden { display: none; }
+    .block { display: block; }
+  </style>
+  {% endblock %}
 </head>
-<body>
-  <div class="layout">
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-      <div class="logo-container">
-        <img class="logo" src="{{ siteUrl }}uploads/images/logo.png" alt="HNO Assenede">
+<body class="flex flex-col min-h-screen">
+  <!-- Navbar -->
+<header class="bg-white border-b border-gray-200 px-4 py-4 flex justify-between items-center lg:hidden">
+  <div class="text-lg font-bold text-blue-700">
+    <a href="/home">HNO Assenede</a>
+  </div>
+  <!-- Hamburgermenu voor mobiele weergave -->
+  <button id="hamburger-menu" class="focus:outline-none text-gray-700">
+    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+    </svg>
+  </button>
+</header>
+
+  <div class="flex flex-grow">
+    <!-- Sidebar Navigation (voor desktop) -->
+    <aside id="sidebar" class="w-64 bg-white border-r border-gray-200 hidden lg:block">
+      <!-- Logo -->
+      <div class="p-6 text-center border-b border-gray-300">
+        <img class="w-36 mx-auto" src="{{ siteUrl }}uploads/images/logo.png" alt="HNO Assenede">
       </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="/home"><i class="icon-home"></i> Home</a></li>
-          <li><a href="/drankenregistratie"><i class="icon-drink"></i> Drankregistratie</a></li>
-          <li><a href="/beschikbaarheid"><i class="icon-calendar"></i> Beschikbaarheid</a></li>
-          <li><a href="/mijn-rekening"><i class="icon-wallet"></i> Mijn rekening</a></li>
-          {% if currentUser %}
-            <li><a href="/profile"><i class="icon-person"></i> Mijn profiel</a></li>
-          {% else %}
-            <li><a href="/login"><i class="icon-person"></i> Login</a></li>
-          {% endif %}
+
+      <!-- Navigatie -->
+      <nav class="flex-grow">
+        <ul class="space-y-1 mt-4">
+          <li>
+            <a href="/home" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-home mr-3"></i> Home
+            </a>
+          </li>
+          <li>
+            <a href="/drankenregistratie" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-drink mr-3"></i> Drankregistratie
+            </a>
+          </li>
+          <li>
+            <a href="/beschikbaarheid" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-calendar mr-3"></i> Beschikbaarheid
+            </a>
+          </li>
+          <li>
+            <a href="/mijn-rekening" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-wallet mr-3"></i> Mijn rekening
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Login/Profile Section -->
+      {% if currentUser %}
+        <a href="/profile" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black transition">
+          <i class="icon-person mr-3"></i> Mijn profiel
+        </a>
+      {% else %}
+        <a href="/login" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black transition">
+          <i class="icon-person mr-3"></i> Login
+        </a>
+      {% endif %}
+    </aside>
+
+    <!-- Sidebar voor mobiel -->
+    <aside id="mobile-sidebar" class="lg:hidden fixed inset-0 bg-white bg-opacity-90 z-50 hidden">
+      <!-- Navigatie -->
+      <nav class="space-y-1 mt-4">
+        <ul class="space-y-4">
+          <li>
+            <a href="/home" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-home mr-3"></i> Home
+            </a>
+          </li>
+          <li>
+            <a href="/drankenregistratie" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-drink mr-3"></i> Drankregistratie
+            </a>
+          </li>
+          <li>
+            <a href="/beschikbaarheid" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-calendar mr-3"></i> Beschikbaarheid
+            </a>
+          </li>
+          <li>
+            <a href="/mijn-rekening" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-wallet mr-3"></i> Mijn rekening
+            </a>
+          </li>
         </ul>
       </nav>
     </aside>
 
     <!-- Main Content Area -->
-    <main class="content">
+    <main class="flex-grow bg-gray-50">
       {% block content %}
-
       {% endblock %}
     </main>
   </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2024 HNO Assenede. Alle rechten voorbehouden.</p>
+  <footer class="bg-white border-t border-gray-200 text-center py-4">
+    <p class="text-gray-500">&copy; 2024 HNO Assenede. Alle rechten voorbehouden.</p>
   </footer>
+
+  <script>
+    const hamburgerButton = document.getElementById('hamburger-menu');
+    const sidebar = document.getElementById('sidebar');
+    const mobileSidebar = document.getElementById('mobile-sidebar');
+
+    hamburgerButton.addEventListener('click', () => {
+      // Toggle de zichtbaarheid van de sidebar voor mobiel
+      mobileSidebar.classList.toggle('hidden');
+      mobileSidebar.classList.toggle('block');
+    });
+  </script>
 </body>
 </html>

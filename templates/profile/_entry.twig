@@ -5,12 +5,16 @@
 {% requireLogin %}
 
 {% block styles %}
-<link rel="stylesheet" href="{{ siteUrl }}static/css/pages/Profile/profile.css">
+<link rel="stylesheet" href="{{ siteUrl }}/css/style.css">
 {% endblock %}
 
 {% macro errorList(errors) %}
   {% if errors %}
-    {{ ul(errors, {class: 'errors'}) }}
+    <ul class="text-red-500 text-sm mt-1">
+      {% for error in errors %}
+        <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
   {% endif %}
 {% endmacro %}
 
@@ -20,81 +24,99 @@
 {% set user = user ?? currentUser %}
 
 {% if user.hasErrors() %}
-  <p>Unable to save your profile.</p>
+  <p class="text-red-500">Unable to save your profile.</p>
 {% endif %}
 
-<form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
-  {{ csrfInput() }}
-  {{ actionInput('users/save-user') }}
-  {{ hiddenInput('userId', user.id) }}
-  {{ redirectInput('profile') }}
+<div class="flex items-center justify-center min-h-screen bg-gray-50">
+  <div class="max-w-3xl w-full p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-6">Edit Profile</h2>
 
-  {# In Craft 4, `firstName` and `lastName` were combined into a single property: #}
-  <label for="full-name">Full Name</label>
-  {{ input('text', 'fullName', user.fullName, {
-    id: 'full-name',
-    class: user.hasErrors('fullName') ? 'error',
-    autocomplete: 'name',
-  }) }}
-  {{ _self.errorList(user.getErrors('fullName')) }}
+    <form method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+      {{ csrfInput() }}
+      {{ actionInput('users/save-user') }}
+      {{ hiddenInput('userId', user.id) }}
+      {{ redirectInput('profile') }}
 
+      <div class="mb-4">
+        <label for="full-name" class="block text-lg font-medium text-gray-700">Full Name</label>
+        {{ input('text', 'fullName', user.fullName, {
+          id: 'full-name',
+          class: 'mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ' ~ (user.hasErrors('fullName') ? 'border-red-500' : ''),
+          autocomplete: 'name',
+        }) }}
+        {{ _self.errorList(user.getErrors('fullName')) }}
+      </div>
 
-  {% if not craft.app.config.general.useEmailAsUsername %}
-    <label for="username">Username</label>
-    {{ input('text', 'username', user.username, {
-      id: 'username',
-      class: user.hasErrors('username') ? 'error',
-      autocomplete: 'username',
-    }) }}
-    {{ _self.errorList(user.getErrors('username')) }}
-  {% endif %}
+      {% if not craft.app.config.general.useEmailAsUsername %}
+        <div class="mb-4">
+          <label for="username" class="block text-lg font-medium text-gray-700">Username</label>
+          {{ input('text', 'username', user.username, {
+            id: 'username',
+            class: 'mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ' ~ (user.hasErrors('username') ? 'border-red-500' : ''),
+            autocomplete: 'username',
+          }) }}
+          {{ _self.errorList(user.getErrors('username')) }}
+        </div>
+      {% endif %}
 
-  <label for="email">Email</label>
-  {{ input('text', 'email', user.unverifiedEmail ?? user.email, {
-    id: 'email',
-    class: user.hasErrors('email') ? 'error',
-    autocomplete: 'email',
-  }) }}
-  {{ _self.errorList(user.getErrors('username')) }}
+      <div class="mb-4">
+        <label for="email" class="block text-lg font-medium text-gray-700">Email</label>
+        {{ input('text', 'email', user.unverifiedEmail ?? user.email, {
+          id: 'email',
+          class: 'mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ' ~ (user.hasErrors('email') ? 'border-red-500' : ''),
+          autocomplete: 'email',
+        }) }}
+        {{ _self.errorList(user.getErrors('email')) }}
+      </div>
 
-  {% if craft.app.projectConfig.get('users.requireEmailVerification') %}
-    <p>New email addresses need to be verified.</p>
-  {% endif %}
+      {% if craft.app.projectConfig.get('users.requireEmailVerification') %}
+        <p class="text-sm text-gray-500 mb-4">New email addresses need to be verified.</p>
+      {% endif %}
 
-  <label for="new-password">New Password</label>
-  {{ input('password', 'newPassword', null, {
-    id: 'new-password',
-    class: user.hasErrors('newPassword') ? 'error',
-    autocomplete: 'new-password',
-  }) }}
-  {{ _self.errorList(user.getErrors('newPassword')) }}
+      <div class="mb-4">
+        <label for="new-password" class="block text-lg font-medium text-gray-700">New Password</label>
+        {{ input('password', 'newPassword', null, {
+          id: 'new-password',
+          class: 'mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ' ~ (user.hasErrors('newPassword') ? 'border-red-500' : ''),
+          autocomplete: 'new-password',
+        }) }}
+        {{ _self.errorList(user.getErrors('newPassword')) }}
+      </div>
 
-  <label for="current-password">Current Password</label>
-  {{ input('password', 'password', null, {
-    id: 'current-password',
-    class: user.hasErrors('currentPassword') ? 'error',
-    autocomplete: 'current-password',
-  }) }}
-  {{ _self.errorList(user.getErrors('currentPassword')) }}
+      <div class="mb-4">
+        <label for="current-password" class="block text-lg font-medium text-gray-700">Current Password</label>
+        {{ input('password', 'password', null, {
+          id: 'current-password',
+          class: 'mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ' ~ (user.hasErrors('currentPassword') ? 'border-red-500' : ''),
+          autocomplete: 'current-password',
+        }) }}
+        {{ _self.errorList(user.getErrors('currentPassword')) }}
+      </div>
 
-  {# Custom “Bio” field #}
-  <label for="bio">Bio</label>
-  {{ tag('textarea', {
-    text: user.bio,
-    id: 'bio',
-    name: 'fields[bio]',
-    class: user.hasErrors('bio') ? 'error',
-  }) }}
-  {{ _self.errorList(user.getErrors('bio')) }}
+      <div class="mb-4">
+        <label for="bio" class="block text-lg font-medium text-gray-700">Bio</label>
+        {{ tag('textarea', {
+          text: user.bio,
+          id: 'bio',
+          name: 'fields[bio]',
+          class: 'mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ' ~ (user.hasErrors('bio') ? 'border-red-500' : ''),
+        }) }}
+        {{ _self.errorList(user.getErrors('bio')) }}
+      </div>
 
-  <button> Save Profile</button>
+      <button type="submit" class="w-full bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-400 transition-colors mt-6">
+        Save Profile
+      </button>
+    </form>
 
-</form>
-
-{# Log uit-knop #}
-<form method="post" action="{{ url('logout') }}" class="logout-form">
-  {{ csrfInput() }}
-  <button type="submit" class="logout-button">Log uit</button>
-</form>
+    {# Log uit-knop #}
+    <form method="post" action="{{ url('logout') }}" class="mt-6">
+      {{ csrfInput() }}
+      <button type="submit" class="w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-400 transition-colors">
+        Log uit
+      </button>
+    </form>
+  </div>
+</div>
 
 {% endblock %}
