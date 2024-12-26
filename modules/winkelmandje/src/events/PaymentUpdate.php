@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\rugzak\events;
+namespace modules\winkelmandje\events;
 
 use Craft;
 use craft\db\Query;

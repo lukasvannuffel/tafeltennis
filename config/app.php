@@ -28,9 +28,12 @@ return [
         'winkelmandje-module' => [
             'class' => \modules\winkelmandje\WinkelmandjeModule::class,
         ],
-        'beschikbaarheid' => [
-            'class' => \modules\availability\BeschikbaarheidModule::class,
-        ],
+        // 'beschikbaarheid' => [
+        //     'class' => \modules\availability\BeschikbaarheidModule::class,
+        // ],
+    ],
+    'bootstrap' => [
+        'winkelmandje-module'
     ],
     // 'bootstrap' => ['beschikbaarheid'],
 ];
