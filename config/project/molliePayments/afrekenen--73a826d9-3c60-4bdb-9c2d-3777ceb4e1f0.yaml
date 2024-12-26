@@ -1,0 +1,46 @@
+currency: EUR
+descriptionFormat: ''
+fieldLayouts:
+  909f30be-37e5-4f36-a9a0-af13842750ae:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-12-26T14:01:55+00:00'
+            elementCondition: null
+            fieldUid: 6529c225-c06c-4267-ad0e-9f64b3e9bbf3 # Referentie
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1cc5a2e1-f44a-49ec-b5c9-f9058604f62e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-26T14:01:55+00:00'
+            elementCondition: null
+            fieldUid: 6b0d1ed3-174c-459a-b143-37d8a5a63a05 # Stash
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 48f51967-1a1d-4108-a030-20737f8cbedf
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 87cb5e2d-206a-41d4-a321-4e99c3490c77
+        userCondition: null
+handle: afrekenen
+title: Afrekenen
+type: payment

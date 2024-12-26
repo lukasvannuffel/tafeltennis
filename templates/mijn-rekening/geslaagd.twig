@@ -1,0 +1,35 @@
+{% extends "index.twig" %}
+
+{% requireLogin %}
+
+{% block title %}Mijn Rekening - HNO Assenede{% endblock %}
+
+{% block content %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ siteUrl }}css/style.css">
+{% endblock %}
+
+
+
+<main>
+<div class="bg-white overflow-hidden" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+<div>
+    <div class="text-center">
+        <h1 class="text-4xl font-bold mb-4">Joepie!</h1>
+        <p class="text-lg mb-2">Je betaling is gelukt!</p>
+        <p>
+            <!-- get payment id from payment uri query parameter -->
+            {% set paymentId = craft.app.request.getParam('payment') %}
+            Betaalreferentie: <strong>{{ paymentId }}</strong>
+        </p>
+    </div>
+</div>
+</main>
+
+
+
+
+
+
+{% endblock %}

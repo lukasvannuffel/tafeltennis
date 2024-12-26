@@ -22,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: mijn-rekening/_entry.twig
+    template: mijn-rekening/betalen.twig
     uriFormat: mijn-rekening
 type: single

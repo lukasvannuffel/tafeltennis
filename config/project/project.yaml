@@ -1,4 +1,4 @@
-dateModified: 1734533065
+dateModified: 1735221715
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -33,6 +33,7 @@ meta:
     1fba546c-8988-41ac-841e-dd0018f94985: Spelers # Spelers
     5c93ee1d-ec63-4cf7-ba9d-7111d3aa0f73: Rekeningen # Rekeningen
     05dba92f-d3ec-482e-9de3-ad49e365a941: Deelnemers # Deelnemers
+    6b0d1ed3-174c-459a-b143-37d8a5a63a05: Stash # Stash
     6fa0c7ef-bc6d-4121-8057-43a1cbe549eb: Subtitle # Subtitle
     8f421a20-8d59-427d-912d-74cd9a1a051f: 'Mijn rekening' # Mijn rekening
     33fb3089-2bd6-474e-9c53-ca57f6c6bb77: 'Public Schema' # Public Schema
@@ -44,6 +45,7 @@ meta:
     637a3d3c-476e-4943-8eab-36dd28c4aaa3: Spelers # Spelers
     979a2e8a-14f1-4bf4-972a-a6f8537ed8fa: Login # Login
     3624d35f-9f04-4fc6-ae1c-0d6b1cf75c20: Speeldagen # Speeldagen
+    6529c225-c06c-4267-ad0e-9f64b3e9bbf3: Referentie # Referentie
     6576f601-4ad6-4449-b1f7-e9a7b6e6ea7d: Deelnemers # Deelnemers
     271816ba-39ea-4493-b88d-2fba50eab52c: Ploeg # Ploeg
     613564dc-a9af-44b0-89c7-c582a3869d3c: Beschikbaarheid # Beschikbaarheid
