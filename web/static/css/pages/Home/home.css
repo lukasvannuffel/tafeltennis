@@ -11,6 +11,7 @@
   .hero h1 {
     font-size: 36px;
     margin: 0 0 20px;
+    text-shadow: 3px 3px 2px #000000;
   }
   
   .hero h1 span {
@@ -20,6 +21,7 @@
   .hero p {
     font-size: 18px;
     margin: 0 0 30px;
+    text-shadow: 3px 3px 2px #000000;
   }
   
   .btn-primary,

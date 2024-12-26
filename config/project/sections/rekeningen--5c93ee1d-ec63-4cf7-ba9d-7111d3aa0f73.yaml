@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - b14077b8-fe60-4309-8204-c3e4f04abd23 # Rekeningen
+  - d94afcc3-617e-4ee5-9a41-d22e68040c74 # Mijn rekening
 handle: rekeningen
 maxAuthors: 1
 name: Rekeningen

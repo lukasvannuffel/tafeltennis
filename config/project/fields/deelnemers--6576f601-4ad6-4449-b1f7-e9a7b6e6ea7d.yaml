@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: deelnemers
+instructions: null
+name: Deelnemers
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  entryTypes:
+    - 05dba92f-d3ec-482e-9de3-ad49e365a941 # Deelnemers
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

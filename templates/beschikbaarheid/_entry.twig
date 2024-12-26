@@ -1,1 +1,22 @@
 {% extends "index.twig" %}
+
+{% requireLogin %}
+
+{% block title %}Beschikbaarheid - HNO Assenede{% endblock %}
+
+{% block content %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ siteUrl }}static/css/pages/Beschikbaarheid/beschikbaarheid.css">
+{% endblock %}
+
+{# Geuploade bannerimage tonen #}
+{% set image = entry.image.one() %}
+<header class="hero" style="background-image: url('{{ image.url }} '); background-size: cover; background-position: center;">
+  <div class="hero-text">
+    <h1>{{ entry.title }}</h1>
+    <p>{{ entry.subtitle }}</p>
+  </div>
+</header>
+
+{% endblock %}

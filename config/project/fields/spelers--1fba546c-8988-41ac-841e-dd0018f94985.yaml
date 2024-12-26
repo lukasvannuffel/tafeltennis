@@ -11,12 +11,11 @@ settings:
   minRelations: null
   selectionLabel: null
   showCardsInGrid: false
-  showSiteMenu: false
-  sources:
-    - 'section:a1400a42-c47c-418c-b334-5dfd2e891a66'
+  showSiteMenu: true
+  sources: '*'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Entries
+type: craft\fields\Users

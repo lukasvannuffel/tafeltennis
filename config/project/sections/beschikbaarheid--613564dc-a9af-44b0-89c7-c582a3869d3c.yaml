@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - 3624d35f-9f04-4fc6-ae1c-0d6b1cf75c20 # Speeldagen
+  - ec0604d1-e7bf-48dc-ad2c-2b5f5463ec14 #  Beschikbaarheid
 handle: beschikbaarheid
 maxAuthors: 1
 name: Beschikbaarheid

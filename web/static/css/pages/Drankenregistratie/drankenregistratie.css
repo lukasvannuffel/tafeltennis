@@ -12,15 +12,13 @@
 .hero h1 {
   font-size: 36px;
   margin: 0 0 20px;
-}
-
-.hero h1 span {
-  color: #ffcc00;
+  text-shadow: 3px 3px 2px #000000;
 }
 
 .hero p {
   font-size: 18px;
   margin: 0 0 30px;
+  text-shadow: 3px 3px 2px #000000;
 }
 
 /* Drankjes container */
@@ -68,4 +66,22 @@
 .drankje-card p {
   font-size: 18px;
   color: #666;
+}
+.btn-add {
+  background-color:#000000;
+	border-radius:42px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:5px 20px;
+	text-decoration:none;
+}
+.btn-add:hover {
+	background-color:#545454;
+}
+.btn-add:active {
+	position:relative;
+	top:1px;
 }

@@ -1,4 +1,4 @@
-dateModified: 1734016934
+dateModified: 1734533065
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -32,8 +32,8 @@ meta:
     1cd4c70f-bf52-4046-b725-ea42005ee9aa: Home # Home
     1fba546c-8988-41ac-841e-dd0018f94985: Spelers # Spelers
     5c93ee1d-ec63-4cf7-ba9d-7111d3aa0f73: Rekeningen # Rekeningen
+    05dba92f-d3ec-482e-9de3-ad49e365a941: Deelnemers # Deelnemers
     6fa0c7ef-bc6d-4121-8057-43a1cbe549eb: Subtitle # Subtitle
-    8c96c385-7ae2-4955-a437-f910e682658e: Beschikbaarheid # Beschikbaarheid
     8f421a20-8d59-427d-912d-74cd9a1a051f: 'Mijn rekening' # Mijn rekening
     33fb3089-2bd6-474e-9c53-ca57f6c6bb77: 'Public Schema' # Public Schema
     34efd35b-67c2-4437-8ed9-9ae98f2ff641: Gebruiker # Gebruiker
@@ -44,12 +44,15 @@ meta:
     637a3d3c-476e-4943-8eab-36dd28c4aaa3: Spelers # Spelers
     979a2e8a-14f1-4bf4-972a-a6f8537ed8fa: Login # Login
     3624d35f-9f04-4fc6-ae1c-0d6b1cf75c20: Speeldagen # Speeldagen
+    6576f601-4ad6-4449-b1f7-e9a7b6e6ea7d: Deelnemers # Deelnemers
     271816ba-39ea-4493-b88d-2fba50eab52c: Ploeg # Ploeg
+    613564dc-a9af-44b0-89c7-c582a3869d3c: Beschikbaarheid # Beschikbaarheid
     667217cb-2377-42e5-9960-0713cfb1262e: Rol # Rol
     02615120-926d-4e16-8cc8-3c1fd7205d39: Register # Register
     ac383a6b-ebac-4924-a5cd-c296993ed2de: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
     ad7cf296-5131-49cd-b076-f65b65700d3a: Register # Register
     ae9384bd-229d-4572-b377-d5b428249764: Drankjes # Drankjes
+    aee3c4de-37c9-4d3a-883f-ebbac655e419: Planningstatus # Planningstatus
     b1b5283f-c9ee-434b-b009-9c073788101d: Prijs # Prijs
     b81bc918-86b4-4998-abe1-b49438f074cc: Profile # Profile
     b14077b8-fe60-4309-8204-c3e4f04abd23: Rekeningen # Rekeningen
@@ -64,6 +67,8 @@ meta:
     d94afcc3-617e-4ee5-9a41-d22e68040c74: 'Mijn rekening' # Mijn rekening
     e0b4b115-08c1-4bec-b6aa-a11f85202928: 'Betaald?' # Betaald?
     e3dd8d5e-7b15-4c2f-a1b6-9c8670dcc18c: Drankjes # Drankjes
+    e7ef9ec4-ade1-408b-9c33-eb61f8316000: Spelerstatus # Spelerstatus
+    ec0604d1-e7bf-48dc-ad2c-2b5f5463ec14: ' Beschikbaarheid' #  Beschikbaarheid
     f4b1d9ae-cf5d-4862-be19-a850752f1182: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
     f358877f-62fa-4726-9045-c6afb46fe030: bio # bio
 plugins:

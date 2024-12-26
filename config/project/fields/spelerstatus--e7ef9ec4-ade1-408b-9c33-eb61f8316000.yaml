@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: spelerstatus
+instructions: null
+name: Spelerstatus
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Ja
+        -
+          - value
+          - ja
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Nee
+        -
+          - value
+          - nee
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Reserveer
+        -
+          - value
+          - reserveer
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown
