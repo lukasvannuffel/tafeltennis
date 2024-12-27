@@ -1,6 +1,6 @@
-color: null
+color: yellow
 fieldLayouts:
-  b930e95a-f93c-4ce3-818b-5151fa4c913e:
+  748b4eb8-bd6d-4027-8680-a9bb28151ff5:
     tabs:
       -
         elementCondition: null
@@ -10,7 +10,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2024-12-04T10:58:25+00:00'
+            dateAdded: '2024-12-27T14:06:05+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -31,14 +31,14 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: f425d428-bbc6-46b8-bc3e-722434080894
+            uid: 253fe8fa-315e-4b4d-b187-abfa0a36573c
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-12-04T10:58:25+00:00'
+            dateAdded: '2024-12-27T14:11:45+00:00'
             elementCondition: null
-            fieldUid: b179a167-1bb1-4794-acb3-26224f6b33b7
+            fieldUid: 74e47521-7291-4e41-acad-9ce0f4e319c8 # Drankje
             handle: null
             includeInCards: false
             instructions: null
@@ -47,14 +47,14 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 46ac349a-72bd-40b0-a5f2-416f9ed231f2
+            uid: 3d97387f-d575-46f2-9813-2a6fbd7d6ea3
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-12-04T10:58:25+00:00'
+            dateAdded: '2024-12-27T14:11:45+00:00'
             elementCondition: null
-            fieldUid: e0fe4a95-5a6e-4260-a633-8d65ec4d2715
+            fieldUid: b1b5283f-c9ee-434b-b009-9c073788101d # Prijs
             handle: null
             includeInCards: false
             instructions: null
@@ -63,14 +63,14 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9152d175-1730-4af6-b055-bee5aedaa3dd
+            uid: 0f0dcb20-7949-4422-87f3-60b05a7e55a7
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-12-04T10:58:25+00:00'
+            dateAdded: '2024-12-27T14:11:45+00:00'
             elementCondition: null
-            fieldUid: bb631c41-7448-4870-9182-2ccb95691176 # Emailadres
+            fieldUid: 73cdf7a9-3911-4520-a836-63707d21669e # Amount
             handle: null
             includeInCards: false
             instructions: null
@@ -79,53 +79,21 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3e5d69fe-0231-4974-b1df-4b31f701f536
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2024-12-04T10:58:25+00:00'
-            elementCondition: null
-            fieldUid: dc8e3d48-33c2-4fb2-a99c-7ade8c40c048
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: de3ecc3e-757c-4a09-9ad1-45122dc0b024
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2024-12-04T10:58:25+00:00'
-            elementCondition: null
-            fieldUid: 667217cb-2377-42e5-9960-0713cfb1262e # Rol
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 2d0936a7-3f63-40db-bae0-5577acdbdc33
+            uid: a51883f2-e016-4d24-a6e4-af645a1b6ec3
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: c93eef3f-afa6-41fb-87e0-0f13ffbde624
+        uid: f96b7bf9-c195-48f1-8aac-c5caee4004f4
         userCondition: null
-handle: gebruikers
+handle: stash_items
 hasTitleField: true
-icon: ''
-name: Gebruikers
+icon: album-collection
+name: 'Stash items'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: '{voornaam} {achternaam}'
+titleFormat: '{drankjes.title}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

@@ -1,6 +1,6 @@
-color: green
+color: yellow
 fieldLayouts:
-  a7ac5a4a-d22a-43db-9abd-f46f2d6e8891:
+  1ff151c1-c4f4-42bd-b092-e24b95e5c68d:
     tabs:
       -
         elementCondition: null
@@ -10,7 +10,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2024-12-08T11:48:26+00:00'
+            dateAdded: '2024-12-27T14:12:53+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -31,30 +31,14 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 2fed5106-828b-4cca-9c36-e064575816bd
+            uid: 670c302b-f1cd-4632-b406-66547b020d60
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-12-09T13:13:20+00:00'
+            dateAdded: '2024-12-27T14:15:34+00:00'
             elementCondition: null
-            fieldUid: 93ebd873-a0a2-437b-a0d7-a50ca4be4d53 # Image
-            handle: banner_image
-            includeInCards: false
-            instructions: null
-            label: 'Banner Image'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: e7050a5d-a3f8-40c4-9daf-18df5e1f12cf
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2024-12-09T12:56:53+00:00'
-            elementCondition: null
-            fieldUid: 6fa0c7ef-bc6d-4121-8057-43a1cbe549eb # Subtitle
+            fieldUid: b4487ccc-ea00-4331-accc-868e5d4da208 # Stash user
             handle: null
             includeInCards: false
             instructions: null
@@ -63,17 +47,49 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1f454a9b-cd73-4b28-aed8-77ef6e18c53f
+            uid: bcacef53-f78e-4af0-960c-06f7e5d35936
             userCondition: null
             warning: null
             width: 100
-        name: Banner
-        uid: 2962ccc2-e809-4acb-9c84-c53e244b35db
+          -
+            dateAdded: '2024-12-27T14:15:34+00:00'
+            elementCondition: null
+            fieldUid: 0fc8ebe8-f7ec-4241-bc21-3fc7900074c9 # Stash items
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e2916af9-7f92-4cf1-a6a8-23e1cdca6e95
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-12-27T14:15:34+00:00'
+            elementCondition: null
+            fieldUid: 6b79a1a5-f740-4010-8185-58280ab8d7bd # Stash status
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e7f62dc8-558e-46e3-b7e9-d238b40a8f0b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 50cde072-af74-4177-950f-0aa01187a8bc
         userCondition: null
-handle: home
+handle: stash
 hasTitleField: true
-icon: house
-name: Home
+icon: bag-shopping
+name: Stash
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

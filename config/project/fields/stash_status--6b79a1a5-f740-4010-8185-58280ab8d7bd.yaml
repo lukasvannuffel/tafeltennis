@@ -1,0 +1,33 @@
+columnSuffix: null
+handle: stash_status
+instructions: null
+name: 'Stash status'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Open
+        -
+          - value
+          - open
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Closed
+        -
+          - value
+          - closed
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

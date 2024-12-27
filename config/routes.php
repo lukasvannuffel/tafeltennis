@@ -11,7 +11,7 @@
 
  return [
     [
-        'pattern' => 'winkelmandje/add-item/', // <goodie:\d+> is a regex pattern that matches a number
+        'pattern' => 'winkelmandje/add-item/',
         'route' => 'winkelmandje-module/stash/add-item',
         'verb' => ['POST', 'GET'],
     ],

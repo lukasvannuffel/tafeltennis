@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 52105425-0e0d-46b8-b25d-6886ea47cd57 # Stash
+handle: stash_section
+maxAuthors: 1
+name: Voorraad
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
+    enabledByDefault: true
+    hasUrls: true
+    template: voorraad/_entry.twig
+    uriFormat: 'voorraad/{slug}'
+type: channel

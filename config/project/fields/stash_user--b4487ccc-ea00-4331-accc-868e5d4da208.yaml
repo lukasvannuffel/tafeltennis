@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: drankje
+handle: stash_user
 instructions: null
-name: Drankje
+name: 'Stash user'
 searchable: false
 settings:
   allowSelfRelations: false
@@ -13,10 +13,11 @@ settings:
   showCardsInGrid: false
   showSiteMenu: true
   sources:
-    - 'section:ae9384bd-229d-4572-b377-d5b428249764' # Drankjes
+    - admins
+    - 'group:637a3d3c-476e-4943-8eab-36dd28c4aaa3' # Spelers
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Entries
+type: craft\fields\Users

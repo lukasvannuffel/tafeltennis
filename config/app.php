@@ -33,7 +33,7 @@ return [
         // ],
     ],
     'bootstrap' => [
-        'winkelmandje-module'
+        'winkelmandje-module',
+        // 'beschikbaarheid-module',
     ],
-    // 'bootstrap' => ['beschikbaarheid'],
 ];

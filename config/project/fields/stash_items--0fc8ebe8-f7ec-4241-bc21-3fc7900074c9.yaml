@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: stash_items
+instructions: null
+name: 'Stash items'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  entryTypes:
+    - ff9d7c3e-d31f-403c-971a-34a2eacb98a9 # Stash items
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
