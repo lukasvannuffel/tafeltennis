@@ -56,38 +56,5 @@
   </div>
 </section>
 
-{% if stash %}
-  <div class="row mb-5">
-    <div class="col-12">
-      <h2>Rugzak</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Goodie</th>
-            <th>Prijs</th>
-            <th>Aantal</th>
-            <th>Subtotaal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% set totalPrice = 0 %}
-          {% for item in stash.stash_items %}
-            <tr>
-              <td>{{ item.title }}</td>
-              <td>€ {{ item.prijs}}</td>
-              <td>{{ item.amount }}</td>
-              <td>€ {{ item.prijs}}</td>
-            </tr>
-            {% set totalPrice = totalPrice + item.prijs %}
-          {% endfor %}
-          <tr>
-            <td colspan="3">Totaal</td>
-            <td>€ {{ totalPrice }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-{% endif %}
 
 {% endblock %}
