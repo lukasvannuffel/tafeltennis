@@ -1,4 +1,4 @@
-dateModified: 1735822852
+dateModified: 1735826705
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -82,7 +82,7 @@ meta:
 plugins:
   graphql-authentication:
     edition: standard
-    enabled: true
+    enabled: false
     licenseKey: ZSF5ESBFHTM8PNY203MSEO8N
     schemaVersion: 1.3.0
   mollie-payments:
