@@ -120,7 +120,7 @@ fieldLayouts:
         userCondition: null
 handle: rekeningen
 hasTitleField: true
-icon: ''
+icon: null
 name: Rekeningen
 showSlugField: true
 showStatusField: true

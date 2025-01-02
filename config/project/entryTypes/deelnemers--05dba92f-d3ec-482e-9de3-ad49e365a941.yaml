@@ -58,12 +58,12 @@ fieldLayouts:
         userCondition: null
 handle: deelnemers
 hasTitleField: false
-icon: ''
+icon: null
 name: Deelnemers
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

@@ -1,4 +1,4 @@
-dateModified: 1735310470
+dateModified: 1735822852
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -38,7 +38,6 @@ meta:
     6b79a1a5-f740-4010-8185-58280ab8d7bd: 'Stash status' # Stash status
     6fa0c7ef-bc6d-4121-8057-43a1cbe549eb: Subtitle # Subtitle
     8f421a20-8d59-427d-912d-74cd9a1a051f: 'Mijn rekening' # Mijn rekening
-    33fb3089-2bd6-474e-9c53-ca57f6c6bb77: 'Public Schema' # Public Schema
     34efd35b-67c2-4437-8ed9-9ae98f2ff641: Gebruiker # Gebruiker
     64e0c57c-083f-4231-994c-328a261a8126: Datum # Datum
     65debaad-47e9-4f45-876e-19998c8823e0: Images # Images
@@ -46,7 +45,6 @@ meta:
     74e47521-7291-4e41-acad-9ce0f4e319c8: Drankje # Drankje
     93ebd873-a0a2-437b-a0d7-a50ca4be4d53: Image # Image
     626db96f-3c5c-4fee-a45e-fcf1f766f7a4: Voorraad # Voorraad
-    637a3d3c-476e-4943-8eab-36dd28c4aaa3: Spelers # Spelers
     758e3b57-8c91-48e2-8bf2-29f90f9606f5: Winkelmandje # Winkelmandje
     979a2e8a-14f1-4bf4-972a-a6f8537ed8fa: Login # Login
     3624d35f-9f04-4fc6-ae1c-0d6b1cf75c20: Speeldagen # Speeldagen
@@ -57,6 +55,7 @@ meta:
     667217cb-2377-42e5-9960-0713cfb1262e: Rol # Rol
     02615120-926d-4e16-8cc8-3c1fd7205d39: Register # Register
     52105425-0e0d-46b8-b25d-6886ea47cd57: Stash # Stash
+    a203f5e7-ccb7-428a-b183-8768ebe2699f: 'Public Schema' # Public Schema
     ac383a6b-ebac-4924-a5cd-c296993ed2de: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
     ad7cf296-5131-49cd-b076-f65b65700d3a: Register # Register
     ae9384bd-229d-4572-b377-d5b428249764: Drankjes # Drankjes

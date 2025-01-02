@@ -94,12 +94,12 @@ fieldLayouts:
         userCondition: null
 handle: beschikbaarheid
 hasTitleField: true
-icon: ''
+icon: null
 name: ' Beschikbaarheid'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

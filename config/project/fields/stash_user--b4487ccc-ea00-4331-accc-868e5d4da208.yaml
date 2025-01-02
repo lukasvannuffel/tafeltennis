@@ -14,7 +14,7 @@ settings:
   showSiteMenu: true
   sources:
     - admins
-    - 'group:637a3d3c-476e-4943-8eab-36dd28c4aaa3' # Spelers
+    - 'group:637a3d3c-476e-4943-8eab-36dd28c4aaa3'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list

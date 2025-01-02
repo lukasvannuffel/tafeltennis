@@ -7,7 +7,7 @@ tabs:
         autocomplete: false
         autocorrect: true
         class: null
-        dateAdded: '2024-12-12T10:23:31+00:00'
+        dateAdded: '2025-01-02T12:12:29+00:00'
         disabled: false
         elementCondition: null
         id: null
@@ -28,7 +28,7 @@ tabs:
         tip: null
         title: null
         type: craft\fieldlayoutelements\users\UsernameField
-        uid: 84d1a666-f632-4105-a65a-45bae086265e
+        uid: 53d7719d-6c88-4877-8a84-83ce51935061
         userCondition: null
         warning: null
         width: 100
@@ -38,7 +38,7 @@ tabs:
         autocomplete: false
         autocorrect: true
         class: null
-        dateAdded: '2024-12-12T10:23:31+00:00'
+        dateAdded: '2025-01-02T12:12:29+00:00'
         disabled: false
         elementCondition: null
         id: null
@@ -60,28 +60,12 @@ tabs:
         tip: null
         title: null
         type: craft\fieldlayoutelements\users\FullNameField
-        uid: 31744913-e1a3-4559-b347-0824ae5dc3de
+        uid: 329daa6f-965a-4024-90c8-7aeab31ebf17
         userCondition: null
         warning: null
         width: 100
       -
-        dateAdded: '2024-12-12T10:24:56+00:00'
-        elementCondition: null
-        fieldUid: f358877f-62fa-4726-9045-c6afb46fe030 # bio
-        handle: null
-        includeInCards: false
-        instructions: null
-        label: null
-        providesThumbs: false
-        required: false
-        tip: null
-        type: craft\fieldlayoutelements\CustomField
-        uid: 07fa99f9-a3bf-4b1b-a776-f33490f5e1f0
-        userCondition: null
-        warning: null
-        width: 100
-      -
-        dateAdded: '2024-12-12T10:23:31+00:00'
+        dateAdded: '2025-01-02T12:12:29+00:00'
         elementCondition: null
         id: null
         includeInCards: false
@@ -92,7 +76,7 @@ tabs:
         requirable: false
         tip: null
         type: craft\fieldlayoutelements\users\PhotoField
-        uid: 2a815c4e-5f90-4ccf-9159-246d702e2011
+        uid: e62fcf3a-b451-493b-9dca-20a0bdbbd381
         userCondition: null
         warning: null
         width: 100
@@ -101,7 +85,7 @@ tabs:
         autocomplete: false
         autocorrect: true
         class: null
-        dateAdded: '2024-12-12T10:23:31+00:00'
+        dateAdded: '2025-01-02T12:12:29+00:00'
         disabled: false
         elementCondition: null
         id: null
@@ -122,9 +106,9 @@ tabs:
         tip: null
         title: null
         type: craft\fieldlayoutelements\users\EmailField
-        uid: 7c2ab5c5-eb06-48c2-82c2-ebdbba8a95a4
+        uid: 3842f414-3488-4dd4-b656-66fb65f4d2f0
         userCondition: null
         width: 100
     name: Content
-    uid: f5db819b-b7a7-46d3-8f0f-ef31820318c9
+    uid: f5a56de2-f7d2-4099-aeaf-d245f5b4c7f8
     userCondition: null

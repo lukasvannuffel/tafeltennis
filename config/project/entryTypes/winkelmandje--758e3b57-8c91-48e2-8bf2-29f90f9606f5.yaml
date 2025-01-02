@@ -9,12 +9,12 @@ fieldLayouts:
         userCondition: null
 handle: winkelmandje
 hasTitleField: false
-icon: ''
+icon: null
 name: Winkelmandje
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

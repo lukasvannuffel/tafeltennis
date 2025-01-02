@@ -88,7 +88,7 @@ fieldLayouts:
         userCondition: null
 handle: speeldagen
 hasTitleField: true
-icon: ''
+icon: null
 name: Speeldagen
 showSlugField: true
 showStatusField: true

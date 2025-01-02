@@ -14,6 +14,8 @@ class StashController extends Controller
 
     private $userId;
 
+
+
     public function init() : void {
         parent::init();
 
@@ -117,6 +119,8 @@ class StashController extends Controller
         return $entry;
     }
 
+    
+
     /**
      * Creates a new stash for the given user.
      *
@@ -154,7 +158,7 @@ class StashController extends Controller
 
         // get the drankje entry for some basic data
         $drankje = Entry::find()
-            ->section('drankenregistratie')
+            ->section('drankjes')
             ->id($drankjeId)
             ->one();
 
@@ -171,7 +175,7 @@ class StashController extends Controller
         // fields
         $newItem->title = $drankje->title . ' - ' . date('D d M H:i', strtotime('+7 days')); // Zorg dat de titel uniek is
         $newItem->drankje = [ $drankjeId ];
-        $newItem->prijs = $drankje->prijs->getAmount();
+        $newItem->prijs = $drankje->prijs;
          
         // Sla het item op
         Craft::$app->getElements()->saveElement($newItem);

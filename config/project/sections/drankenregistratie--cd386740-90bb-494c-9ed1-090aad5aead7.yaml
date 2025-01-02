@@ -1,7 +1,6 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - e3dd8d5e-7b15-4c2f-a1b6-9c8670dcc18c # Drankjes
   - c29ffaff-3889-4344-a4eb-90d3c9b4daad # Drankenregistratie
 handle: drankenregistratie
 maxAuthors: 1
@@ -13,11 +12,11 @@ previewTargets:
         - label
         - 'Primary entry page'
       -
-        - urlFormat
-        - '{url}'
-      -
         - refresh
         - '1'
+      -
+        - urlFormat
+        - '{url}'
 propagationMethod: all
 siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
@@ -25,4 +24,4 @@ siteSettings:
     hasUrls: true
     template: drankenregistratie/_entry.twig
     uriFormat: drankenregistratie
-type: single
+type: channel

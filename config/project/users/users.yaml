@@ -1,6 +1,6 @@
 allowPublicRegistration: true
 deactivateByDefault: false
-defaultGroup: 637a3d3c-476e-4943-8eab-36dd28c4aaa3 # Spelers
+defaultGroup: 637a3d3c-476e-4943-8eab-36dd28c4aaa3
 photoSubpath: null
 photoVolumeUid: null
 require2fa: false

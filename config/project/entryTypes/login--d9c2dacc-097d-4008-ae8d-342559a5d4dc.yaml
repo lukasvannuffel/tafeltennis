@@ -40,12 +40,12 @@ fieldLayouts:
         userCondition: null
 handle: login
 hasTitleField: true
-icon: ''
+icon: null
 name: Login
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

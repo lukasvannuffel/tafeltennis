@@ -72,12 +72,12 @@ fieldLayouts:
         userCondition: null
 handle: mijnRekening
 hasTitleField: true
-icon: ''
+icon: null
 name: 'Mijn rekening'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
