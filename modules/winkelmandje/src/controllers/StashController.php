@@ -176,6 +176,7 @@ class StashController extends Controller
         $newItem->title = $drankje->title . ' - ' . date('D d M H:i', strtotime('+7 days')); // Zorg dat de titel uniek is
         $newItem->drankje = [ $drankjeId ];
         $newItem->prijs = $drankje->getFieldValue('prijs');
+
          
         // Sla het item op
         if (!Craft::$app->getElements()->saveElement($newItem)) {
