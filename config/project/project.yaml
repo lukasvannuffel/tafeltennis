@@ -1,4 +1,4 @@
-dateModified: 1735826705
+dateModified: 1735913577
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -91,7 +91,7 @@ plugins:
     licenseKey: JGHTYR2SDQ519C99GYYW3RXP
     schemaVersion: 5.0.0
     settings:
-      apiKey: test_KSysEm8rvFNfNudt8ajG8mw5BpD8sH
+      apiKey: test_djWefDkc3S3REesdVJKrWuadMRNNhJ
       manageSubscriptionEmailPath: ''
       manageSubscriptionEmailSubject: ''
       manageSubscriptionRoute: ''

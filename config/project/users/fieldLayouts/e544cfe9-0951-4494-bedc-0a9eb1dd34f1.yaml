@@ -109,6 +109,22 @@ tabs:
         uid: 3842f414-3488-4dd4-b656-66fb65f4d2f0
         userCondition: null
         width: 100
+      -
+        dateAdded: '2025-01-03T12:18:39+00:00'
+        elementCondition: null
+        fieldUid: f358877f-62fa-4726-9045-c6afb46fe030 # bio
+        handle: null
+        includeInCards: false
+        instructions: null
+        label: null
+        providesThumbs: false
+        required: false
+        tip: null
+        type: craft\fieldlayoutelements\CustomField
+        uid: 45f92443-2d63-4c32-ac04-ad8046aa1e14
+        userCondition: null
+        warning: null
+        width: 100
     name: Content
     uid: f5a56de2-f7d2-4099-aeaf-d245f5b4c7f8
     userCondition: null
