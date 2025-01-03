@@ -4,6 +4,16 @@
 
 {% block title %}Drankenregistratie - HNO Assenede{% endblock %}
 
+{% set stash = craft.entries()
+    .section('stash_section')
+    .stash_status('open')
+    .relatedTo({
+        targetElement: currentUser.id,
+        field: 'stash_user'
+    })
+    .orderBy('dateCreated DESC')
+    .one() %}
+
 {% block content %}
 
 {# Geüploade bannerimage tonen met een donkerblauwe overlay #}
@@ -35,9 +45,9 @@
               {# <button type="submit" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
                 Voeg toe
               </button> #}
-                  <a href="/winkelmandje/add-item?drankje={{ drankje.id }}" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
-                    Voeg toe
-                  </a>
+              <a href="/winkelmandje/add-item?drankje={{ drankje.id }}" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
+                Voeg toe
+              </a>
             </form>
           </div>
         </div>
@@ -45,5 +55,6 @@
     </div>
   </div>
 </section>
+
 
 {% endblock %}
