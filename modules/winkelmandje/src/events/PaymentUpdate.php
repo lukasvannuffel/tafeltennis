@@ -100,9 +100,10 @@ class PaymentUpdate {
         // Update the stash status to "paid"
         $stash->setFieldValue('stash_status', 'paid');
         
-        // Leeg de stash items
+        // Empty the stash items
         $stash->setFieldValue('stash_items', []);
 
+        // Save the updated stash
         if (!Craft::$app->elements->saveElement($stash)) {
             Craft::error('Failed to save stash element: ' . $stashId, __METHOD__);
         }

@@ -14,8 +14,6 @@ class StashController extends Controller
 
     private $userId;
 
-
-
     public function init() : void {
         parent::init();
 
@@ -40,7 +38,7 @@ class StashController extends Controller
                     ],
                 ],
                 'denyCallback' => function () {
-                    return $this->redirect('/authentication/login');
+                    return $this->redirect('/login');
                 },
             ],
         ]);
@@ -119,8 +117,6 @@ class StashController extends Controller
         return $entry;
     }
 
-    
-
     /**
      * Creates a new stash for the given user.
      *
@@ -152,16 +148,20 @@ class StashController extends Controller
      * @return void
      */
     private function createNewStashItem($entry, $drankjeId) {
-        
         $userId = $this->userId;
         $itemFieldId = $entry->stash_items->fieldId[0];
-
+    
         // get the drankje entry for some basic data
         $drankje = Entry::find()
             ->section('drankjes')
             ->id($drankjeId)
             ->one();
-
+    
+        // Controleer of het drankje bestaat
+        if (!$drankje) {
+            throw new \Exception("Drankje met ID $drankjeId niet gevonden.");
+        }
+    
         // now we can add the new item to the array
         // for this we need to create a new item and save it
         $newItem = new Entry(); // Maak een nieuw item aan
@@ -175,10 +175,12 @@ class StashController extends Controller
         // fields
         $newItem->title = $drankje->title . ' - ' . date('D d M H:i', strtotime('+7 days')); // Zorg dat de titel uniek is
         $newItem->drankje = [ $drankjeId ];
-        $newItem->prijs = $drankje->prijs;
+        $newItem->prijs = $drankje->getFieldValue('prijs');
          
         // Sla het item op
-        Craft::$app->getElements()->saveElement($newItem);
+        if (!Craft::$app->getElements()->saveElement($newItem)) {
+            throw new \Exception('Failed to save the new stash item due to insufficient permissions.');
+        }
         
         return $newItem;
     }
