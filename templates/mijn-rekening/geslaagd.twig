@@ -16,13 +16,13 @@
     <div class="text-center">
         <h1 class="text-4xl font-bold mb-4">Joepie!</h1>
         <p class="text-lg mb-2">Je betaling is gelukt!</p>
-        <p>
+        <p class="mb-4">
             <!-- get payment id from payment uri query parameter -->
             {% set paymentId = craft.app.request.getParam('payment') %}
             Betaalreferentie: <strong>{{ paymentId }}</strong>
-        </p>
+        </p> 
+        <a href="{{ siteUrl }}/home" class="mt-8 inline-block px-6 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md">Ga terug naar Home</a>
     </div>
-    
 </div>
 </main>
 
