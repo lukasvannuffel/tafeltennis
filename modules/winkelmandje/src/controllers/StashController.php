@@ -89,6 +89,7 @@ class StashController extends Controller
         return $this->redirect('/drankenregistratie');
     }
 
+
     /**
      * Finds an existing stash for the given user ID or creates a new one if it doesn't exist.
      *
