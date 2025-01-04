@@ -1,0 +1,83 @@
+color: cyan
+fieldLayouts:
+  8911fe11-9432-404a-ab50-9fa7fecaeb21:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-01-04T10:58:51+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 7e8b0a75-01f6-4634-9e14-0aafde0240eb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-04T11:21:02+00:00'
+            elementCondition: null
+            fieldUid: 64e0c57c-083f-4231-994c-328a261a8126 # Datum
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 02407c43-35a0-4900-b17b-c01f13acd1d7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-04T12:01:44+00:00'
+            elementCondition: null
+            fieldUid: 1f68bfa8-c3fb-4da2-8731-085bb1a21f31 # Adres
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a78b4c2d-c517-4a55-9dd2-79496a0be0e5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 719ce436-1723-4a17-b889-346308368c73
+        userCondition: null
+handle: wedstrijden
+hasTitleField: true
+icon: table-tennis-paddle-ball
+name: Wedstrijden
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

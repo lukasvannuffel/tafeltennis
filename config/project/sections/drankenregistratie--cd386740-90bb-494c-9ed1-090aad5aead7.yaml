@@ -12,11 +12,11 @@ previewTargets:
         - label
         - 'Primary entry page'
       -
-        - refresh
-        - '1'
-      -
         - urlFormat
         - '{url}'
+      -
+        - refresh
+        - '1'
 propagationMethod: all
 siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
@@ -24,4 +24,4 @@ siteSettings:
     hasUrls: true
     template: drankenregistratie/_entry.twig
     uriFormat: drankenregistratie
-type: channel
+type: single

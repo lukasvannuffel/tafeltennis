@@ -1,0 +1,8 @@
+description: null
+handle: spelers
+name: Spelers
+permissions:
+  - 'createentries:ae9384bd-229d-4572-b377-d5b428249764' # Drankjes
+  - 'deleteentries:ae9384bd-229d-4572-b377-d5b428249764' # Drankjes
+  - 'saveentries:ae9384bd-229d-4572-b377-d5b428249764' # Drankjes
+  - 'viewentries:ae9384bd-229d-4572-b377-d5b428249764' # Drankjes

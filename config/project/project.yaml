@@ -1,4 +1,4 @@
-dateModified: 1735916524
+dateModified: 1735994122
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -31,8 +31,8 @@ meta:
     0fc8ebe8-f7ec-4241-bc21-3fc7900074c9: 'Stash items' # Stash items
     1a6f7e14-d517-4e48-aeca-ae1c2d532c93: Home # Home
     1cd4c70f-bf52-4046-b725-ea42005ee9aa: Home # Home
+    1f68bfa8-c3fb-4da2-8731-085bb1a21f31: Adres # Adres
     1fba546c-8988-41ac-841e-dd0018f94985: Spelers # Spelers
-    5c93ee1d-ec63-4cf7-ba9d-7111d3aa0f73: Rekeningen # Rekeningen
     05dba92f-d3ec-482e-9de3-ad49e365a941: Deelnemers # Deelnemers
     6b0d1ed3-174c-459a-b143-37d8a5a63a05: Stash # Stash
     6b79a1a5-f740-4010-8185-58280ab8d7bd: 'Stash status' # Stash status
@@ -51,15 +51,16 @@ meta:
     6529c225-c06c-4267-ad0e-9f64b3e9bbf3: Referentie # Referentie
     6576f601-4ad6-4449-b1f7-e9a7b6e6ea7d: Deelnemers # Deelnemers
     271816ba-39ea-4493-b88d-2fba50eab52c: Ploeg # Ploeg
-    613564dc-a9af-44b0-89c7-c582a3869d3c: Beschikbaarheid # Beschikbaarheid
     667217cb-2377-42e5-9960-0713cfb1262e: Rol # Rol
     02615120-926d-4e16-8cc8-3c1fd7205d39: Register # Register
     52105425-0e0d-46b8-b25d-6886ea47cd57: Stash # Stash
     a203f5e7-ccb7-428a-b183-8768ebe2699f: 'Public Schema' # Public Schema
     ac383a6b-ebac-4924-a5cd-c296993ed2de: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
     ad7cf296-5131-49cd-b076-f65b65700d3a: Register # Register
+    ad99b810-d13e-413a-bb30-e9b27a7f8e37: Wedstrijden # Wedstrijden
     ae9384bd-229d-4572-b377-d5b428249764: Drankjes # Drankjes
     aee3c4de-37c9-4d3a-883f-ebbac655e419: Planningstatus # Planningstatus
+    b0ab77a1-5585-4316-ae4f-0c87037a2dbc: Spelers # Spelers
     b1b5283f-c9ee-434b-b009-9c073788101d: Prijs # Prijs
     b81bc918-86b4-4998-abe1-b49438f074cc: Profile # Profile
     b4487ccc-ea00-4331-accc-868e5d4da208: 'Stash user' # Stash user
@@ -68,7 +69,9 @@ meta:
     c9bd182c-cb7b-4d2c-95aa-3ca8e1f6c2e2: Aantal # Aantal
     c29ffaff-3889-4344-a4eb-90d3c9b4daad: Drankenregistratie # Drankenregistratie
     c963e5ce-35b1-4760-b7b4-ade821948fb5: Login # Login
+    cc86b715-c9cc-4c99-ae45-ad2e896b5d9b: Beschikbaarheid # Beschikbaarheid
     cd386740-90bb-494c-9ed1-090aad5aead7: Drankenregistratie # Drankenregistratie
+    d7cd0319-e0be-452e-9b93-435b25b90edb: Wedstrijden # Wedstrijden
     d9c2dacc-097d-4008-ae8d-342559a5d4dc: Login # Login
     d18ddf66-9e9c-4f66-a02c-8195fdda702d: Profile # Profile
     d94afcc3-617e-4ee5-9a41-d22e68040c74: 'Mijn rekening' # Mijn rekening
@@ -85,6 +88,225 @@ plugins:
     enabled: false
     licenseKey: ZSF5ESBFHTM8PNY203MSEO8N
     schemaVersion: 1.3.0
+    settings:
+      accountCooldown: 'Too many log in attempts; please try again shortly'
+      accountDeleted: 'Successfully deleted account'
+      accountLocked: 'Sorry, your account is currently locked'
+      activationEmailSent: 'You will receive an email if it matches an account in our system'
+      allowMagicAuthentication: null
+      allowPasswordlessDelete: null
+      allowRegistration: '1'
+      allowTwoFactorAuthentication: false
+      allowedFacebookDomains: null
+      allowedGoogleDomains: null
+      allowedMicrosoftDomains: null
+      allowedTwitterDomains: null
+      appleClientId: null
+      appleClientSecret: null
+      appleRedirectUrl: null
+      appleServiceId: null
+      appleServiceSecret: null
+      assetMutations: null
+      assetNotFound: 'We couldn''t find any matching assets'
+      assetQueries: null
+      emailNotInScope: 'No email in scope'
+      entryMutations: null
+      entryNotFound: 'We couldn''t find any matching entries'
+      entryQueries: null
+      facebookAppId: null
+      facebookAppSecret: null
+      facebookEmailMismatch: 'Email address doesn''t match allowed Facebook domains'
+      facebookRedirectUrl: null
+      fieldRestrictions:
+        __assoc__:
+          -
+            - schema-1
+            -
+              __assoc__:
+                -
+                  - aantal
+                  - queryMutate
+                -
+                  - amount
+                  - queryMutate
+                -
+                  - betaald
+                  - queryMutate
+                -
+                  - bio
+                  - queryMutate
+                -
+                  - datum
+                  - queryMutate
+                -
+                  - deelnemers
+                  - queryMutate
+                -
+                  - drankje
+                  - queryMutate
+                -
+                  - emailadres
+                  - queryMutate
+                -
+                  - gebruiker
+                  - queryMutate
+                -
+                  - image
+                  - queryMutate
+                -
+                  - planningstatus
+                  - queryMutate
+                -
+                  - ploeg
+                  - queryMutate
+                -
+                  - prijs
+                  - queryMutate
+                -
+                  - referentie
+                  - queryMutate
+                -
+                  - rol
+                  - queryMutate
+                -
+                  - spelers
+                  - queryMutate
+                -
+                  - spelerstatus
+                  - queryMutate
+                -
+                  - stash
+                  - queryMutate
+                -
+                  - stash_items
+                  - queryMutate
+                -
+                  - stash_status
+                  - queryMutate
+                -
+                  - stash_user
+                  - queryMutate
+                -
+                  - subtitle
+                  - queryMutate
+          -
+            - 'schema-Public Schema'
+            -
+              __assoc__:
+                -
+                  - aantal
+                  - queryMutate
+                -
+                  - amount
+                  - queryMutate
+                -
+                  - betaald
+                  - queryMutate
+                -
+                  - bio
+                  - queryMutate
+                -
+                  - datum
+                  - queryMutate
+                -
+                  - deelnemers
+                  - queryMutate
+                -
+                  - drankje
+                  - queryMutate
+                -
+                  - emailadres
+                  - queryMutate
+                -
+                  - gebruiker
+                  - queryMutate
+                -
+                  - image
+                  - queryMutate
+                -
+                  - planningstatus
+                  - queryMutate
+                -
+                  - ploeg
+                  - queryMutate
+                -
+                  - prijs
+                  - queryMutate
+                -
+                  - referentie
+                  - queryMutate
+                -
+                  - rol
+                  - queryMutate
+                -
+                  - spelers
+                  - queryMutate
+                -
+                  - spelerstatus
+                  - queryMutate
+                -
+                  - stash
+                  - queryMutate
+                -
+                  - stash_items
+                  - queryMutate
+                -
+                  - stash_status
+                  - queryMutate
+                -
+                  - stash_user
+                  - queryMutate
+                -
+                  - subtitle
+                  - queryMutate
+      forbiddenField: 'User doesn''t have permission to access requested field(s)'
+      forbiddenMutation: 'User doesn''t have permission to perform this mutation'
+      googleClientId: null
+      googleEmailMismatch: 'Email address doesn''t match allowed Google domains'
+      googleTokenIdInvalid: 'Invalid Google Token ID'
+      granularSchemas: null
+      invalidEmailAddress: 'Invalid email address'
+      invalidHeader: 'Invalid Authorization Header'
+      invalidJwtSecretKey: 'Invalid JWT Secret Key'
+      invalidLogin: 'We couldn''t log you in with the provided details'
+      invalidMagicCode: 'Invalid magic code'
+      invalidOauthToken: 'Invalid OAuth Token'
+      invalidPasswordMatch: 'Passwords do not match'
+      invalidPasswordUpdate: 'We couldn''t update the password with the provided details'
+      invalidRefreshToken: 'Invalid Refresh Token'
+      invalidRequest: 'Cannot validate request'
+      invalidSchema: 'No schema has been set for this user group'
+      invalidUserUpdate: 'We couldn''t update the user with the provided details'
+      jwtExpiration: '30 minutes'
+      jwtRefreshExpiration: '3 months'
+      jwtSecretKey: WDIExcyrLYEB2tm6YYSIFwJZy_tN-YQe
+      magicLinkSent: 'You will receive an email if it matches an account in our system'
+      microsoftAppId: null
+      microsoftAppSecret: null
+      microsoftEmailMismatch: 'Email address doesn''t match allowed Microsoft domains'
+      microsoftRedirectUrl: null
+      passwordResetRequired: 'Password reset required; please check your email'
+      passwordResetSent: 'You will receive an email if it matches an account in our system'
+      passwordSaved: 'Successfully saved password'
+      passwordUpdated: 'Successfully updated password'
+      permissionType: single
+      sameSitePolicy: strict
+      schemaId: null
+      schemaName: 'Public Schema'
+      siteId: null
+      skipActivatedCheck: null
+      skipSocialActivation: null
+      tokenNotFound: 'We couldn''t find any matching tokens'
+      twitterApiKey: null
+      twitterApiKeySecret: null
+      twitterEmailMismatch: 'Email address doesn''t match allowed Twitter domains'
+      twitterRedirectUrl: null
+      userActivated: 'Successfully activated user'
+      userGroup: null
+      userHasPassword: 'User not password-less'
+      userNotActivated: 'Please activate your account'
+      userNotFound: 'We couldn''t find any matching users'
+      volumeNotFound: 'We couldn''t find any matching volumes'
   mollie-payments:
     edition: standard
     enabled: true

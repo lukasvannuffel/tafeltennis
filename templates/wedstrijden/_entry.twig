@@ -1,0 +1,33 @@
+{% extends "index.twig" %}
+
+{% requireLogin %}
+
+{% block title %}Wedstrijden - HNO Assenede{% endblock %}
+
+{% block content %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ siteUrl }}/css/style.css">
+{% endblock %}
+
+{% for entry in craft.entries.section('beschikbaarheid').all() %}
+  {# Geuploade bannerimage tonen #}
+  {% set image = entry.image.one() %}
+    <header class="relative text-white bg-gray-800 bg-opacity-75" style="background-image: url('{{ image.url }}'); background-size: cover; background-position: center;">
+      <div class="bg-black bg-opacity-60 absolute inset-0"></div>
+      <div class="relative z-10 max-w-7xl mx-auto py-24 px-8 text-center">
+        <h1 class="text-4xl md:text-5xl font-semibold leading-tight mb-4">{{ entry.title }}</h1>
+        <p class="text-lg md:text-xl mb-6">{{ entry.subtitle }}</p>
+      </div>
+    </header>
+{% endfor %}
+
+<div class="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-8">
+  <h1 class="text-4xl font-bold text-gray-800 mb-6">{{ entry.title }}</h1>
+  <p class="text-gray-600 mb-4">{{ entry.datum|date('d-m-Y') }}</p>
+  <p class="text-gray-600 mb-4">{{ entry.adres }}</p>
+  <div class="prose text-gray-800">
+    {# {{ entry.body|raw }} #}
+  </div>
+</div>
+{% endblock %}

@@ -1,10 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - ec0604d1-e7bf-48dc-ad2c-2b5f5463ec14 #  Beschikbaarheid
-handle: beschikbaarheid
+  - ad99b810-d13e-413a-bb30-e9b27a7f8e37 # Wedstrijden
+handle: wedstrijden
 maxAuthors: 1
-name: Beschikbaarheid
+name: Wedstrijden
 previewTargets:
   -
     __assoc__:
@@ -22,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: beschikbaarheid/_entry.twig
-    uriFormat: beschikbaarheid
-type: single
+    template: wedstrijden/_entry.twig
+    uriFormat: 'wedstrijden/{slug}'
+type: channel

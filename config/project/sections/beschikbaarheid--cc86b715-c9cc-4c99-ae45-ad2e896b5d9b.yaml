@@ -1,10 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - d94afcc3-617e-4ee5-9a41-d22e68040c74 # Mijn rekening
-handle: rekeningen
+  - ec0604d1-e7bf-48dc-ad2c-2b5f5463ec14 #  Beschikbaarheid
+handle: beschikbaarheid
 maxAuthors: 1
-name: Rekeningen
+name: Beschikbaarheid
 previewTargets:
   -
     __assoc__:
@@ -12,16 +12,16 @@ previewTargets:
         - label
         - 'Primary entry page'
       -
-        - refresh
-        - '1'
-      -
         - urlFormat
         - '{url}'
+      -
+        - refresh
+        - '1'
 propagationMethod: all
 siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: pages/Rekeningen/rekeningen.twig
-    uriFormat: 'rekeningen/{slug}'
+    template: beschikbaarheid/_entry.twig
+    uriFormat: beschikbaarheid
 type: channel
