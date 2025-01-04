@@ -1,4 +1,4 @@
-color: null
+color: cyan
 fieldLayouts:
   f1bb0251-fc41-4387-80f1-b90d9bbaaba0:
     tabs:
@@ -70,31 +70,9 @@ fieldLayouts:
         name: Banner
         uid: 4501885d-e911-4131-ab25-0d47626eb3f7
         userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            dateAdded: '2024-12-18T14:23:06+00:00'
-            elementCondition: null
-            fieldUid: 6576f601-4ad6-4449-b1f7-e9a7b6e6ea7d # Deelnemers
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 189e1936-9701-43ab-8a3c-f0d7c44757cc
-            userCondition: null
-            warning: null
-            width: 100
-        name: Beschikbaarheid
-        uid: 74b68857-db03-47bb-b6d3-c1421f09d5bd
-        userCondition: null
 handle: beschikbaarheid
 hasTitleField: true
-icon: null
+icon: calendar
 name: ' Beschikbaarheid'
 showSlugField: true
 showStatusField: true

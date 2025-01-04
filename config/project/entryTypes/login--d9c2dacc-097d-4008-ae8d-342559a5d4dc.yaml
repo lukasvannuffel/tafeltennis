@@ -1,4 +1,4 @@
-color: null
+color: red
 fieldLayouts:
   7a6b077f-72e7-4899-b5e9-8f32cbd40b44:
     tabs:
@@ -40,7 +40,7 @@ fieldLayouts:
         userCondition: null
 handle: login
 hasTitleField: true
-icon: null
+icon: user
 name: Login
 showSlugField: true
 showStatusField: true

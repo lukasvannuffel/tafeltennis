@@ -4,7 +4,7 @@ instructions: null
 name: Deelnemers
 searchable: false
 settings:
-  createButtonLabel: null
+  createButtonLabel: 'Nieuwe deelnemer'
   defaultIndexViewMode: cards
   entryTypes:
     - 05dba92f-d3ec-482e-9de3-ad49e365a941 # Deelnemers

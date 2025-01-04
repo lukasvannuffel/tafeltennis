@@ -1,4 +1,4 @@
-color: null
+color: yellow
 fieldLayouts:
   e152f608-d9eb-4629-ab4b-fe90598b290a:
     tabs:
@@ -72,7 +72,7 @@ fieldLayouts:
         userCondition: null
 handle: mijnRekening
 hasTitleField: true
-icon: null
+icon: receipt
 name: 'Mijn rekening'
 showSlugField: true
 showStatusField: true

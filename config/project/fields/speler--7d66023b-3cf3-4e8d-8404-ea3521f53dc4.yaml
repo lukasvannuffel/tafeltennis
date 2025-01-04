@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: spelers
+handle: speler
 instructions: null
-name: Spelers
+name: Speler
 searchable: false
 settings:
   allowSelfRelations: false
@@ -11,8 +11,11 @@ settings:
   minRelations: null
   selectionLabel: null
   showCardsInGrid: false
-  showSiteMenu: true
-  sources: '*'
+  showSiteMenu: false
+  sources:
+    - admins
+    - credentialed
+    - 'group:b0ab77a1-5585-4316-ae4f-0c87037a2dbc' # Spelers
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list

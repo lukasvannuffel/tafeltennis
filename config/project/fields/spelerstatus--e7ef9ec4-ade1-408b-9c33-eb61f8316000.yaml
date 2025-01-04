@@ -10,10 +10,10 @@ settings:
       __assoc__:
         -
           - label
-          - Ja
+          - Wachtend
         -
           - value
-          - ja
+          - wachtend
         -
           - default
           - ''
@@ -21,21 +21,10 @@ settings:
       __assoc__:
         -
           - label
-          - Nee
+          - Bevestigd
         -
           - value
-          - nee
-        -
-          - default
-          - ''
-    -
-      __assoc__:
-        -
-          - label
-          - Reserveer
-        -
-          - value
-          - reserveer
+          - bevestigd
         -
           - default
           - ''
