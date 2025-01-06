@@ -22,6 +22,22 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-01-06T11:14:31+00:00'
+            elementCondition: null
+            fieldUid: 7b07dee4-3f40-4911-bcd9-69445d59aada # Ploeg
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: acfabf7d-8567-47fc-91bd-9008a896baa6
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2024-12-18T14:20:14+00:00'
             elementCondition: null
             fieldUid: e7ef9ec4-ade1-408b-9c33-eb61f8316000 # Spelerstatus

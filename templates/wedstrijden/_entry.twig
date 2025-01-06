@@ -39,6 +39,7 @@
       <thead>
         <tr>
           <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Speler</th>
+          <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Ploeg</th>
           <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Status</th>
         </tr>
       </thead>
@@ -47,6 +48,7 @@
           {% set speler = block.speler.one() %}
           <tr>
             <td class="py-2 px-4 border-b border-gray-200">{{ speler.fullName }}</td>
+            <td class="py-2 px-4 border-b border-gray-200">{{ block.ploeg }}</td>
             <td class="py-2 px-4 border-b border-gray-200">{{ block.spelerstatus }}</td>
           </tr>
         {% endfor %}

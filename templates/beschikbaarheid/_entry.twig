@@ -24,7 +24,7 @@
 <div class="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-8">
   <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Wedstrijden</h2>
   <div class="space-y-4">
-    {% for wedstrijd in craft.entries.section('wedstrijden').all() %}
+    {% for wedstrijd in craft.entries.section('wedstrijden').orderBy('datum ASC').all() %}
       <a href="{{ wedstrijd.url }}" class="block">
         <div class="p-4 bg-gray-100 rounded-lg shadow-md hover:bg-gray-200 transition">
           <h3 class="text-xl font-semibold text-gray-800">{{ wedstrijd.title }}</h3>
