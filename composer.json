@@ -29,7 +29,8 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\winkelmandje\\": "modules/winkelmandje/src/"
+      "modules\\winkelmandje\\": "modules/winkelmandje/src/",
+      "modules\\wedstrijden\\": "modules/wedstrijden/"
     }
   },
   "repositories": [

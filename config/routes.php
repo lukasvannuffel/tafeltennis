@@ -9,7 +9,8 @@
  * https://craftcms.com/docs/4.x/routing.html
  */
 
- return [
+return [
+    // Routes voor winkelmandje
     [
         'pattern' => 'winkelmandje/add-item/',
         'route' => 'winkelmandje-module/stash/add-item',
@@ -20,7 +21,11 @@
         'route' => 'winkelmandje-module/stash/remove-item',
         'verb' => 'POST',
     ],
-    // [
-    //     'beschikbaarheid' => 'modules/beschikbaarheid/src/index',
-    // ]
+
+    // Routes voor wedstrijden
+    [
+        'pattern' => 'wedstrijd/<id:\d+>/deelnemen',
+        'route' => 'wedstrijden/add-participant/add-participant',
+        'verb' => 'POST',
+    ],
 ];

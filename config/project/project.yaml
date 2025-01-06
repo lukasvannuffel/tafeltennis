@@ -1,4 +1,4 @@
-dateModified: 1736015404
+dateModified: 1736160103
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -60,6 +60,7 @@ meta:
     b81bc918-86b4-4998-abe1-b49438f074cc: Profile # Profile
     b4487ccc-ea00-4331-accc-868e5d4da208: 'Stash user' # Stash user
     bb631c41-7448-4870-9182-2ccb95691176: Emailadres # Emailadres
+    bdeedb10-481e-491f-b2c7-ec6489f9fef5: Beheerder # Beheerder
     c29ffaff-3889-4344-a4eb-90d3c9b4daad: Drankenregistratie # Drankenregistratie
     c963e5ce-35b1-4760-b7b4-ade821948fb5: Login # Login
     cc86b715-c9cc-4c99-ae45-ad2e896b5d9b: Beschikbaarheid # Beschikbaarheid

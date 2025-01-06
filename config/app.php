@@ -25,12 +25,18 @@ use craft\helpers\App;
 return [
     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
     'modules' => [
+
         'winkelmandje-module' => [
             'class' => \modules\winkelmandje\WinkelmandjeModule::class,
+        ],
+
+        'wedstrijden-module' => [
+            'class' => \modules\wedstrijden\WedstrijdenModule::class,
         ],
         
     ],
     'bootstrap' => [
         'winkelmandje-module',
+        'wedstrijden-module',
     ],
 ];
