@@ -31,34 +31,11 @@
     {{ csrfInput() }}
     <input type="hidden" name="wedstrijdId" value="{{ entry.id }}">
         <a href="/wedstrijden/add-participant?wedstrijd={{ entry.id }}" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
-          Voeg toe
+          Ik wil deelnemen &rarr;
         </a>
 </form>
 
-  <h2 class="text-2xl font-bold mt-6 mb-3">Deelnemers</h2>
-  <div class="overflow-x-auto">
-    <table class="min-w-full bg-white">
-      <thead>
-        <tr>
-          <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Speler</th>
-          <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Match</th>
-          <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for planning in craft.entries.section('planning_section').all() %}
-        {% set speler = planning.speler.one() %}
-        {% set match = planning.matches.one() %}
-        
-          <tr>
-            <td class="py-2 px-4 border-b border-gray-200">{{ speler.fullName }}</td>
-            <td class="py-2 px-4 border-b border-gray-200">{{ match }}</td>
-            <td class="py-2 px-4 border-b border-gray-200">{{ planning.spelerstatus }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+
 </div>
 
 {% endblock %}

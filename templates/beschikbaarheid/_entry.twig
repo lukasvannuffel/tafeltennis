@@ -2,15 +2,13 @@
 
 {% requireLogin %}
 
-{% block title %}Beschikbaarheid - HNO Assenede{% endblock %}
-
-{% block content %}
+{% block title %}Wedstrijden - HNO Assenede{% endblock %}
 
 {% block styles %}
 <link rel="stylesheet" href="{{ siteUrl }}/css/style.css">
 {% endblock %}
 
-
+{% block content %}
 {# Geuploade bannerimage tonen #}
 {% set image = entry.image.one() %}
 <header class="relative text-white bg-gray-800 bg-opacity-75" style="background-image: url('{{ image.url }}'); background-size: cover; background-position: center;">
@@ -21,18 +19,47 @@
   </div>
 </header>
 
-<div class="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg mb-8 mt-8 ">
-  <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Wedstrijden</h2>
-  <div class="space-y-4">
-    {% for wedstrijd in craft.entries.section('wedstrijden').orderBy('datum ASC').all() %}
-      <a href="{{ wedstrijd.url }}" class="block">
-        <div class="p-4 bg-gray-100 rounded-lg shadow-md hover:bg-gray-200 transition">
-          <h3 class="text-xl font-semibold text-gray-800">{{ wedstrijd.title }}</h3>
-          <p class="text-gray-600">{{ wedstrijd.datum|date('d-m-Y') }}</p>
-          <p class="text-gray-600">{{ wedstrijd.adres }}</p>
-        </div>
-      </a>
-    {% endfor %}
+<div class="max-w-7xl mx-auto p-8 bg-white shadow-lg rounded-lg mb-8 mt-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
+  <div class="w-full md:w-1/2">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Wedstrijden</h2>
+    <div class="space-y-4">
+      {% for wedstrijd in craft.entries.section('wedstrijden').orderBy('datum ASC').all() %}
+        <a href="{{ wedstrijd.url }}" class="block">
+          <div class="p-4 bg-gray-100 rounded-lg shadow-md hover:bg-gray-200 transition">
+            <h3 class="text-xl font-semibold text-gray-800">{{ wedstrijd.title }}</h3>
+            <p class="text-gray-600">{{ wedstrijd.datum|date('d-m-Y') }}</p>
+            <p class="text-gray-600">{{ wedstrijd.adres }}</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="max-w-7xl mx-auto p-8 bg-white shadow-lg rounded-lg mb-8 mt-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Deelnemers</h2>
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-200">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="py-2 px-4 border-b">Speler</th>
+            <th class="py-2 px-4 border-b">Match</th>
+            <th class="py-2 px-4 border-b">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for planning in craft.entries.section('planning_section').all() %}
+            {% set speler = planning.speler.one() %}
+            {% set match = planning.matches.one() %}
+            <tr>
+              <td class="py-2 px-4 border-b">{{ speler.fullName }}</td>
+              <td class="py-2 px-4 border-b">{{ match }}</td>
+              <td class="py-2 px-4 border-b">{{ planning.spelerstatus }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 {% endblock %}

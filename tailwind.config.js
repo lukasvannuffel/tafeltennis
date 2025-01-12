@@ -4,7 +4,11 @@ module.exports = {
     './templates/**/*.{html,twig}', // Voor Craft CMS of Twig-bestanden
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        '35': '35%',
+      },
+    },
   },
   plugins: [],
 };
