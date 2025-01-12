@@ -42,9 +42,6 @@
             <form method="post" action="{{ url('mijn-rekening/') }}">
               {{ csrfInput() }}
               <input type="hidden" name="drankjeId" value="{{ drankje.id }}">
-              {# <button type="submit" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
-                Voeg toe
-              </button> #}
               <a href="/winkelmandje/add-item?drankje={{ drankje.id }}" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
                 Voeg toe
               </a>

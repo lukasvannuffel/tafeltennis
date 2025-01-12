@@ -1,6 +1,6 @@
-color: cyan
+color: null
 fieldLayouts:
-  8911fe11-9432-404a-ab50-9fa7fecaeb21:
+  d5a0983a-8571-4a69-9755-e3ae4744a55c:
     tabs:
       -
         elementCondition: null
@@ -10,7 +10,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2025-01-04T10:58:51+00:00'
+            dateAdded: '2025-01-10T14:48:08+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -31,14 +31,14 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 7e8b0a75-01f6-4634-9e14-0aafde0240eb
+            uid: ff7ebbfb-b268-4570-aa2c-3b2358f4d5ed
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-01-04T11:21:02+00:00'
+            dateAdded: '2025-01-10T14:55:49+00:00'
             elementCondition: null
-            fieldUid: 64e0c57c-083f-4231-994c-328a261a8126 # Datum
+            fieldUid: 7d66023b-3cf3-4e8d-8404-ea3521f53dc4 # Speler
             handle: null
             includeInCards: false
             instructions: null
@@ -47,14 +47,14 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 02407c43-35a0-4900-b17b-c01f13acd1d7
+            uid: 63a4b509-1818-4c59-be58-be24eda9f490
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2025-01-04T12:01:44+00:00'
+            dateAdded: '2025-01-10T15:01:07+00:00'
             elementCondition: null
-            fieldUid: 1f68bfa8-c3fb-4da2-8731-085bb1a21f31 # Adres
+            fieldUid: 245aa79c-664f-4668-ac0b-dc21396c39fd # Matches
             handle: null
             includeInCards: false
             instructions: null
@@ -63,17 +63,33 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: a78b4c2d-c517-4a55-9dd2-79496a0be0e5
+            uid: c7dd8d08-ef37-4388-80b0-4f765ae1c443
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-01-10T14:55:49+00:00'
+            elementCondition: null
+            fieldUid: e7ef9ec4-ade1-408b-9c33-eb61f8316000 # Spelerstatus
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bcfc7cb8-3253-4661-b53e-4b632dcc2a6e
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 719ce436-1723-4a17-b889-346308368c73
+        uid: 8a24d5ae-69aa-41db-a7d6-2512f584156a
         userCondition: null
-handle: wedstrijden
+handle: planning
 hasTitleField: true
-icon: table-tennis-paddle-ball
-name: Wedstrijden
+icon: null
+name: Planning
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

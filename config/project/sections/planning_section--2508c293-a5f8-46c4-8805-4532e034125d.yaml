@@ -1,11 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - ad99b810-d13e-413a-bb30-e9b27a7f8e37 # Wedstrijden
   - 946e1707-aedf-4de1-8d7a-af57d5412667 # Planning
-handle: wedstrijden
+handle: planning_section
 maxAuthors: 1
-name: Wedstrijden
+name: Planning
 previewTargets:
   -
     __assoc__:
@@ -23,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: wedstrijden/_entry.twig
-    uriFormat: 'wedstrijden/{slug}'
+    template: planning/_entry.twig
+    uriFormat: 'planning/{slug}'
 type: channel

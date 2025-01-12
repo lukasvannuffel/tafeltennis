@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: gebruiker
+handle: wedstrijd
 instructions: null
-name: Gebruiker
+name: Wedstrijd
 searchable: false
 settings:
   allowSelfRelations: false
@@ -11,9 +11,9 @@ settings:
   minRelations: null
   selectionLabel: null
   showCardsInGrid: false
-  showSiteMenu: true
+  showSiteMenu: false
   sources:
-    - 'section:a1400a42-c47c-418c-b334-5dfd2e891a66'
+    - 'section:d7cd0319-e0be-452e-9b93-435b25b90edb' # Wedstrijden
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list

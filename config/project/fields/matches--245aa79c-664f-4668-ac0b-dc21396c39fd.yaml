@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: matches
+instructions: null
+name: Matches
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  entryTypes:
+    - fea2bbb7-74e6-49d1-8c74-a2c68a2794b1 # Matches
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,37 @@
+color: null
+fieldLayouts:
+  fbeb8c69-0072-46fe-9982-a5a02af6cc60:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-01-10T14:59:49+00:00'
+            elementCondition: null
+            fieldUid: 955c2d2c-ae7f-4c24-8d64-faf6d31ab9fa # Wedstrijd
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 90f067a1-74cc-4e88-9489-73b8c27f8041
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: b25574b7-36ca-413b-a875-537187775a6b
+        userCondition: null
+handle: matches
+hasTitleField: false
+icon: null
+name: Matches
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{wedstrijd.title}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

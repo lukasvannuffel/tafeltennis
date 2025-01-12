@@ -1,4 +1,4 @@
-dateModified: 1736162071
+dateModified: 1736604502
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -39,14 +39,17 @@ meta:
     7b07dee4-3f40-4911-bcd9-69445d59aada: Ploeg # Ploeg
     7d66023b-3cf3-4e8d-8404-ea3521f53dc4: Speler # Speler
     8f421a20-8d59-427d-912d-74cd9a1a051f: 'Mijn rekening' # Mijn rekening
-    34efd35b-67c2-4437-8ed9-9ae98f2ff641: Gebruiker # Gebruiker
     64e0c57c-083f-4231-994c-328a261a8126: Datum # Datum
     65debaad-47e9-4f45-876e-19998c8823e0: Images # Images
     73cdf7a9-3911-4520-a836-63707d21669e: Amount # Amount
     74e47521-7291-4e41-acad-9ce0f4e319c8: Drankje # Drankje
     93ebd873-a0a2-437b-a0d7-a50ca4be4d53: Image # Image
+    245aa79c-664f-4668-ac0b-dc21396c39fd: Matches # Matches
     626db96f-3c5c-4fee-a45e-fcf1f766f7a4: Voorraad # Voorraad
+    946e1707-aedf-4de1-8d7a-af57d5412667: Planning # Planning
+    955c2d2c-ae7f-4c24-8d64-faf6d31ab9fa: Wedstrijd # Wedstrijd
     979a2e8a-14f1-4bf4-972a-a6f8537ed8fa: Login # Login
+    2508c293-a5f8-46c4-8805-4532e034125d: Planning # Planning
     6529c225-c06c-4267-ad0e-9f64b3e9bbf3: Referentie # Referentie
     6576f601-4ad6-4449-b1f7-e9a7b6e6ea7d: Deelnemers # Deelnemers
     02615120-926d-4e16-8cc8-3c1fd7205d39: Register # Register
@@ -60,7 +63,6 @@ meta:
     b1b5283f-c9ee-434b-b009-9c073788101d: Prijs # Prijs
     b81bc918-86b4-4998-abe1-b49438f074cc: Profile # Profile
     b4487ccc-ea00-4331-accc-868e5d4da208: 'Stash user' # Stash user
-    bb631c41-7448-4870-9182-2ccb95691176: Emailadres # Emailadres
     bdeedb10-481e-491f-b2c7-ec6489f9fef5: Beheerder # Beheerder
     c29ffaff-3889-4344-a4eb-90d3c9b4daad: Drankenregistratie # Drankenregistratie
     c963e5ce-35b1-4760-b7b4-ade821948fb5: Login # Login
@@ -75,6 +77,7 @@ meta:
     ec0604d1-e7bf-48dc-ad2c-2b5f5463ec14: ' Beschikbaarheid' #  Beschikbaarheid
     f4b1d9ae-cf5d-4862-be19-a850752f1182: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
     f358877f-62fa-4726-9045-c6afb46fe030: bio # bio
+    fea2bbb7-74e6-49d1-8c74-a2c68a2794b1: Matches # Matches
     ff9d7c3e-d31f-403c-971a-34a2eacb98a9: 'Stash items' # Stash items
 plugins:
   graphql-authentication:

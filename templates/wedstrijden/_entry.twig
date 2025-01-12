@@ -27,10 +27,12 @@
   <p class="text-gray-600 mb-4">{{ entry.datum|date('d-m-Y') }}</p>
   <p class="text-gray-600 mb-4">{{ entry.adres }}</p>
 
-  <form method="post" action="/wedstrijd/{{ entry.id }}/deelnemen">
+  <form method="post" action="wedstrijden/add-participant">
     {{ csrfInput() }}
-    <input type="hidden" name="entryId" value="{{ entry.id }}">
-    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Ik wil deelnemen &rarr;</button>
+      <input type="hidden" name="wedstrijdId" value="{{ entry.id }}">
+        <a href="add-participant?wedstrijd={{ entry.id }}" class="px-4 py-2 bg-blue-500 text-white rounded">
+                  Ik wil deelnemen &rarr;
+              </a>
   </form>
 
   <h2 class="text-2xl font-bold mt-6 mb-3">Deelnemers</h2>
@@ -39,17 +41,19 @@
       <thead>
         <tr>
           <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Speler</th>
-          <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Ploeg</th>
+          <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Match</th>
           <th class="py-2 px-4 border-b-2 border-gray-200 bg-gray-100 text-left text-sm leading-4 text-gray-600 uppercase tracking-wider">Status</th>
         </tr>
       </thead>
       <tbody>
-        {% for block in entry.deelnemers.all() %}
-          {% set speler = block.speler.one() %}
+        {% for planning in craft.entries.section('planning_section').all() %}
+        {% set speler = planning.speler.one() %}
+        {% set match = planning.matches.one() %}
+        
           <tr>
             <td class="py-2 px-4 border-b border-gray-200">{{ speler.fullName }}</td>
-            <td class="py-2 px-4 border-b border-gray-200">{{ block.ploeg }}</td>
-            <td class="py-2 px-4 border-b border-gray-200">{{ block.spelerstatus }}</td>
+            <td class="py-2 px-4 border-b border-gray-200">{{ match }}</td>
+            <td class="py-2 px-4 border-b border-gray-200">{{ planning.spelerstatus }}</td>
           </tr>
         {% endfor %}
       </tbody>

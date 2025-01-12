@@ -30,13 +30,13 @@ return [
             'class' => \modules\winkelmandje\WinkelmandjeModule::class,
         ],
 
-        'wedstrijden-module' => [
+        'wedstrijden' => [
             'class' => \modules\wedstrijden\WedstrijdenModule::class,
         ],
         
     ],
     'bootstrap' => [
         'winkelmandje-module',
-        'wedstrijden-module',
+        'wedstrijden',
     ],
 ];
