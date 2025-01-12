@@ -24,10 +24,11 @@ return [
 
     // Routes voor wedstrijden
     [
-        'pattern' => 'wedstrijden/add-participant',
-        'route' => 'wedstrijden/add-participant/',
-        'verb' => 'POST',
+        'pattern' => 'wedstrijden/add-participant/',
+        'route' => 'wedstrijden/add-participant',
+        'verb' => ['POST', 'GET'],
     ],
+
     
 
 ];

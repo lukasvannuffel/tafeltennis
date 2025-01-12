@@ -24,4 +24,4 @@ siteSettings:
     hasUrls: true
     template: beschikbaarheid/_entry.twig
     uriFormat: beschikbaarheid
-type: channel
+type: single
