@@ -25,7 +25,7 @@ return [
     // Routes voor wedstrijden
     [
         'pattern' => 'wedstrijden/add-participant/',
-        'route' => 'wedstrijden/add-participant',
+        'route' => 'wedstrijden-module/addParticipant/add-participant',
         'verb' => ['POST', 'GET'],
     ],
 
