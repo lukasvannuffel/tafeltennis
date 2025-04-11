@@ -28,6 +28,9 @@ return [
         'route' => 'wedstrijden-module/addParticipant/add-participant',
         'verb' => ['POST', 'GET'],
     ],
+    // [
+    //     'home' => 'role/index',
+    // ],
 
     
 

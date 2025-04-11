@@ -38,5 +38,6 @@ return [
     'bootstrap' => [
         'winkelmandje-module',
         'wedstrijden-module',
+        
     ],
 ];

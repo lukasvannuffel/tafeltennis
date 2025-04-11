@@ -35,7 +35,7 @@ class RoleController extends Controller{
         ];
 
         // Render de view met de variabelen
-        return $this->renderTemplate('drankenregistratie/_entry', $variables);
+        return $this->renderTemplate('home/_entry', $variables);
     }
         /**
          * Checkt of de gebruiker behoort tot een bepaalde user group.
