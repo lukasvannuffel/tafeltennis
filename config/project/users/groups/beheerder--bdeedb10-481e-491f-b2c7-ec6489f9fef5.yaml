@@ -1,6 +1,6 @@
 description: null
 handle: beheerder
-name: Beheerder
+name: Beheerders
 permissions:
   - accesscp
   - accesscpwhensystemisoff
@@ -8,20 +8,17 @@ permissions:
   - accesssitewhensystemisoff
   - administrateusers
   - 'assignusergroup:b0ab77a1-5585-4316-ae4f-0c87037a2dbc' # Spelers
-  - 'assignusergroup:bdeedb10-481e-491f-b2c7-ec6489f9fef5' # Beheerder
+  - 'assignusergroup:bdeedb10-481e-491f-b2c7-ec6489f9fef5' # Beheerders
   - 'createentries:626db96f-3c5c-4fee-a45e-fcf1f766f7a4' # Voorraad
   - 'createentries:ae9384bd-229d-4572-b377-d5b428249764' # Drankjes
-  - 'createentries:cc86b715-c9cc-4c99-ae45-ad2e896b5d9b' # Beschikbaarheid
   - 'createentries:d7cd0319-e0be-452e-9b93-435b25b90edb' # Wedstrijden
   - 'createfolders:65debaad-47e9-4f45-876e-19998c8823e0' # Images
   - 'deleteassets:65debaad-47e9-4f45-876e-19998c8823e0' # Images
   - 'deleteentries:626db96f-3c5c-4fee-a45e-fcf1f766f7a4' # Voorraad
   - 'deleteentries:ae9384bd-229d-4572-b377-d5b428249764' # Drankjes
-  - 'deleteentries:cc86b715-c9cc-4c99-ae45-ad2e896b5d9b' # Beschikbaarheid
   - 'deleteentries:d7cd0319-e0be-452e-9b93-435b25b90edb' # Wedstrijden
   - 'deletepeerassets:65debaad-47e9-4f45-876e-19998c8823e0' # Images
   - 'deletepeerentries:626db96f-3c5c-4fee-a45e-fcf1f766f7a4' # Voorraad
-  - 'deletepeerentries:cc86b715-c9cc-4c99-ae45-ad2e896b5d9b' # Beschikbaarheid
   - 'deletepeerentries:d7cd0319-e0be-452e-9b93-435b25b90edb' # Wedstrijden
   - deleteusers
   - 'editimages:65debaad-47e9-4f45-876e-19998c8823e0' # Images
@@ -40,7 +37,6 @@ permissions:
   - 'saveentries:d7cd0319-e0be-452e-9b93-435b25b90edb' # Wedstrijden
   - 'savepeerassets:65debaad-47e9-4f45-876e-19998c8823e0' # Images
   - 'savepeerentries:626db96f-3c5c-4fee-a45e-fcf1f766f7a4' # Voorraad
-  - 'savepeerentries:cc86b715-c9cc-4c99-ae45-ad2e896b5d9b' # Beschikbaarheid
   - 'savepeerentries:d7cd0319-e0be-452e-9b93-435b25b90edb' # Wedstrijden
   - 'viewassets:65debaad-47e9-4f45-876e-19998c8823e0' # Images
   - 'viewentries:626db96f-3c5c-4fee-a45e-fcf1f766f7a4' # Voorraad
@@ -49,6 +45,5 @@ permissions:
   - 'viewentries:d7cd0319-e0be-452e-9b93-435b25b90edb' # Wedstrijden
   - 'viewpeerassets:65debaad-47e9-4f45-876e-19998c8823e0' # Images
   - 'viewpeerentries:626db96f-3c5c-4fee-a45e-fcf1f766f7a4' # Voorraad
-  - 'viewpeerentries:cc86b715-c9cc-4c99-ae45-ad2e896b5d9b' # Beschikbaarheid
   - 'viewpeerentries:d7cd0319-e0be-452e-9b93-435b25b90edb' # Wedstrijden
   - 'viewpeerentrydrafts:cc86b715-c9cc-4c99-ae45-ad2e896b5d9b' # Beschikbaarheid
