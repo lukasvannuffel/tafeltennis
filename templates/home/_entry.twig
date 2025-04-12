@@ -51,11 +51,18 @@
     </div>
   </div>
 
-    {# {% if isBeheerder %}
+{% if currentUser %}
+    {% if currentUser.isInGroup('spelers') %}
+      <h1 class="text-3xl font-bold text-center text-black mb-12 mt-16">Dit is een spelersview</h1>
 
-  <h1 class="text-3xl font-bold text-center text-black mb-12 mt-16">Stash</h1>
+    {% elseif currentUser.isInGroup('beheerders') %}
+          <h1 class="text-3xl font-bold text-center text-black mb-12 mt-16">Dit is een beheerdersview</h1>
 
-  {% endif %}
-</section> #}
+    {% endif %}
+
+{% endif %}
+
+
+</section>
 
 {% endblock %}
