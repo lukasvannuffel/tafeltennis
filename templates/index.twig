@@ -43,6 +43,8 @@
               <i class="icon-home mr-3"></i> Home
             </a>
           </li>
+          {% if currentUser %}
+    {% if currentUser.isInGroup('spelers') %}
           <li>
             <a href="/drankenregistratie" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
               <i class="icon-drink mr-3"></i> Drankregistratie
@@ -58,6 +60,23 @@
               <i class="icon-wallet mr-3"></i> Mijn rekening
             </a>
           </li>
+    
+    {% elseif currentUser.isInGroup('beheerders') %}
+          <li>
+            <a href="/drankenregistratie" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-drink mr-3"></i> Beheer rekeningen
+            </a>
+          </li>
+          <li>
+            <a href="/beschikbaarheid" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-calendar mr-3"></i> Beheer planning
+            </a>
+          </li>
+    
+    {% endif %}
+{% endif %}
+
+
         </ul>
       </nav>
 
@@ -83,11 +102,24 @@
               <i class="icon-home mr-3"></i> Home
             </a>
           </li>
+          {% if currentUser %}
+    {% if currentUser.isInGroup('spelers') %}
           <li>
             <a href="/drankenregistratie" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
               <i class="icon-drink mr-3"></i> Drankregistratie
             </a>
           </li>
+    
+    {% elseif currentUser.isInGroup('beheerders') %}
+          <li>
+            <a href="/drankenregistratie" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
+              <i class="icon-drink mr-3"></i> Beheer rekeningen
+            </a>
+          </li>
+    
+    {% endif %}
+{% endif %}
+
           <li>
             <a href="/beschikbaarheid" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-black rounded-md transition">
               <i class="icon-calendar mr-3"></i> Beschikbaarheid
