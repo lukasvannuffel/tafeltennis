@@ -8,7 +8,7 @@ use craft\web\Controller;
 use craft\elements\Entry;
 use yii\filters\AccessControl;
 
-class AddParticipantController extends Controller
+class WedstrijdenController extends Controller
 {
     private $userId;
 
@@ -20,7 +20,7 @@ class AddParticipantController extends Controller
     }
     
     /**
-     * Defines the behaviors for the AddParticipantController.
+     * Defines the behaviors for the WedstrijdenController.
      * By adding the AccessControl behavior, we can ensure that only logged in users can access the methods in this controller.
      *
      * @return array An array of behaviors to be applied to the controller.
@@ -44,7 +44,7 @@ class AddParticipantController extends Controller
 
     public function actionAddParticipant()
     {
-        Craft::info('De AddParticipant route is bereikt.', __METHOD__);
+        // dd('De AddParticipant route is bereikt.', __METHOD__);
         //
         $wedstrijdId = Craft::$app->getRequest()->getRequiredParam('wedstrijd');
 

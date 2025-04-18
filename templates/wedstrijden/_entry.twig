@@ -29,11 +29,11 @@
 
 <form method="post">
     {{ csrfInput() }}
-    {{ actionInput('wedstrijden/add-participant/add-participant') }}
+    {{ actionInput('wedstrijden-module/wedstrijden/add-participant') }}
     <input type="hidden" name="wedstrijdId" value="{{ entry.id }}">
-        <a href="/wedstrijden/add-participant?wedstrijd={{ entry.id }}" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
-          Ik wil deelnemen &rarr;
-        </a>
+    <button type="submit" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
+    Ik wil deelnemen
+    </button>
 </form>
 
 
