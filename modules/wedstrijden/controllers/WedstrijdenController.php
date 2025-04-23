@@ -82,7 +82,7 @@ class WedstrijdenController extends Controller
         Craft::$app->getElements()->saveElement($entry);
 
         // Redirect back to the wedstrijden page
-        return $this->redirect('/wedstrijden');
+        return $this->redirect('/beschikbaarheid');
     }
 
     private function findOrCreatePlanning($userId) {
@@ -151,8 +151,10 @@ class WedstrijdenController extends Controller
         // Fields
         $newItem->title = $wedstrijd->title . ' - ' . date('D d M H:i', strtotime('+7 days'));
         $newItem->wedstrijd = [$wedstrijdId];
-        $newItem->datum = date('Y-m-d H:i', strtotime('+7 days'));
-        $newItem->adres = $wedstrijd->adres;
+        $newItem->setFieldValue('datum', (new \DateTime('+7 days'))->format('Y-m-d H:i'));
+        if ($wedstrijd->adres) {
+            $newItem->setFieldValue('adres', $wedstrijd->adres);
+        }
 
         // Save the new item
         if(!Craft::$app->getElements()->saveElement($newItem)) {
