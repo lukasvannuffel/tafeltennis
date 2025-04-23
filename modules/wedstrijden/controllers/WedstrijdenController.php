@@ -46,7 +46,7 @@ class WedstrijdenController extends Controller
     {
         // dd('De AddParticipant route is bereikt.', __METHOD__);
         //
-        $wedstrijdId = Craft::$app->getRequest()->getRequiredParam('wedstrijd');
+        $wedstrijdId = Craft::$app->getRequest()->getRequiredParam('wedstrijdId');
 
         // get logged in userId
         $userId = $this->userId;
@@ -86,7 +86,7 @@ class WedstrijdenController extends Controller
         // Find the planning entry for the given user
         $entry = Entry::find()
             ->section('planning_section')
-            ->spelerstatus('wachtend')
+            ->speler_status('wachtend')
             ->relatedTo([
                 'targetElement' => $userId,
                 'field' => 'speler',
