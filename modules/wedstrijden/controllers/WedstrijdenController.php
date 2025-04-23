@@ -5,11 +5,14 @@ namespace modules\wedstrijden\controllers;
 
 use Craft;
 use craft\web\Controller;
+use modules\wedstrijden\traits\WedstrijdenTrait;
 use craft\elements\Entry;
 use yii\filters\AccessControl;
 
 class WedstrijdenController extends Controller
 {
+    use WedstrijdenTrait; // some helper methods
+
     private $userId;
 
     public function init() : void {
@@ -113,7 +116,7 @@ class WedstrijdenController extends Controller
         $entry->authorId = $userId;
         $entry->enabled = true;
         $entry->title = "Planning voor " . Craft::$app->getUser()->getIdentity()->username;
-        $entry->spelerstatus = 'wachtend';
+        $entry->speler_status = 'wachtend';
         $entry->speler = [$userId];
         Craft::$app->getElements()->saveElement($entry);
 
