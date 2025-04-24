@@ -10,6 +10,10 @@
  */
 
 return [
+
+    'rekeningbeheer/speler/<userId:\d+>' => ['template' => 'rekeningbeheer/speler'],
+
+
     // Routes voor winkelmandje
     [
         'pattern' => 'winkelmandje/add-item/',
@@ -21,17 +25,5 @@ return [
         'route' => 'winkelmandje-module/stash/remove-item',
         'verb' => 'POST',
     ],
-
-    // Routes voor wedstrijden
-    // [
-    //     'pattern' => 'wedstrijden/add-participant/',
-    //     'route' => 'wedstrijden-module/addParticipant/add-participant',
-    //     'verb' => ['POST', 'GET'],
-    // ],
-    // [
-    //     'home' => 'role/index',
-    // ],
-
-    
 
 ];

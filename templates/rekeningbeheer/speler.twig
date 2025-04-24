@@ -1,0 +1,166 @@
+{% extends "index.twig" %}
+
+{% requireLogin %}
+
+{% block title %}Rekeningdetails - HNO Assenede{% endblock %}
+
+{% block content %}
+
+
+{# Haal de speler uit de userId parameter van de URL #}
+{% set player = craft.users().id(craft.app.request.getSegment(3)).one() %}
+
+{# Security check - Kijk of deze persoon een beheerder is #}
+{% if currentUser.isInGroup('beheerders') or currentUser.id == player.id %}
+
+{% set playerStash = craft.entries()
+  .section('stash_section')
+  .stash_status('open')
+  .relatedTo({
+      targetElement: player.id,
+      field: 'stash_user'
+  })
+  .orderBy('dateCreated DESC')
+  .one() %}
+
+<header class="bg-blue-700 text-white">
+  <div class="max-w-7xl mx-auto py-12 px-8">
+    <div class="flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold">Rekening Details</h1>
+        <p class="text-xl mt-2">{{ player.fullName }}</p>
+      </div>
+      <a href="{{ url('rekeningbeheer') }}" class="bg-white text-blue-700 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+        Terug naar overzicht
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="bg-white shadow-md rounded-lg overflow-hidden p-6 mb-8">
+      <h2 class="text-2xl font-bold mb-4">Openstaande Rekening</h2>
+      
+      {% if playerStash %}
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white border border-gray-200">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="py-2 px-4 border-b text-left">Item</th>
+                <th class="py-2 px-4 border-b text-left">Datum Toegevoegd</th>
+                <th class="py-2 px-4 border-b text-right">Prijs</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% set totalPrice = 0 %}
+              {% for item in playerStash.stash_items.all() %}
+                <tr>
+                  {% set drankje = item.drankje.one() %}
+                  <td class="py-2 px-4 border-b">{{ drankje ? drankje.title : item.title }}</td>
+                  <td class="py-2 px-4 border-b">{{ item.dateCreated|date('d-m-Y H:i') }}</td>
+                  <td class="py-2 px-4 border-b text-right">€{{ item.prijs|number_format(2, '.', ',') }}</td>
+                </tr>
+                {% set totalPrice = totalPrice + item.prijs %}
+              {% endfor %}
+              <tr class="bg-gray-100 font-bold">
+                <td colspan="2" class="py-2 px-4 border-b">Totaal</td>
+                <td class="py-2 px-4 border-b text-right">€{{ totalPrice|number_format(2, '.', ',') }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        {% if currentUser.isInGroup('beheerders') %}
+          <div class="mt-6 flex justify-end">
+            <form method="post" class="inline-block">
+              {{ csrfInput() }}
+              {# We'll implement this action later #}
+              {{ actionInput('stash/mark-as-paid') }}
+              <input type="hidden" name="stashId" value="{{ playerStash.id }}">
+              <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-400 transition-colors">
+                Markeer als Betaald
+              </button>
+            </form>
+          </div>
+        {% endif %}
+      {% else %}
+        <p class="text-gray-600">Geen openstaande items gevonden voor deze speler.</p>
+      {% endif %}
+    </div>
+
+    {# Optional: Show payment history #}
+    <div class="bg-white shadow-md rounded-lg overflow-hidden p-6">
+      <h2 class="text-2xl font-bold mb-4">Betaalgeschiedenis</h2>
+      
+      {% set closedStashes = craft.entries()
+        .section('stash_section')
+        .stash_status('paid')
+        .relatedTo({
+            targetElement: player.id,
+            field: 'stash_user'
+        })
+        .orderBy('dateUpdated DESC')
+        .limit(5)
+        .all() %}
+        
+      {% if closedStashes|length > 0 %}
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white border border-gray-200">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="py-2 px-4 border-b text-left">Referentie</th>
+                <th class="py-2 px-4 border-b text-left">Datum Betaald</th>
+                <th class="py-2 px-4 border-b text-right">Totaal Bedrag</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for stash in closedStashes %}
+                {% set stashTotal = 0 %}
+                {% for item in stash.stash_items.all() %}
+                  {% set stashTotal = stashTotal + item.prijs %}
+                {% endfor %}
+                
+                <tr>
+                  <td class="py-2 px-4 border-b">{{ stash.title }}</td>
+                  <td class="py-2 px-4 border-b">{{ stash.dateUpdated|date('d-m-Y H:i') }}</td>
+                  <td class="py-2 px-4 border-b text-right">€{{ stashTotal|number_format(2, '.', ',') }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="text-gray-600">Geen betaalgeschiedenis gevonden voor deze speler.</p>
+      {% endif %}
+    </div>
+  </div>
+</main>
+
+{% else %}
+  {# Access denied #}
+  <div class="py-12 text-center">
+    <h1 class="text-2xl font-bold text-red-600 mb-4">Toegang geweigerd</h1>
+    <p class="text-gray-600">Je hebt geen toegang tot deze rekening.</p>
+    <a href="{{ url('rekeningbeheer') }}" class="inline-block mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+      Terug naar overzicht
+    </a>
+  </div>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
