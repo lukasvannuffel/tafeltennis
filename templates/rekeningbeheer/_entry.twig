@@ -6,6 +6,9 @@
 
 {% block content %}
 
+{# Security check - Kijk of deze persoon een beheerder is #}
+{% if currentUser.isInGroup('beheerders') %}
+
 {% set image = entry.image.one() %}
 <header class="relative bg-blue-700 text-white" style="background-image: url('{{ image.url }}'); background-size: cover; background-position: center;">
   <div class="bg-black bg-opacity-60 absolute inset-0"></div>
@@ -14,10 +17,6 @@
     <p class="text-lg md:text-xl mb-6">{{ entry.subtitle }}</p>
   </div>
 </header>
-
-
-
-
 
 {% set players = craft.users()
     .group('spelers')
@@ -68,6 +67,15 @@
   </table>
 </div>
 
-
+{% else %}
+  {# Error #}
+  <div class="py-12 text-center">
+    <h1 class="text-2xl font-bold text-red-600 mb-4">Toegang geweigerd!</h1>
+    <p class="text-gray-600">Je hebt geen toegang tot deze rekening.</p>
+    <a href="{{ url('home') }}" class="inline-block mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+      Terug naar overzicht
+    </a>
+  </div>
+{% endif %}
 
 {% endblock %}

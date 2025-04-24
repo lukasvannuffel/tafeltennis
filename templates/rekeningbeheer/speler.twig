@@ -75,7 +75,6 @@
           <div class="mt-6 flex justify-end">
             <form method="post" class="inline-block">
               {{ csrfInput() }}
-              {# We'll implement this action later #}
               {{ actionInput('stash/mark-as-paid') }}
               <input type="hidden" name="stashId" value="{{ playerStash.id }}">
               <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-400 transition-colors">
@@ -89,7 +88,7 @@
       {% endif %}
     </div>
 
-    {# Optional: Show payment history #}
+    {# Toon de betaalgeschiedenis van een speler #}
     <div class="bg-white shadow-md rounded-lg overflow-hidden p-6">
       <h2 class="text-2xl font-bold mb-4">Betaalgeschiedenis</h2>
       
@@ -138,29 +137,15 @@
 </main>
 
 {% else %}
-  {# Access denied #}
+  {# Error #}
   <div class="py-12 text-center">
-    <h1 class="text-2xl font-bold text-red-600 mb-4">Toegang geweigerd</h1>
+    <h1 class="text-2xl font-bold text-red-600 mb-4">Toegang geweigerd!</h1>
     <p class="text-gray-600">Je hebt geen toegang tot deze rekening.</p>
-    <a href="{{ url('rekeningbeheer') }}" class="inline-block mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+    <a href="{{ url('home') }}" class="inline-block mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
       Terug naar overzicht
     </a>
   </div>
 {% endif %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 {% endblock %}
