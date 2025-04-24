@@ -1,0 +1,83 @@
+color: red
+fieldLayouts:
+  726f7c44-b935-4294-8491-7f4facf74fc2:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-04-24T10:04:02+00:00'
+            elementCondition: null
+            fieldUid: 93ebd873-a0a2-437b-a0d7-a50ca4be4d53 # Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2cff2bfb-69f5-4887-87da-08defa4f4cf7
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-04-24T10:01:37+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3a5e866d-7910-461e-a4c3-777d7c8d5569
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-24T10:04:02+00:00'
+            elementCondition: null
+            fieldUid: 6fa0c7ef-bc6d-4121-8057-43a1cbe549eb # Subtitle
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c204ea86-1760-4e49-bcd9-c5991f305d65
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 814f6c83-2714-4f65-90fd-b9b19e5f916b
+        userCondition: null
+handle: rekeningbeheer
+hasTitleField: true
+icon: person-digging
+name: Rekeningbeheer
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - bb93e393-ff3e-4cf9-875b-6de1b1c92c16 # Rekeningbeheer
+handle: rekeningbeheer
+maxAuthors: 1
+name: Rekeningbeheer
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
+    enabledByDefault: true
+    hasUrls: true
+    template: rekeningbeheer/_entry.twig
+    uriFormat: rekeningbeheer
+type: single
