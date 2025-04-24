@@ -77,7 +77,7 @@ class StashController extends Controller
         $stash_items['sortOrder'][] = $newItem->id;
 
         // update the stash title
-        $entry->title = "[OPENSTAAND] Stash voor " . Craft::$app->getUser()->getIdentity()->username . " (" . count($stash_items['sortOrder']) . " items)";
+        $entry->title = "[OPENSTAAND] Rekening van " . Craft::$app->getUser()->getIdentity()->username . " (" . count($stash_items['sortOrder']) . " items)";
 
         // save the new sortOrder array
         $entry->stash_items = $stash_items;
@@ -186,4 +186,10 @@ class StashController extends Controller
         
         return $newItem;
     }
+
+
+
 }
+
+
+
