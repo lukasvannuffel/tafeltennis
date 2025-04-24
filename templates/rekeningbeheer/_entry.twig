@@ -34,10 +34,29 @@
       </tr>
     </thead>
     <tbody class="divide-y divide-gray-200">
-      {% for player in players %}
+
+        {% for player in players %}
+            {% set playerStash = craft.entries()
+                .section('stash_section')
+                .stash_status('open')
+                .relatedTo({
+                    targetElement: player.id,
+                    field: 'stash_user'
+                })
+                    .orderBy('dateCreated DESC')
+                    .one() %}
+
+        {% set totalAmount = 0 %}
+        {% if playerStash %}
+          {% for item in playerStash.stash_items.all() %}
+            {% set totalAmount = totalAmount + item.prijs %}
+          {% endfor %}
+        {% endif %}
+
+
         <tr class="hover:bg-gray-100 transition-colors">
           <td class="px-6 py-4 text-sm text-gray-900">{{ player.fullName }}</td>
-          <td class="px-6 py-4 text-sm text-gray-900">€0.00</td>
+          <td class="px-6 py-4 text-sm text-gray-900">€{{ totalAmount|number_format(2, '.', ',') }}</td>
           <td class="px-6 py-4 text-sm text-gray-900">
             <a href="#" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
               Bekijk rekening
