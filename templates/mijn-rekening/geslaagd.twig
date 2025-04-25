@@ -1,8 +1,6 @@
-{% extends "index.twig" %}
 
 {% requireLogin %}
 
-{% block title %}Mijn Rekening - HNO Assenede{% endblock %}
 
 {% block content %}
 
@@ -22,6 +20,7 @@
             Betaalreferentie: <strong>{{ paymentId }}</strong>
         </p> 
         <a href="{{ siteUrl }}/home" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">Ga terug naar Home</a>
+        
     </div>
 </div>
 </main>
