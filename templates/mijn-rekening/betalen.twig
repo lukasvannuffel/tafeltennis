@@ -76,7 +76,7 @@
         <input type="hidden" name="form" value="{{ 'afrekenen'|hash }}">
         <input type="hidden" id="email" name="email" value="{{ currentUser.email }}">
         <input type="hidden" id="name" name="fields[firstName]" value="{{ currentUser.fullName }}">
-        {# <input type="hidden" name="fields[stash]" value="{{ stash.id }}"> #}
+        <input type="hidden" name="fields[stash]" value="{{ stash.id }}">
 
         <button type="submit" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
           {{ "Betaal nu"|t }}

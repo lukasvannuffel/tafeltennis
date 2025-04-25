@@ -1,4 +1,4 @@
-dateModified: 1745489073
+dateModified: 1745608074
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -13,6 +13,23 @@ elementSources:
         - amount
         - status
         - dateCreated
+      type: native
+    -
+      heading: ''
+      type: heading
+    -
+      defaultSort:
+        - dateCreated
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'form:afrekenen'
+      tableAttributes:
+        - email
+        - amount
+        - status
+        - dateCreated
+        - 'field:6b0d1ed3-174c-459a-b143-37d8a5a63a05' # Stash
       type: native
 email:
   fromEmail: lukasvannuffel02@gmail.com
