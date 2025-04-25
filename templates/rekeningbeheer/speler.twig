@@ -6,7 +6,6 @@
 
 {% block content %}
 
-
 {# Haal de speler uit de userId parameter van de URL #}
 {% set player = craft.users().id(craft.app.request.getSegment(3)).one() %}
 
@@ -103,7 +102,8 @@ field: 'stash_user'
             <input type="hidden" name="form" value="{{ 'afrekenen'|hash }}">
             <input type="hidden" name="email" value="{{ player.email }}">
             <input type="hidden" name="fields[firstName]" value="{{ player.fullName }}">
-            <input type="hidden" name="fields[stash]" value="{{ playerStash.uid }}">
+            <!-- Using ID consistently instead of UID -->
+            <input type="hidden" name="fields[stash]" value="{{ playerStash.id }}">
             <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
               Betaal digitaal
             </button>
@@ -183,6 +183,5 @@ field: 'stash_user'
   </a>
 </div>
 {% endif %}
-
 
 {% endblock %}
