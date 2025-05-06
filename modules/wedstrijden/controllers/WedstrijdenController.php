@@ -82,7 +82,7 @@ class WedstrijdenController extends Controller
         Craft::$app->getElements()->saveElement($entry);
 
         // Redirect back to the wedstrijden page
-        return $this->redirect('/beschikbaarheid');
+        return $this->redirect(Craft::$app->request->referrer);
     }
 
     private function findOrCreatePlanning($userId) {

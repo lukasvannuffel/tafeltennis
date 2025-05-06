@@ -12,7 +12,9 @@ class WinkelmandjeModule extends Module implements BootstrapInterface
     {
         parent::init();
 
-        PaymentUpdate::handle();     
+
+        PaymentUpdate::handle();   
+
 
 
     }

@@ -1,4 +1,4 @@
-dateModified: 1745608074
+dateModified: 1746526247
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -60,6 +60,7 @@ meta:
     65debaad-47e9-4f45-876e-19998c8823e0: Images # Images
     73cdf7a9-3911-4520-a836-63707d21669e: Amount # Amount
     74e47521-7291-4e41-acad-9ce0f4e319c8: Drankje # Drankje
+    75bf3c78-2512-4089-8dec-1fefc0f3f317: 'Reset password' # Reset password
     93ebd873-a0a2-437b-a0d7-a50ca4be4d53: Image # Image
     245aa79c-664f-4668-ac0b-dc21396c39fd: Matches # Matches
     626db96f-3c5c-4fee-a45e-fcf1f766f7a4: Voorraad # Voorraad
@@ -82,6 +83,7 @@ meta:
     b4487ccc-ea00-4331-accc-868e5d4da208: 'Stash user' # Stash user
     bb93e393-ff3e-4cf9-875b-6de1b1c92c16: Rekeningbeheer # Rekeningbeheer
     bdeedb10-481e-491f-b2c7-ec6489f9fef5: Beheerders # Beheerders
+    be4975a6-1a85-417b-a56f-3208f47661d3: 'Reset password' # Reset password
     c29ffaff-3889-4344-a4eb-90d3c9b4daad: Drankenregistratie # Drankenregistratie
     c963e5ce-35b1-4760-b7b4-ade821948fb5: Login # Login
     c240176e-c1c8-4730-bfea-ad3f9884e7ca: Rekeningbeheer # Rekeningbeheer
