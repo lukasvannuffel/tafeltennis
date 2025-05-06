@@ -1,4 +1,4 @@
-dateModified: 1746526247
+dateModified: 1746534831
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -32,9 +32,17 @@ elementSources:
         - 'field:6b0d1ed3-174c-459a-b143-37d8a5a63a05' # Stash
       type: native
 email:
-  fromEmail: lukasvannuffel02@gmail.com
-  fromName: werkstuk-tafeltennis-lukasvannuffel
-  transportType: craft\mail\transportadapters\Sendmail
+  fromEmail: hello@hnoassenede.be
+  fromName: 'HNO Assenede'
+  replyToEmail: null
+  template: mail/test-email.php
+  transportSettings:
+    host: $MAILPIT_SMTP_HOSTNAME
+    password: Lukas2002
+    port: $MAILPIT_SMTP_PORT
+    useAuthentication: '0'
+    username: lukasvn
+  transportType: craft\mail\transportadapters\Smtp
 fs:
   images:
     hasUrls: true
@@ -56,11 +64,13 @@ meta:
     7b07dee4-3f40-4911-bcd9-69445d59aada: Ploeg # Ploeg
     7d66023b-3cf3-4e8d-8404-ea3521f53dc4: Speler # Speler
     8f421a20-8d59-427d-912d-74cd9a1a051f: 'Mijn rekening' # Mijn rekening
+    047ab60c-b5fe-484a-b4de-78fefacc25c4: 'Mail test' # Mail test
     64e0c57c-083f-4231-994c-328a261a8126: Datum # Datum
     65debaad-47e9-4f45-876e-19998c8823e0: Images # Images
     73cdf7a9-3911-4520-a836-63707d21669e: Amount # Amount
     74e47521-7291-4e41-acad-9ce0f4e319c8: Drankje # Drankje
     75bf3c78-2512-4089-8dec-1fefc0f3f317: 'Reset password' # Reset password
+    93e18f93-0e4c-43ba-90c6-ef7f1985f5a6: 'Mail test' # Mail test
     93ebd873-a0a2-437b-a0d7-a50ca4be4d53: Image # Image
     245aa79c-664f-4668-ac0b-dc21396c39fd: Matches # Matches
     626db96f-3c5c-4fee-a45e-fcf1f766f7a4: Voorraad # Voorraad

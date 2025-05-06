@@ -1,16 +1,42 @@
-<form method="post" accept-charset="UTF-8">
-  {{ csrfInput() }}
-  {{ actionInput('users/send-password-reset-email') }}
+{% block styles %}
+<link rel="stylesheet" href="{{ siteUrl }}css/style.css">
+{% endblock %}
 
-  <label for="loginName">Username or email</label>
-  {{ input('text', 'loginName', loginName ?? craft.app.user.rememberedUsername, {
-    id: 'loginName',
-    autocomplete: 'username',
-  }) }}
+{% block content %}
+<div class="flex items-center justify-center min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
+  <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8 border border-gray-200">
+    <h1 class="text-2xl font-semibold text-center text-gray-700">Reset Password</h1>
+    <form method="post" accept-charset="UTF-8" class="mt-6 space-y-4">
+      {{ csrfInput() }}
+      {{ actionInput('users/send-password-reset-email') }}
 
-  {% if errors is defined %}
-    {{ ul(errors, { class: 'errors' }) }}
-  {% endif %}
+      <!-- Username/Email -->
+      <div>
+        <label for="loginName" class="block text-sm font-medium text-gray-700">Username or email</label>
+        {{ input('text', 'loginName', loginName ?? craft.app.user.rememberedUsername, {
+          id: 'loginName',
+          class: 'mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm',
+          autocomplete: 'username'
+        }) }}
+      </div>
 
-  <button>Submit</button>
-</form>
+      <!-- Error Messages -->
+      {% if errors is defined %}
+        <div class="text-sm text-red-500">
+          {{ ul(errors, { class: 'list-disc pl-5' }) }}
+        </div>
+      {% endif %}
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
+      </div>
+
+      <!-- Return to Login Link -->
+      <div class="text-center text-sm text-gray-500">
+        <p>Remember your password? <a href="/login" class="text-blue-600 hover:underline">Return to login</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
