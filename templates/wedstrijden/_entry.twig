@@ -37,11 +37,61 @@
             Ik wil deelnemen
             </button>
       </form>
-
-  {% endif %}
     {% endif %}
+  {% endif %}
+</div>
 
-
+{# Table with registered players #}
+<div class="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-8">
+  <h2 class="text-2xl font-bold text-gray-800 mb-6">Geregistreerde Spelers</h2>
+  
+  {% set registeredPlayers = craft.entries()
+    .section('planning_section')
+    .with(['speler', 'matches'])
+    .all() %}
+    
+  {% set matchParticipants = [] %}
+  
+  {% for planning in registeredPlayers %}
+    {% set matchesInPlanning = planning.matches.all() %}
+    
+    {% for match in matchesInPlanning %}
+      {% set wedstrijdIds = match.wedstrijd.ids() %}
+      
+      {% if entry.id in wedstrijdIds %}
+        {% set matchParticipants = matchParticipants|merge([{
+          'player': planning.speler.one(),
+          'status': planning.speler_status,
+          'date': match.datum ?? null
+        }]) %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  
+  {% if matchParticipants|length > 0 %}
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-200">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="py-2 px-4 border-b text-left">Speler</th>
+            <th class="py-2 px-4 border-b text-left">Status</th>
+            <th class="py-2 px-4 border-b text-left">Datum Registratie</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for participant in matchParticipants %}
+            <tr>
+              <td class="py-2 px-4 border-b">{{ participant.player ? participant.player.fullName : 'Onbekend' }}</td>
+              <td class="py-2 px-4 border-b">{{ participant.status }}</td>
+              <td class="py-2 px-4 border-b">{{ participant.date ? participant.date|date('d-m-Y H:i') : 'Onbekend' }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="text-gray-600">Er zijn nog geen spelers geregistreerd voor deze wedstrijd.</p>
+  {% endif %}
 </div>
 
 {% endblock %}

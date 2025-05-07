@@ -106,6 +106,8 @@ class WedstrijdenController extends Controller
         return $entry;
     }
 
+
+
     private function createNewPlanning($userId) {
         $section = $this->getSectionByHandle('planning_section');
         $entryType = $this->getEntryType($section);
