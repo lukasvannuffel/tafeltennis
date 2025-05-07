@@ -18,7 +18,14 @@ class WedstrijdenModule extends Module implements BootstrapInterface
 
     public function bootstrap($app)
     {
-
-    
+        // Register our module routes
+        if (Craft::$app->getRequest()->getIsConsoleRequest()) {
+            return;
+        }
+        
+        // Register our site URL rules
+        $app->urlManager->addRules([
+            'wedstrijden/update-status' => 'wedstrijden-module/wedstrijden/update-player-status',
+        ]);
     }
 }

@@ -85,6 +85,50 @@ class WedstrijdenController extends Controller
         return $this->redirect(Craft::$app->request->referrer);
     }
 
+     /**
+     * Action to update the player status from 'wachtend' to 'bevestigd'
+     * Only administrators can perform this action
+     */
+    public function actionUpdatePlayerStatus()
+    {
+        // Check if the current user is an administrator
+        $currentUser = Craft::$app->getUser()->getIdentity();
+        if (!$currentUser || !$currentUser->isInGroup('beheerders')) {
+            Craft::$app->getSession()->setError('Alleen beheerders kunnen de spelerstatus bijwerken.');
+            return $this->redirect(Craft::$app->request->referrer);
+        }
+
+        // Get required parameters
+        $planningId = Craft::$app->getRequest()->getRequiredParam('planningId');
+        $status = Craft::$app->getRequest()->getRequiredParam('status');
+        $wedstrijdId = Craft::$app->getRequest()->getRequiredParam('wedstrijdId');
+
+        // Find the planning entry
+        $planningEntry = Entry::find()
+            ->section('planning_section')
+            ->id($planningId)
+            ->one();
+
+        if (!$planningEntry) {
+            Craft::$app->getSession()->setError('Planning niet gevonden.');
+            return $this->redirect(Craft::$app->request->referrer);
+        }
+
+        // Update the status
+        $planningEntry->speler_status = $status;
+
+        // Save the entry
+        if (Craft::$app->getElements()->saveElement($planningEntry)) {
+            Craft::$app->getSession()->setNotice('Spelerstatus is bijgewerkt.');
+        } else {
+            Craft::$app->getSession()->setError('Er is een fout opgetreden bij het bijwerken van de spelerstatus.');
+        }
+
+        // Redirect back to the wedstrijd detail page
+        return $this->redirect(Craft::$app->request->referrer);
+    }
+
+
     private function findOrCreatePlanning($userId) {
         // Find the planning entry for the given user
         $entry = Entry::find()
