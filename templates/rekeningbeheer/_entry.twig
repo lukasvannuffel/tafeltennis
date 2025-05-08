@@ -22,7 +22,22 @@
     .group('spelers')
     .all() %}
 
-<h2 class="text-3xl font-bold text-center text-black mb-8 mt-8">Alle rekeningen</h2>
+{# Guest accounts section - Fetch guest accounts #}
+{% set guestAccounts = craft.entries()
+    .section('stash_section')
+    .stash_status('open')
+    .stash_is_guest(true) 
+    .all() %}
+
+<div class="flex justify-between items-center px-32 sm:px-64 mt-8">
+  <h2 class="text-3xl font-bold text-black mb-8">Alle rekeningen</h2>
+  
+  <!-- Maak een gastrekening button -->
+  <button onclick="openGuestModal()" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-400 transition-colors mb-8">
+    Maak een gastrekening
+  </button>
+</div>
+
 <div class="overflow-x-auto px-32 sm:px-64">
   <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
     <thead class="bg-blue-700 text-white">
@@ -33,7 +48,7 @@
       </tr>
     </thead>
     <tbody class="divide-y divide-gray-200">
-
+        {# Regular player accounts #}
         {% for player in players %}
             {% set playerStash = craft.entries()
                 .section('stash_section')
@@ -42,8 +57,9 @@
                     targetElement: player.id,
                     field: 'stash_user'
                 })
-                    .orderBy('dateCreated DESC')
-                    .one() %}
+                .stash_is_guest(false)
+                .orderBy('dateCreated DESC')
+                .one() %}
 
         {% set totalAmount = 0 %}
         {% if playerStash %}
@@ -52,20 +68,89 @@
           {% endfor %}
         {% endif %}
 
-
         <tr class="hover:bg-gray-100 transition-colors">
           <td class="px-6 py-4 text-sm text-gray-900">{{ player.fullName }}</td>
           <td class="px-6 py-4 text-sm text-gray-900">€{{ totalAmount|number_format(2, '.', ',') }}</td>
           <td class="px-6 py-4 text-sm text-gray-900">
-        <a href="{{ url('rekeningbeheer/speler/' ~ player.id) }}" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
-        Bekijk rekening
-        </a>
+            <a href="{{ url('rekeningbeheer/speler/' ~ player.id) }}" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+              Bekijk rekening
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+
+      {# Guest accounts #}
+      {% for guestAccount in guestAccounts %}
+        {% set totalAmount = 0 %}
+        {% for item in guestAccount.stash_items.all() %}
+          {% set totalAmount = totalAmount + item.prijs %}
+        {% endfor %}
+
+        <tr class="hover:bg-gray-100 transition-colors bg-yellow-50">
+          <td class="px-6 py-4 text-sm text-gray-900">
+            <span class="inline-flex items-center">
+              <svg class="w-4 h-4 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+              </svg>
+              Gast: {{ guestAccount.stash_guest_name }}
+            </span>
+          </td>
+          <td class="px-6 py-4 text-sm text-gray-900">€{{ totalAmount|number_format(2, '.', ',') }}</td>
+          <td class="px-6 py-4 text-sm text-gray-900">
+            <a href="{{ url('rekeningbeheer/gast/' ~ guestAccount.id) }}" class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-colors">
+              Bekijk gastrekening
+            </a>
           </td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
+
+<!-- Guest Account Modal -->
+<div id="guestModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white rounded-lg p-8 max-w-md w-full">
+    <h3 class="text-2xl font-bold mb-4">Maak een gastrekening</h3>
+    <p class="mb-4 text-gray-600">Voer de naam in voor deze gastrekening (bijvoorbeeld team of evenement naam).</p>
+    
+    <form method="post" action="{{ actionUrl('winkelmandje-module/stash/create-guest-account') }}">
+      {{ csrfInput() }}
+      
+      <div class="mb-4">
+        <label for="guestName" class="block text-gray-700 mb-2">Naam gastrekening</label>
+        <input type="text" id="guestName" name="guestName" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+      </div>
+      
+      <div class="flex justify-end space-x-4">
+        <button type="button" onclick="closeGuestModal()" class="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">
+          Annuleren
+        </button>
+        <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-400 transition-colors">
+          Aanmaken
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal JavaScript -->
+<script>
+  function openGuestModal() {
+    document.getElementById('guestModal').classList.remove('hidden');
+  }
+  
+  function closeGuestModal() {
+    document.getElementById('guestModal').classList.add('hidden');
+  }
+  
+  // Close modal when clicking outside of it
+  window.addEventListener('click', function(event) {
+    const modal = document.getElementById('guestModal');
+    if (event.target === modal) {
+      closeGuestModal();
+    }
+  });
+</script>
 
 {% else %}
   {# Error #}

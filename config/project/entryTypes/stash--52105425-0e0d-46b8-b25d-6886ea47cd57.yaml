@@ -83,6 +83,38 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2025-05-08T12:15:26+00:00'
+            elementCondition: null
+            fieldUid: f943400f-82ac-4ca3-8f8e-46f1a8cec813 # stash guest name
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4f807ced-dc57-4e7d-b442-d9194c758f46
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-05-08T11:59:24+00:00'
+            elementCondition: null
+            fieldUid: 3d87f6ff-d6d3-44e9-941e-97f94304ce72 # stash is guest
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a7ceb612-7e94-41d9-b479-9ce1dbf86e18
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 50cde072-af74-4177-950f-0aa01187a8bc
         userCondition: null

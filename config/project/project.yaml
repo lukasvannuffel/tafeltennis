@@ -1,4 +1,4 @@
-dateModified: 1746534831
+dateModified: 1746706526
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -57,6 +57,7 @@ meta:
     1a6f7e14-d517-4e48-aeca-ae1c2d532c93: Home # Home
     1cd4c70f-bf52-4046-b725-ea42005ee9aa: Home # Home
     1f68bfa8-c3fb-4da2-8731-085bb1a21f31: Adres # Adres
+    3d87f6ff-d6d3-44e9-941e-97f94304ce72: 'stash is guest' # stash is guest
     05dba92f-d3ec-482e-9de3-ad49e365a941: Deelnemers # Deelnemers
     6b0d1ed3-174c-459a-b143-37d8a5a63a05: Stash # Stash
     6b79a1a5-f740-4010-8185-58280ab8d7bd: 'Stash status' # Stash status
@@ -108,6 +109,7 @@ meta:
     ec0604d1-e7bf-48dc-ad2c-2b5f5463ec14: ' Beschikbaarheid' #  Beschikbaarheid
     f4b1d9ae-cf5d-4862-be19-a850752f1182: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
     f358877f-62fa-4726-9045-c6afb46fe030: bio # bio
+    f943400f-82ac-4ca3-8f8e-46f1a8cec813: 'stash guest name' # stash guest name
     fea2bbb7-74e6-49d1-8c74-a2c68a2794b1: Matches # Matches
     ff9d7c3e-d31f-403c-971a-34a2eacb98a9: 'Stash items' # Stash items
 plugins:

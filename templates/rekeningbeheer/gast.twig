@@ -1,0 +1,270 @@
+{% extends "index.twig" %}
+
+{% requireLogin %}
+
+{% block title %}Gastrekening Details - HNO Assenede{% endblock %}
+
+{% block content %}
+
+{# Security check - Kijk of deze persoon een beheerder is #}
+{% if currentUser.isInGroup('beheerders') %}
+
+{# Haal de gastrekening op basis van ID #}
+{% set guestStash = craft.entries()
+    .section('stash_section')
+    .id(craft.app.request.getSegment(3))
+    .one() %}
+
+{# Controleer of de rekening bestaat en een gastrekening is #}
+{% if guestStash and guestStash.stash_is_guest %}
+
+<header class="bg-yellow-500 text-white">
+  <div class="max-w-7xl mx-auto py-12 px-8">
+    <div class="flex justify-between items-center">
+      <div>
+        <h1 class="text-3xl font-bold">Gastrekening Details</h1>
+        <p class="text-xl mt-2">{{ guestStash.stash_guest_name }}</p>
+      </div>
+      <a href="{{ url('rekeningbeheer') }}"
+        class="bg-white text-yellow-700 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors">
+        Terug naar overzicht
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="bg-white shadow-md rounded-lg overflow-hidden p-6 mb-8">
+      <h2 class="text-2xl font-bold mb-4">Openstaande Rekening</h2>
+
+      {% if guestStash.stash_status == 'open' %}
+        {% if guestStash.stash_items.all()|length > 0 %}
+          <div class="overflow-x-auto">
+            <table class="min-w-full bg-white border border-gray-200">
+              <thead class="bg-gray-100">
+                <tr>
+                  <th class="py-2 px-4 border-b text-left">Item</th>
+                  <th class="py-2 px-4 border-b text-left">Datum Toegevoegd</th>
+                  <th class="py-2 px-4 border-b text-right">Prijs</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% set totalPrice = 0 %}
+                {% for item in guestStash.stash_items.all() %}
+                <tr>
+                  {% set drankje = item.drankje.one() %}
+                  <td class="py-2 px-4 border-b">{{ drankje ? drankje.title : item.title }}</td>
+                  <td class="py-2 px-4 border-b">{{ item.dateCreated|date('d-m-Y H:i') }}</td>
+                  <td class="py-2 px-4 border-b text-right">€{{ item.prijs|number_format(2, '.', ',') }}</td>
+                </tr>
+                {% set totalPrice = totalPrice + item.prijs %}
+                {% endfor %}
+                <tr class="bg-gray-100 font-bold">
+                  <td colspan="2" class="py-2 px-4 border-b">Totaal</td>
+                  <td class="py-2 px-4 border-b text-right">€{{ totalPrice|number_format(2, '.', ',') }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-6 flex justify-between">
+            {# Add items button #}
+            <button type="button" onclick="showAddItemForm()"
+              class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+              Voeg items toe
+            </button>
+            
+            {# Payment options #}
+            <div id="initial-payment-button">
+              <button type="button" onclick="showPaymentOptions()"
+                class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-400 transition-colors">
+                Betaal nu
+              </button>
+            </div>
+
+            {# Betaalopties (hidden) #}
+            <div id="payment-options" class="hidden space-x-4">
+              {# Contant #}
+              <form method="post" class="inline-block">
+                {{ csrfInput() }}
+                {{ actionInput('winkelmandje-module/stash/mark-as-paid') }}
+                <input type="hidden" name="stashId" value="{{ guestStash.id }}">
+                <button type="submit"
+                  class="bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-400 transition-colors">
+                  Betaal contant
+                </button>
+              </form>
+
+              {# Digitaal #}
+              <form method="post" class="inline-block">
+                {{ csrfInput() }}
+                {{ actionInput("mollie-payments/payment/pay") }}
+                {{ redirectInput("mijn-rekening/geslaagd") }}
+                <input type="hidden" name="amount" value="{{ totalPrice|hash }}">
+                <input type="hidden" name="form" value="{{ 'afrekenen'|hash }}">
+                <input type="hidden" name="email" value="{{ currentUser.email }}">
+                <input type="hidden" name="fields[firstName]" value="{{ guestStash.stash_guest_name }}">
+                <input type="hidden" name="fields[stash]" value="{{ guestStash.id }}">
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+                  Betaal digitaal
+                </button>
+              </form>
+            </div>
+          </div>
+          
+          {# Add item form (hidden initially) #}
+          <div id="add-item-form" class="mt-6 bg-gray-100 p-4 rounded-lg hidden">
+            <h3 class="text-xl font-bold mb-4">Voeg item toe aan gastrekening</h3>
+            <form method="post" action="{{ actionUrl('winkelmandje-module/stash/add-item-to-guest') }}">
+              {{ csrfInput() }}
+              <input type="hidden" name="stashId" value="{{ guestStash.id }}">
+              
+              <div class="mb-4">
+                <label class="block text-gray-700 mb-2">Kies een drankje</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {% for drankje in craft.entries.section('drankjes').all() %}
+                    <div class="border border-gray-200 p-4 rounded-lg bg-white">
+                      <div class="flex items-center">
+                        <input type="radio" id="drankje-{{ drankje.id }}" name="drankje" value="{{ drankje.id }}" class="mr-2">
+                        <label for="drankje-{{ drankje.id }}" class="flex flex-col">
+                          <span class="font-medium">{{ drankje.title }}</span>
+                          <span class="text-gray-600">€{{ drankje.prijs }}</span>
+                        </label>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              
+              <div class="flex justify-end space-x-4">
+                <button type="button" onclick="hideAddItemForm()" class="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">
+                  Annuleren
+                </button>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+                  Toevoegen
+                </button>
+              </div>
+            </form>
+          </div>
+        {% else %}
+          <p class="text-gray-600 mb-6">Geen items in deze gastrekening.</p>
+          
+          {# Add first item button #}
+          <button type="button" onclick="showAddItemForm()"
+            class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+            Voeg eerste item toe
+          </button>
+          
+          {# Add item form (hidden initially) #}
+          <div id="add-item-form" class="mt-6 bg-gray-100 p-4 rounded-lg hidden">
+            <h3 class="text-xl font-bold mb-4">Voeg item toe aan gastrekening</h3>
+            <form method="post" action="{{ actionUrl('winkelmandje-module/stash/add-item-to-guest') }}">
+              {{ csrfInput() }}
+              <input type="hidden" name="stashId" value="{{ guestStash.id }}">
+              
+              <div class="mb-4">
+                <label class="block text-gray-700 mb-2">Kies een drankje</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {% for drankje in craft.entries.section('drankjes').all() %}
+                    <div class="border border-gray-200 p-4 rounded-lg bg-white">
+                      <div class="flex items-center">
+                        <input type="radio" id="drankje-{{ drankje.id }}" name="drankje" value="{{ drankje.id }}" class="mr-2">
+                        <label for="drankje-{{ drankje.id }}" class="flex flex-col">
+                          <span class="font-medium">{{ drankje.title }}</span>
+                          <span class="text-gray-600">€{{ drankje.prijs }}</span>
+                        </label>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              
+              <div class="flex justify-end space-x-4">
+                <button type="button" onclick="hideAddItemForm()" class="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors">
+                  Annuleren
+                </button>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+                  Toevoegen
+                </button>
+              </div>
+            </form>
+          </div>
+        {% endif %}
+      {% else %}
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4">
+          <p>Deze gastrekening is reeds afgerekend.</p>
+        </div>
+        
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white border border-gray-200">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="py-2 px-4 border-b text-left">Item</th>
+                <th class="py-2 px-4 border-b text-left">Datum Toegevoegd</th>
+                <th class="py-2 px-4 border-b text-right">Prijs</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% set totalPrice = 0 %}
+              {% for item in guestStash.stash_items.all() %}
+              <tr>
+                {% set drankje = item.drankje.one() %}
+                <td class="py-2 px-4 border-b">{{ drankje ? drankje.title : item.title }}</td>
+                <td class="py-2 px-4 border-b">{{ item.dateCreated|date('d-m-Y H:i') }}</td>
+                <td class="py-2 px-4 border-b text-right">€{{ item.prijs|number_format(2, '.', ',') }}</td>
+              </tr>
+              {% set totalPrice = totalPrice + item.prijs %}
+              {% endfor %}
+              <tr class="bg-gray-100 font-bold">
+                <td colspan="2" class="py-2 px-4 border-b">Totaal</td>
+                <td class="py-2 px-4 border-b text-right">€{{ totalPrice|number_format(2, '.', ',') }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</main>
+
+<!-- Javascript voor de buttons te tonen/verbergen -->
+<script>
+  function showPaymentOptions() {
+    document.getElementById('initial-payment-button').classList.add('hidden');
+    document.getElementById('payment-options').classList.remove('hidden');
+  }
+  
+  function showAddItemForm() {
+    document.getElementById('add-item-form').classList.remove('hidden');
+  }
+  
+  function hideAddItemForm() {
+    document.getElementById('add-item-form').classList.add('hidden');
+  }
+</script>
+
+{% else %}
+  {# Error - rekening bestaat niet of is geen gastrekening #}
+  <div class="py-12 text-center">
+    <h1 class="text-2xl font-bold text-red-600 mb-4">Rekening niet gevonden!</h1>
+    <p class="text-gray-600">De opgevraagde gastrekening bestaat niet of is geen gastrekening.</p>
+    <a href="{{ url('rekeningbeheer') }}" class="inline-block mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+      Terug naar overzicht
+    </a>
+  </div>
+{% endif %}
+
+{% else %}
+  {# Error - geen beheerder #}
+  <div class="py-12 text-center">
+    <h1 class="text-2xl font-bold text-red-600 mb-4">Toegang geweigerd!</h1>
+    <p class="text-gray-600">Je hebt geen toegang tot deze rekening.</p>
+    <a href="{{ url('home') }}"
+      class="inline-block mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
+      Terug naar overzicht
+    </a>
+  </div>
+{% endif %}
+
+{% endblock %}

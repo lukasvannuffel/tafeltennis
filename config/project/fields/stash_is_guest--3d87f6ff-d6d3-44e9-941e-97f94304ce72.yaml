@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: stash_is_guest
+instructions: null
+name: 'stash is guest'
+searchable: false
+settings:
+  default: true
+  offLabel: 'false'
+  onLabel: 'true'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

@@ -135,6 +135,60 @@ class StashController extends Controller
         return $this->redirect(Craft::$app->request->referrer);
     }
 
+    /**
+ * Maakt een nieuwe gastrekening aan.
+ * Deze methode wordt gebruikt om een nieuwe gastenrekening aan te maken.
+ */
+public function actionCreateGuestAccount()
+{
+    // Kijk of de gebruiker de juiste machtigingen heeft
+    if (!Craft::$app->user->checkPermission('administrateUsers')) {
+        return $this->redirect('/login');
+    }
+    
+    // Krijg de gastnaam van de request
+    $guestName = Craft::$app->getRequest()->getRequiredParam('guestName');
+    
+    // Valideer de gastnaam.
+    if (empty($guestName)) {
+        Craft::$app->session->setError('Gastnaam mag niet leeg zijn.');
+        return $this->redirect(Craft::$app->request->referrer);
+    }
+    
+    // Maak een nieuwe entry aan voor de gastrekening
+    $section = $this->getSectionByHandle('stash_section');
+    $entryType = $this->getEntryType($section);
+    
+    // Create the entry
+    $entry = new Entry();
+    $entry->sectionId = $section->id;
+    $entry->typeId = $entryType->id;
+    $entry->authorId = Craft::$app->getUser()->getIdentity()->getId(); // Current admin as author
+    $entry->enabled = true;
+    $entry->title = '[OPENSTAAND] Gastrekening: ' . $guestName;
+    $entry->stash_status = 'open';
+    $entry->stash_is_guest = true; // Mark as guest account
+    $entry-> stash_guest_name = $guestName; // Set the guest name
+    
+    // Zet de stash_user naar de huidige admin aangezien gasten geen eigen account hebben
+    $entry->stash_user = [Craft::$app->getUser()->getIdentity()->getId()];
+    
+    // Voeg een speciaal veld toe om dit te markeren als een gastrekening
+    $entry->setFieldValue('stash_is_guest', true);
+    
+    // Voeg een gastnaam toe aan de entry
+    $entry->setFieldValue('stash_guest_name', $guestName);
+    
+    // Save de entry
+    if (!Craft::$app->getElements()->saveElement($entry)) {
+        Craft::$app->session->setError('Er is een fout opgetreden bij het aanmaken van de gastrekening.');
+    } else {
+        Craft::$app->session->setNotice('Gastrekening voor "' . $guestName . '" is succesvol aangemaakt.');
+    }
+    
+    return $this->redirect(Craft::$app->request->referrer);
+}
+
 
     /**
      * Finds an existing stash for the given user ID or creates a new one if it doesn't exist.
