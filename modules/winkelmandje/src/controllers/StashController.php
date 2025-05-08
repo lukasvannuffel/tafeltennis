@@ -168,7 +168,7 @@ public function actionCreateGuestAccount()
     $entry->title = '[OPENSTAAND] Gastrekening: ' . $guestName;
     $entry->stash_status = 'open';
     $entry->stash_is_guest = true; // Mark as guest account
-    $entry-> stash_guest_name = $guestName; // Set the guest name
+    // $entry-> stash_guest_name = $guestName; // Set the guest name
     
     // Zet de stash_user naar de huidige admin aangezien gasten geen eigen account hebben
     $entry->stash_user = [Craft::$app->getUser()->getIdentity()->getId()];
@@ -189,6 +189,44 @@ public function actionCreateGuestAccount()
     return $this->redirect(Craft::$app->request->referrer);
 }
 
+public function actionAddItemToGuest()
+{
+    // Check if the user has administrator privileges
+    if (!Craft::$app->user->checkPermission('administrateUsers')) {
+        return $this->redirect('/login');
+    }
+    
+    // Get the stash ID and drankje ID from the request
+    $stashId = Craft::$app->getRequest()->getRequiredParam('stashId');
+    $drankjeId = Craft::$app->getRequest()->getRequiredParam('drankje');
+    
+    // Find the stash entry
+    $stash = Entry::find()
+        ->section('stash_section')
+        ->id($stashId)
+        ->one();
+    
+    // Check if the stash exists and is a guest stash
+    if (!$stash || !$stash->getFieldValue('stash_is_guest')) {
+        Craft::$app->session->setError('Gastrekening niet gevonden.');
+        return $this->redirect(Craft::$app->request->referrer);
+    }
+    
+    // Get the matrix field data for stash items
+    $itemQuery = $stash->getFieldValue('stash_items');
+    $existing_items = $itemQuery->all();
+    
+    // Create a new array with the existing items for updating the sortOrder
+    $stash_items = [
+        'sortOrder' => array_map(fn($item) => $item->id, $existing_items)
+    ];
+    
+    // Create a new stash item
+    $newItem = $this->createNewStashItem($stash, $drankjeId);
+
+    //
+    return $this->redirect(Craft::$app->request->referrer);
+}
 
     /**
      * Finds an existing stash for the given user ID or creates a new one if it doesn't exist.

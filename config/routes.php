@@ -12,6 +12,8 @@
 return [
 
     'rekeningbeheer/speler/<userId:\d+>' => ['template' => 'rekeningbeheer/speler'],
+    'rekeningbeheer/gast/<userId:\d+>' => ['template' => 'rekeningbeheer/gast'],
+
 
 
     // Routes voor winkelmandje

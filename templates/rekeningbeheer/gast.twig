@@ -159,8 +159,9 @@
           {# Add item form (hidden initially) #}
           <div id="add-item-form" class="mt-6 bg-gray-100 p-4 rounded-lg hidden">
             <h3 class="text-xl font-bold mb-4">Voeg item toe aan gastrekening</h3>
-            <form method="post" action="{{ actionUrl('winkelmandje-module/stash/add-item-to-guest') }}">
+            <form method="post">
               {{ csrfInput() }}
+                {{ actionInput('winkelmandje-module/stash/add-item-to-guest') }}
               <input type="hidden" name="stashId" value="{{ guestStash.id }}">
               
               <div class="mb-4">
