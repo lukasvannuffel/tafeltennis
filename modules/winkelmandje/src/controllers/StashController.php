@@ -79,6 +79,9 @@ class StashController extends Controller
         // update the stash title
         $entry->title = "[OPENSTAAND] Rekening van " . Craft::$app->getUser()->getIdentity()->username . " (" . count($stash_items['sortOrder']) . " items)";
 
+        // zeker zijn dat dit geen gastenrekening is
+        $entry->setFieldValue('stash_is_guest', false);
+
         // save the new sortOrder array
         $entry->stash_items = $stash_items;
 
@@ -240,6 +243,7 @@ public function actionAddItemToGuest()
         $entry = Entry::find()
             ->section('stash_section')
             ->stash_status('open')
+            ->stash_is_guest(false)
             ->relatedTo([
                 'targetElement' => $userId,
                 'field' => 'stash_user',
@@ -274,6 +278,8 @@ public function actionAddItemToGuest()
         $entry->title = '[NEW] Stash voor ' . Craft::$app->getUser()->getIdentity()->username;
         $entry->stash_status = 'open';
         $entry->stash_user = [$userId];
+        $entry->setFieldValue('stash_is_guest', false);
+
         Craft::$app->getElements()->saveElement($entry);
 
         return $entry;

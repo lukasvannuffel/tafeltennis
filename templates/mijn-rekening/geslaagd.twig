@@ -18,7 +18,8 @@
     })
     .orderBy('dateCreated DESC')
     .one() %}
-<main>{{ playerStash }}
+<main>
+
 <div class="bg-white overflow-hidden" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
 <div>
     <div class="text-center">
@@ -29,13 +30,12 @@
             {% set paymentId = craft.app.request.getParam('payment') %}
             Betaalreferentie: <strong>{{ paymentId }}</strong>
         </p>    
-       <form method="post">
-       {{ csrfInput() }}
-        {{ actionInput('winkelmandje-module/stash/mark-as-paid') }}
+
+        {# {{ actionInput('winkelmandje-module/stash/mark-as-paid') }} #}
 
             {# <input type="hidden" name="stashId" value="{{ playerStash.id }}"> #}
-        <button href="{{ siteUrl }}/home" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">Ga terug naar Home</button>
-        </form>
+        <a href="{{ siteUrl }}/home" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">Ga terug naar Home</a>
+
     </div>
 </div>
 </main>
