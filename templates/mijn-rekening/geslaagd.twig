@@ -1,43 +1,45 @@
-
 {% requireLogin %}
-
-
 {% block content %}
-
 {% block styles %}
 <link rel="stylesheet" href="{{ siteUrl }}css/style.css">
 {% endblock %}
-
 {% set player = currentUser %}
 {% set playerStash = craft.entries()
-    .section('stash_section')
-    .stash_status('open')
-    .relatedTo({
-        targetElement: player.id,
-        field: 'stash_user'
-    })
-    .orderBy('dateCreated DESC')
-    .one() %}
+.section('stash_section')
+.stash_status('open')
+.relatedTo({
+targetElement: player.id,
+field: 'stash_user'
+})
+.orderBy('dateCreated DESC')
+.one() %}
 <main>
-
-<div class="bg-white overflow-hidden" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-<div>
-    <div class="text-center">
-        <h1 class="text-4xl font-bold mb-4">Joepie!</h1>
-        <p class="text-lg mb-2">Je betaling is gelukt!</p>
-        <p class="mb-4">
-            <!-- get payment id from payment uri query parameter -->
-            {% set paymentId = craft.app.request.getParam('payment') %}
-            Betaalreferentie: <strong>{{ paymentId }}</strong>
-        </p>    
-
-        {# {{ actionInput('winkelmandje-module/stash/mark-as-paid') }} #}
-
-            {# <input type="hidden" name="stashId" value="{{ playerStash.id }}"> #}
-        <a href="{{ siteUrl }}/home" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">Ga terug naar Home</a>
-
+    <div class="bg-white overflow-hidden" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div>
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">Joepie!</h1>
+                <p class="text-lg mb-2">Je betaling is gelukt!</p>
+                <p class="mb-4">
+                    <!-- get payment id from payment uri query parameter -->
+                    {% set paymentId = craft.app.request.getParam('payment') %}
+                    Betaalreferentie: <strong>{{ paymentId }}</strong>
+                </p>    
+                {% if playerStash %}
+                <form method="post">
+                    {{ csrfInput() }}
+                    {{ actionInput('winkelmandje-module/stash/mark-as-paid') }}
+                    <input type="hidden" name="stashId" value="{{ playerStash.id }}">
+                    <button type="submit" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
+                        Ga terug naar Home
+                    </button>
+                </form>
+                {% else %}
+                <a href="{{ siteUrl }}home" class="bg-orange-500 text-white py-2 px-4 rounded-lg block text-center hover:bg-orange-400 transition-colors">
+                    Ga terug naar Home
+                </a>
+                {% endif %}
+            </div>
+        </div>
     </div>
-</div>
 </main>
-
 {% endblock %}

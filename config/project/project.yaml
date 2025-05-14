@@ -1,4 +1,4 @@
-dateModified: 1746706526
+dateModified: 1747217649
 elementSources:
   studioespresso\molliepayments\elements\Payment:
     -
@@ -65,14 +65,15 @@ meta:
     7b07dee4-3f40-4911-bcd9-69445d59aada: Ploeg # Ploeg
     7d66023b-3cf3-4e8d-8404-ea3521f53dc4: Speler # Speler
     8f421a20-8d59-427d-912d-74cd9a1a051f: 'Mijn rekening' # Mijn rekening
+    23f3ec16-3ce4-406e-bd40-4389c73e829b: Notificaties # Notificaties
     047ab60c-b5fe-484a-b4de-78fefacc25c4: 'Mail test' # Mail test
     64e0c57c-083f-4231-994c-328a261a8126: Datum # Datum
     65debaad-47e9-4f45-876e-19998c8823e0: Images # Images
     73cdf7a9-3911-4520-a836-63707d21669e: Amount # Amount
     74e47521-7291-4e41-acad-9ce0f4e319c8: Drankje # Drankje
     75bf3c78-2512-4089-8dec-1fefc0f3f317: 'Reset password' # Reset password
-    93e18f93-0e4c-43ba-90c6-ef7f1985f5a6: 'Mail test' # Mail test
     93ebd873-a0a2-437b-a0d7-a50ca4be4d53: Image # Image
+    99e9512d-0dd0-4872-96e8-92f1691289b5: Notificaties # Notificaties
     245aa79c-664f-4668-ac0b-dc21396c39fd: Matches # Matches
     626db96f-3c5c-4fee-a45e-fcf1f766f7a4: Voorraad # Voorraad
     946e1707-aedf-4de1-8d7a-af57d5412667: Planning # Planning
@@ -83,6 +84,7 @@ meta:
     6576f601-4ad6-4449-b1f7-e9a7b6e6ea7d: Deelnemers # Deelnemers
     02615120-926d-4e16-8cc8-3c1fd7205d39: Register # Register
     52105425-0e0d-46b8-b25d-6886ea47cd57: Stash # Stash
+    a3fa4899-88f1-4f72-9f4f-c713b2775079: Message # Message
     a203f5e7-ccb7-428a-b183-8768ebe2699f: 'Public Schema' # Public Schema
     ac383a6b-ebac-4924-a5cd-c296993ed2de: werkstuk-tafeltennis-lukasvannuffel # werkstuk-tafeltennis-lukasvannuffel
     ad7cf296-5131-49cd-b076-f65b65700d3a: Register # Register

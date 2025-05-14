@@ -1,10 +1,10 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - 047ab60c-b5fe-484a-b4de-78fefacc25c4 # Mail test
-handle: mailTest
+  - 99e9512d-0dd0-4872-96e8-92f1691289b5 # Notificaties
+handle: notificaties
 maxAuthors: 1
-name: 'Mail test'
+name: Notificaties
 previewTargets:
   -
     __assoc__:
@@ -22,6 +22,6 @@ siteSettings:
   ac383a6b-ebac-4924-a5cd-c296993ed2de: # werkstuk-tafeltennis-lukasvannuffel
     enabledByDefault: true
     hasUrls: true
-    template: mail-test/_entry.twig
-    uriFormat: mail-test
-type: single
+    template: home/_entry.twig
+    uriFormat: 'notificaties/{slug}'
+type: channel

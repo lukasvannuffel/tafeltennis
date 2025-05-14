@@ -22,7 +22,7 @@
     .group('spelers')
     .all() %}
 
-{# Guest accounts section - Fetch guest accounts #}
+
 {% set guestAccounts = craft.entries()
     .section('stash_section')
     .stash_status('open')
@@ -32,7 +32,6 @@
 <div class="flex justify-between items-center px-32 sm:px-64 mt-8">
   <h2 class="text-3xl font-bold text-black mb-8">Alle rekeningen</h2>
   
-  <!-- Maak een gastrekening button -->
   <button onclick="openGuestModal()" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-400 transition-colors mb-8">
     Maak een gastrekening
   </button>
@@ -48,7 +47,7 @@
       </tr>
     </thead>
     <tbody class="divide-y divide-gray-200">
-        {# Regular player accounts #}
+
         {% for player in players %}
             {% set playerStash = craft.entries()
                 .section('stash_section')
@@ -79,7 +78,7 @@
         </tr>
       {% endfor %}
 
-      {# Guest accounts #}
+
       {% for guestAccount in guestAccounts %}
         {% set totalAmount = 0 %}
         {% for item in guestAccount.stash_items.all() %}
@@ -133,7 +132,7 @@
   </div>
 </div>
 
-<!-- Modal JavaScript -->
+<!-- JavaScript -->
 <script>
   function openGuestModal() {
     document.getElementById('guestModal').classList.remove('hidden');
@@ -143,7 +142,7 @@
     document.getElementById('guestModal').classList.add('hidden');
   }
   
-  // Close modal when clicking outside of it
+  // Close when clicking outside of it
   window.addEventListener('click', function(event) {
     const modal = document.getElementById('guestModal');
     if (event.target === modal) {

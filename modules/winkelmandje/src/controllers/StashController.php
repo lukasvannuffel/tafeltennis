@@ -92,51 +92,59 @@ class StashController extends Controller
         return $this->redirect('/drankenregistratie');
     }
 
-    public function actionMarkAsPaid()
-    {
-        // Check of de gebruiker de juiste machtigingen heeft
-        if (!Craft::$app->user->checkPermission('administrateUsers')) {
-            return $this->redirect('/login');
-        }
-        
-        // Krijg de stash ID van de request
-        $stashId = Craft::$app->request->getRequiredParam('stashId');
-        
-        // Vind de stash entry
-        $stash = Entry::find()
-            ->section('stash_section')
-            ->id($stashId)
-            ->one();
-        
-        if (!$stash) {
-            Craft::$app->session->setError('Stash not found.');
-            return $this->redirect(Craft::$app->request->referrer);
-        }
-        
-        // Krijg de user ID van de stash
-        $userId = $stash->getFieldValue('stash_user')[0] ?? null;
-        $user = $stash->getFieldValue('stash_user')[0] ?? null;
-        $username = $user ? $user->username : 'Unknown';
-        
-        // Tel de items in de stash
-        $items = $stash->getFieldValue('stash_items')->all();
-        $itemCount = count($items);
-        
-        // Update de stash title
-        $stash->title = "[BETAALD] Rekening van " . $username . " (" . $itemCount . " items)";
-        
-        // Update de stash_status
-        $stash->setFieldValue('stash_status', 'paid');
-        
-        // Sla de stash entry op
-        if (!Craft::$app->elements->saveElement($stash)) {
-            Craft::$app->session->setError('Failed to mark stash as paid.');
-        } else {
-            Craft::$app->session->setNotice('Stash marked as paid successfully.');
-        }
-        
-        return $this->redirect(Craft::$app->request->referrer);
+public function actionMarkAsPaid()
+{
+    // Get the stash ID from the request
+    $stashId = Craft::$app->request->getRequiredParam('stashId');
+    
+    // Find the stash entry
+    $stash = Entry::find()
+        ->section('stash_section')
+        ->id($stashId)
+        ->one();
+    
+    if (!$stash) {
+        Craft::$app->session->setError('Stash not found.');
+        return $this->redirect(Craft::$app->request->referrer ?: '/');
     }
+    
+    // Krijg de user ID van de stash
+    $stashUserId = $stash->getFieldValue('stash_user')[0]->id ?? null;
+    $currentUserId = Craft::$app->getUser()->getIdentity()->getId();
+    
+    // Check if the current user is either the owner of the stash or an administrator
+    $isAdmin = Craft::$app->user->checkPermission('administrateUsers');
+    $isOwner = ($stashUserId && $stashUserId == $currentUserId);
+    
+    if (!$isAdmin && !$isOwner) {
+        Craft::$app->session->setError('Je hebt geen toestemming om deze actie uit te voeren.');
+        return $this->redirect('/login');
+    }
+    
+    // Get user details for the title
+    $user = $stash->getFieldValue('stash_user')[0] ?? null;
+    $username = $user ? $user->username : 'Unknown';
+    
+    // Count the items in the stash
+    $items = $stash->getFieldValue('stash_items')->all();
+    $itemCount = count($items);
+    
+    // Update the stash title
+    $stash->title = "[BETAALD] Rekening van " . $username . " (" . $itemCount . " items)";
+    
+    // Update the stash_status
+    $stash->setFieldValue('stash_status', 'paid');
+    
+    // Save the stash entry
+    if (!Craft::$app->elements->saveElement($stash)) {
+        Craft::$app->session->setError('Failed to mark stash as paid.');
+    } else {
+        Craft::$app->session->setNotice('Stash marked as paid successfully.');
+    }
+    
+    // Redirect to home page after successful update
+    return $this->redirect('/home');
+}
 
     /**
  * Maakt een nieuwe gastrekening aan.
