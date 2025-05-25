@@ -1,5 +1,4 @@
 {% extends "index.twig" %}
-
 {% requireLogin %}
 
 {% block title %}Wedstrijden - HNO Assenede{% endblock %}
@@ -9,56 +8,31 @@
 {% endblock %}
 
 {% block content %}
-{# Geuploade bannerimage tonen #}
 {% set image = entry.image.one() %}
-<header class="relative text-white bg-gray-800 bg-opacity-75" style="background-image: url('{{ image.url }}'); background-size: cover; background-position: center;">
-  <div class="bg-black bg-opacity-60 absolute inset-0"></div>
-  <div class="relative z-10 max-w-7xl mx-auto py-24 px-8 text-center">
-    <h1 class="text-4xl md:text-5xl font-semibold leading-tight mb-4">{{ entry.title }}</h1>
-    <p class="text-lg md:text-xl mb-6">{{ entry.subtitle }}</p>
+
+<header class="relative text-white bg-gray-900" style="background-image: url('{{ image.url }}'); background-size: cover; background-position: center;">
+  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+  <div class="relative z-10 max-w-6xl mx-auto py-24 px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">{{ entry.title }}</h1>
+    <p class="text-lg md:text-xl text-gray-200">{{ entry.subtitle }}</p>
   </div>
 </header>
 
-<div class="max-w-7xl mx-auto p-8 bg-white shadow-lg rounded-lg mb-8 mt-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
-  <div class="w-full md:w-1/2">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Wedstrijden</h2>
-    <div class="space-y-4">
+<main class="max-w-6xl mx-auto px-4 py-12">
+  <div class="bg-white rounded-2xl shadow-xl p-6 md:p-10">
+    <h2 class="text-3xl font-bold text-gray-800 text-center mb-10">Wedstrijden</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {% for wedstrijd in craft.entries.section('wedstrijden').orderBy('datum ASC').all() %}
-        <a href="{{ wedstrijd.url }}" class="block">
-          <div class="p-4 bg-gray-100 rounded-lg shadow-md hover:bg-gray-200 transition">
-            <h3 class="text-xl font-semibold text-gray-800">{{ wedstrijd.title }}</h3>
-            <p class="text-gray-600">{{ wedstrijd.datum|date('d-m-Y') }}</p>
-            <p class="text-gray-600">{{ wedstrijd.adres }}</p>
+        <a href="{{ wedstrijd.url }}" class="block group">
+          <div class="bg-gradient-to-br from-gray-50 to-blue-100 p-6 rounded-xl shadow-md group-hover:shadow-lg transition duration-200">
+            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-orange-600">{{ wedstrijd.title }}</h3>
+            <p class="text-sm text-gray-600 mt-1">{{ wedstrijd.datum|date('d-m-Y') }}</p>
+            <p class="text-sm text-gray-600">{{ wedstrijd.adres }}</p>
           </div>
         </a>
       {% endfor %}
     </div>
   </div>
-</div>
-
-{# <div class="max-w-7xl mx-auto p-8 bg-white shadow-lg rounded-lg mb-8 mt-8 flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Deelnemers</h2>
-    <div class="overflow-x-auto">
-      <table class="min-w-full bg-white border border-gray-200">
-        <thead class="bg-gray-100">
-          <tr>
-            <th class="py-2 px-4 border-b">Speler</th>
-            <th class="py-2 px-4 border-b">Match</th>
-            <th class="py-2 px-4 border-b">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for planning in craft.entries.section('planning_section').all() %}
-            {% set speler = planning.speler.one() %}
-            {% set match = planning.matches.one() %}
-            <tr>
-              <td class="py-2 px-4 border-b">{{ speler.fullName }}</td>
-              <td class="py-2 px-4 border-b">{{ match }}</td>
-              <td class="py-2 px-4 border-b">{{ planning.speler_status }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </div> #}
+</main>
 {% endblock %}

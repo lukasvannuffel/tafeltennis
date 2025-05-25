@@ -1,45 +1,52 @@
 {% requireLogin %}
-{% block content %}
+
 {% block styles %}
 <link rel="stylesheet" href="{{ siteUrl }}css/style.css">
 {% endblock %}
+
+{% block content %}
 {% set player = currentUser %}
 {% set playerStash = craft.entries()
-.section('stash_section')
-.stash_status('open')
-.relatedTo({
-targetElement: player.id,
-field: 'stash_user'
-})
-.orderBy('dateCreated DESC')
-.one() %}
-<main>
-    <div class="bg-white overflow-hidden" style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-        <div>
-            <div class="text-center">
-                <h1 class="text-4xl font-bold mb-4">Joepie!</h1>
-                <p class="text-lg mb-2">Je betaling is gelukt!</p>
-                <p class="mb-4">
-                    <!-- get payment id from payment uri query parameter -->
-                    {% set paymentId = craft.app.request.getParam('payment') %}
-                    Betaalreferentie: <strong>{{ paymentId }}</strong>
-                </p>    
-                {% if playerStash %}
-                <form method="post">
-                    {{ csrfInput() }}
-                    {{ actionInput('winkelmandje-module/stash/mark-as-paid') }}
-                    <input type="hidden" name="stashId" value="{{ playerStash.id }}">
-                    <button type="submit" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
-                        Ga terug naar Home
-                    </button>
-                </form>
-                {% else %}
-                <a href="{{ siteUrl }}home" class="bg-orange-500 text-white py-2 px-4 rounded-lg block text-center hover:bg-orange-400 transition-colors">
-                    Ga terug naar Home
-                </a>
-                {% endif %}
-            </div>
-        </div>
+    .section('stash_section')
+    .stash_status('open')
+    .relatedTo({
+        targetElement: player.id,
+        field: 'stash_user'
+    })
+    .orderBy('dateCreated DESC')
+    .one() %}
+
+<main class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-blue-100 px-4 py-16">
+  <div class="bg-white rounded-2xl shadow-xl max-w-xl w-full p-8 text-center">
+    <div class="mb-6">
+      <div class="text-green-500 mb-4">
+        <svg class="mx-auto w-16 h-16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+      <h1 class="text-3xl font-extrabold text-gray-800 mb-2">Joepie!</h1>
+      <p class="text-lg text-gray-600">Je betaling is succesvol verwerkt.</p>
     </div>
+
+    <div class="text-sm text-gray-500 mb-6">
+      {% set paymentId = craft.app.request.getParam('payment') %}
+      Betaalreferentie: <span class="font-semibold text-gray-700">{{ paymentId }}</span>
+    </div>
+
+    {% if playerStash %}
+      <form method="post" class="space-y-3">
+        {{ csrfInput() }}
+        {{ actionInput('winkelmandje-module/stash/mark-as-paid') }}
+        <input type="hidden" name="stashId" value="{{ playerStash.id }}">
+        <button type="submit" class="bg-orange-500 hover:bg-orange-400 text-white font-medium py-2 px-6 rounded-lg w-full transition-colors">
+          Ga terug naar Home
+        </button>
+      </form>
+    {% else %}
+      <a href="{{ siteUrl }}home" class="bg-orange-500 hover:bg-orange-400 text-white font-medium py-2 px-6 rounded-lg block w-full transition-colors">
+        Ga terug naar Home
+      </a>
+    {% endif %}
+  </div>
 </main>
 {% endblock %}

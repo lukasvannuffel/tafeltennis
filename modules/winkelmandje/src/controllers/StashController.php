@@ -94,6 +94,7 @@ class StashController extends Controller
 
 public function actionMarkAsPaid()
 {
+    // dd('Marking stash as paid');
     // Get the stash ID from the request
     $stashId = Craft::$app->request->getRequiredParam('stashId');
     
@@ -142,8 +143,8 @@ public function actionMarkAsPaid()
         Craft::$app->session->setNotice('Stash marked as paid successfully.');
     }
     
-    // Redirect to home page after successful update
-    return $this->redirect('/home');
+    // Redirect after successful update
+        return $this->redirect(Craft::$app->request->referrer);
 }
 
     /**

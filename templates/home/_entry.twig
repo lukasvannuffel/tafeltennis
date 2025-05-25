@@ -9,39 +9,36 @@
 
 <header class="relative text-white" style="background-image: url('{{ firstImage.url() }}'); background-size: cover; background-position: center;">
   <div class="bg-blue-900 bg-opacity-80 absolute inset-0"></div>
-  <div class="relative z-10 max-w-5xl mx-auto py-20 px-8 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ home.title }}</h1>
-    <p class="text-lg md:text-xl mb-6">{{ home.subtitle }}</p>
-{% if currentUser %}
-    {% if currentUser.isInGroup('spelers') %}
-        <div class="flex justify-center space-x-4">
-      <a href="/drankenregistratie" class="bg-orange-500 text-white font-semibold py-3 px-6 rounded-md hover:bg-orange-400 transition-colors">
-        Drankjes Registreren
-      </a>
-      <a href="/beschikbaarheid" class="bg-white text-blue-900 font-semibold py-3 px-6 rounded-md hover:bg-gray-100 transition-colors">
-        Bekijk Beschikbaarheid
-      </a>
-    </div>
-    {% elseif currentUser.isInGroup('beheerders') %}
-        <div class="flex justify-center space-x-4">
-      <a href="/drankenregistratie" class="bg-orange-500 text-white font-semibold py-3 px-6 rounded-md hover:bg-orange-400 transition-colors">
-        Rekeningen Beheren
-      </a>
-      <a href="/beschikbaarheid" class="bg-white text-blue-900 font-semibold py-3 px-6 rounded-md hover:bg-gray-100 transition-colors">
-        Planning Beheren
-      </a>
-    </div>
-    
+  <div class="relative z-10 max-w-5xl mx-auto py-24 px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">{{ home.title }}</h1>
+    <p class="text-lg md:text-xl text-blue-100 mb-8">{{ home.subtitle }}</p>
+    {% if currentUser %}
+      {% if currentUser.isInGroup('spelers') %}
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/drankenregistratie" class="bg-orange-500 text-white font-semibold py-3 px-6 rounded-full hover:bg-orange-400 transition-all shadow-lg">
+            Drankjes Registreren
+          </a>
+          <a href="/beschikbaarheid" class="bg-white text-blue-900 font-semibold py-3 px-6 rounded-full hover:bg-blue-100 transition-all shadow">
+            Bekijk Beschikbaarheid
+          </a>
+        </div>
+      {% elseif currentUser.isInGroup('beheerders') %}
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/drankenregistratie" class="bg-orange-500 text-white font-semibold py-3 px-6 rounded-full hover:bg-orange-400 transition-all shadow-lg">
+            Rekeningen Beheren
+          </a>
+          <a href="/beschikbaarheid" class="bg-white text-blue-900 font-semibold py-3 px-6 rounded-full hover:bg-blue-100 transition-all shadow">
+            Planning Beheren
+          </a>
+        </div>
+      {% endif %}
     {% endif %}
-{% endif %}
   </div>
 </header>
 
-
-{# Notificaties weergeven op homescreen #}
 {% if currentUser and currentUser.isInGroup('spelers') %}
-<section class="bg-white py-6 shadow-md">
-  <div class="max-w-5xl mx-auto px-8">
+<section class="bg-white py-8 shadow-inner">
+  <div class="max-w-5xl mx-auto px-6">
     {% set notifications = craft.entries
       .section('notificaties')
       .relatedTo({
@@ -53,8 +50,8 @@
     {% if notifications|length > 0 %}
       <div>
         {% for notification in notifications %}
-          <div class="bg-blue-100 border-l-4 border-blue-500 p-4 mb-4 rounded">
-            <h3 class="font-bold text-blue-900">{{ notification.title }}</h3>
+          <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-4 rounded-md shadow-sm">
+            <h3 class="font-semibold text-blue-900 text-lg">{{ notification.title }}</h3>
             <p class="text-gray-700">{{ notification.message }}</p>
           </div>
         {% endfor %}
@@ -65,46 +62,40 @@
   </div>
 </section>
 {% endif %}
-<section class="py-16 bg-gray-50">
-  <div class="max-w-5xl mx-auto px-8">
+
+<section class="py-20 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Wat biedt onze tool?</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="text-center bg-white shadow-lg rounded-lg p-6">
+      <div class="text-center bg-white shadow-xl rounded-xl p-6 hover:shadow-2xl transition-shadow duration-300">
         <div class="flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-500 rounded-full mx-auto mb-4">
           <i class="icon-drink text-3xl"></i>
         </div>
-        <h3 class="text-xl font-semibold text-blue-900 mb-3">Drankregistratie</h3>
-        <p class="text-gray-600">Eenvoudig jouw consumpties bijhouden en direct betalen via QR-code of later via lopende rekeningen.</p>
+        <h3 class="text-xl font-semibold text-blue-900 mb-2">Drankregistratie</h3>
+        <p class="text-gray-600 text-sm">Eenvoudig jouw consumpties bijhouden en direct betalen via QR-code of later via lopende rekeningen.</p>
       </div>
-      <div class="text-center bg-white shadow-lg rounded-lg p-6">
+      <div class="text-center bg-white shadow-xl rounded-xl p-6 hover:shadow-2xl transition-shadow duration-300">
         <div class="flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-500 rounded-full mx-auto mb-4">
           <i class="icon-calendar text-3xl"></i>
         </div>
-        <h3 class="text-xl font-semibold text-blue-900 mb-3">Speeldagenbeheer</h3>
-        <p class="text-gray-600">Plan je speeldagen of geef je beschikbaarheid door met slechts een paar klikken.</p>
+        <h3 class="text-xl font-semibold text-blue-900 mb-2">Speeldagenbeheer</h3>
+        <p class="text-gray-600 text-sm">Plan je speeldagen of geef je beschikbaarheid door met slechts een paar klikken.</p>
       </div>
-      <div class="text-center bg-white shadow-lg rounded-lg p-6">
+      <div class="text-center bg-white shadow-xl rounded-xl p-6 hover:shadow-2xl transition-shadow duration-300">
         <div class="flex items-center justify-center w-16 h-16 bg-orange-100 text-orange-500 rounded-full mx-auto mb-4">
           <i class="icon-wallet text-3xl"></i>
         </div>
-        <h3 class="text-xl font-semibold text-blue-900 mb-3">Financieel Overzicht</h3>
-        <p class="text-gray-600">Altijd inzicht in openstaande en betaalde rekeningen. Voor leden én beheerders.</p>
+        <h3 class="text-xl font-semibold text-blue-900 mb-2">Financieel Overzicht</h3>
+        <p class="text-gray-600 text-sm">Altijd inzicht in openstaande en betaalde rekeningen. Voor leden én beheerders.</p>
       </div>
     </div>
-  </div>
 
-{% if currentUser %}
-    {% if currentUser.isInGroup('spelers') %}
-      <h1 class="text-3xl font-bold text-center text-black mb-12 mt-16">Dit is een spelersview</h1>
-
-    {% elseif currentUser.isInGroup('beheerders') %}
-
-
+    {% if currentUser %}
+      {% if currentUser.isInGroup('spelers') %}
+        <h1 class="text-2xl font-bold text-center text-blue-800 mt-16">Dit is een spelersview</h1>
+      {% endif %}
     {% endif %}
-
-{% endif %}
-
-
+  </div>
 </section>
 
 {% endblock %}

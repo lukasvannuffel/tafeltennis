@@ -1,5 +1,4 @@
 {% extends "index.twig" %}
-
 {% requireLogin %}
 
 {% block title %}Drankenregistratie - HNO Assenede{% endblock %}
@@ -16,84 +15,86 @@
 
 {% block content %}
 
-
 {% if currentUser %}
     {% if currentUser.isInGroup('spelers') %}
 
-{% set image = entry.banner_image.one() %}
-<header class="relative bg-blue-700 text-white" style="background-image: url('{{ image.url }}'); background-size: cover; background-position: center;">
-  <div class="bg-black bg-opacity-60 absolute inset-0"></div>
-  <div class="relative z-10 max-w-5xl mx-auto py-20 px-8 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ entry.title }}</h1>
-    <p class="text-lg md:text-xl mb-6">{{ entry.subtitle }}</p>
-  </div>
-</header>
+        {% set image = entry.banner_image.one() %}
+        <section class="relative bg-blue-700 text-white">
+            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div class="relative max-w-6xl mx-auto px-6 py-24 text-center z-10">
+                <h1 class="text-5xl font-extrabold mb-4 tracking-tight">{{ entry.title }}</h1>
+                <p class="text-xl font-light text-gray-100">{{ entry.subtitle }}</p>
+            </div>
+            {% if image %}
+                <img src="{{ image.url }}" alt="Banner" class="absolute inset-0 w-full h-full object-cover opacity-20">
+            {% endif %}
+        </section>
 
-
-
-<section class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-8">
-    <h2 class="text-3xl font-bold text-center text-black mb-12">Beschikbare Drankjes</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {% for drankje in craft.entries.section('drankjes').all() %}
-        {% set image = drankje.image.one() %}
-        <div class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
-          <div class="h-48 bg-gray-200">
-            <img src="{{ image.url }}" alt="{{ drankje.title }}" class="w-full h-full object-cover">
-          </div>
-          <div class="p-4">
-            <h3 class="text-lg font-semibold text-black mb-2">{{ drankje.title }}</h3>
-            <p class="text-gray-600 text-sm mb-4">€{{ drankje.prijs }}</p>
-            <form method="post" action="{{ url('mijn-rekening/') }}">
-              {{ csrfInput() }}
-              <input type="hidden" name="drankjeId" value="{{ drankje.id }}">
-              <a href="/winkelmandje/add-item?drankje={{ drankje.id }}" class="bg-orange-500 text-white py-2 px-4 rounded-lg w-full hover:bg-orange-400 transition-colors">
-                Voeg toe
-              </a>
-            </form>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+        <section class="bg-white py-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-blue-700 mb-12">Kies je drankje</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    {% for drankje in craft.entries.section('drankjes').all() %}
+                        {% set image = drankje.image.one() %}
+                        <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 bg-white border border-gray-100">
+                            <div class="h-48 overflow-hidden">
+                                {% if image %}
+                                    <img src="{{ image.url }}" alt="{{ drankje.title }}" class="w-full h-full object-cover">
+                                {% endif %}
+                            </div>
+                            <div class="p-5 flex flex-col justify-between h-48">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 mb-1">{{ drankje.title }}</h3>
+                                    <p class="text-sm text-gray-600">€{{ drankje.prijs }}</p>
+                                </div>
+                                <form method="post" action="{{ url('mijn-rekening/') }}" class="mt-4">
+                                    {{ csrfInput() }}
+                                    <input type="hidden" name="drankjeId" value="{{ drankje.id }}">
+                                    <a href="/winkelmandje/add-item?drankje={{ drankje.id }}"
+                                       class="block text-center bg-orange-500 hover:bg-orange-400 text-white py-2 rounded-xl transition font-semibold">
+                                        Voeg toe
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
 
     {% elseif currentUser.isInGroup('beheerders') %}
 
-      {% set players = craft.users()
-        .group('spelers')
-        .all() %}
+        <section class="bg-white py-20">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-blue-700 mb-12">Overzicht spelersrekeningen</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full table-auto border border-gray-200 shadow-lg rounded-xl overflow-hidden">
+                        <thead class="bg-blue-700 text-white text-sm uppercase tracking-wider">
+                            <tr>
+                                <th class="px-6 py-4 text-left">Naam</th>
+                                <th class="px-6 py-4 text-left">Openstaand bedrag</th>
+                                <th class="px-6 py-4 text-left">Actie</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            {% for player in craft.users().group('spelers').all() %}
+                                <tr class="hover:bg-gray-50 transition">
+                                    <td class="px-6 py-4 font-medium text-gray-800">{{ player.fullName }}</td>
+                                    <td class="px-6 py-4 text-gray-700">€0.00</td>
+                                    <td class="px-6 py-4">
+                                        <a href="#" class="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-xl text-sm font-semibold transition">
+                                            Bekijk rekening
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-<h2 class="text-3xl font-bold text-center text-black mb-8 mt-8">Alle rekeningen</h2>
-<div class="overflow-x-auto px-32 sm:px-64">
-  <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-    <thead class="bg-blue-700 text-white">
-      <tr>
-        <th class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">Naam</th>
-        <th class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">Openstaand bedrag</th>
-        <th class="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">Beheer</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-200">
-      {% for player in players %}
-        <tr class="hover:bg-gray-100 transition-colors">
-          <td class="px-6 py-4 text-sm text-gray-900">{{ player.fullName }}</td>
-          <td class="px-6 py-4 text-sm text-gray-900">€0.00</td>
-          <td class="px-6 py-4 text-sm text-gray-900">
-            <a href="#" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-400 transition-colors">
-              Bekijk rekening
-            </a>
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
-
-      
     {% endif %}
-
 {% endif %}
-
 
 {% endblock %}
