@@ -7,6 +7,7 @@ use craft\elements\Entry;
 use craft\web\Controller;
 use modules\winkelmandje\traits\StashTrait;
 use yii\filters\AccessControl;
+require_once(__DIR__ . '/../../../email.php'); // Navigates up to the modules folder
 
 class StashController extends Controller
 {
@@ -142,7 +143,9 @@ public function actionMarkAsPaid()
     } else {
         Craft::$app->session->setNotice('Stash marked as paid successfully.');
     }
-    
+
+    sendMail(); // Call the email function to send a notification
+
     // Redirect after successful update
         return $this->redirect(Craft::$app->request->referrer);
 }

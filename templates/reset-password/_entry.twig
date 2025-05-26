@@ -9,7 +9,9 @@
     <form method="post" accept-charset="UTF-8" class="mt-6 space-y-4">
       {{ csrfInput() }}
       {{ actionInput('users/send-password-reset-email') }}
+      {{ successMessageInput('Password email send successfully! Check your mailbox') }}
 
+      
       <!-- Username/Email -->
       <div>
         <label for="loginName" class="block text-sm font-medium text-gray-700">Username or email</label>
