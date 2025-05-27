@@ -8,6 +8,7 @@ use craft\web\Controller;
 use modules\wedstrijden\traits\WedstrijdenTrait;
 use craft\elements\Entry;
 use yii\filters\AccessControl;
+require_once(__DIR__ . '/../../email.php');
 
 class WedstrijdenController extends Controller
 {
@@ -123,6 +124,8 @@ class WedstrijdenController extends Controller
         } else {
             Craft::$app->getSession()->setError('Er is een fout opgetreden bij het bijwerken van de spelerstatus.');
         }
+
+        sendMail('Je bent geselecteerd!', 'De spelerstatus is bijgewerkt naar: ' . $status . ' voor de wedstrijd met ID: ' . $wedstrijdId);
 
         // Redirect back to the wedstrijd detail page
         return $this->redirect(Craft::$app->request->referrer);

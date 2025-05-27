@@ -1,12 +1,12 @@
     <?php
     
-    function sendMail(){
+    function sendMail($subject, $body){
 
     // Send a test email
     $message = new \craft\mail\Message();
-    $message->setSubject('Test Email from HNO Assenede');
-    $message->setHtmlBody('<p>This is a test email to verify that Mailpit is working correctly.</p>');
-    $message->setTextBody('This is a test email to verify that Mailpit is working correctly.');
+    $message->setSubject($subject);
+    $message->setHtmlBody($body);
+    $message->setTextBody($body);
     $message->setFrom(['hello@hnoassenede.be' => 'HNO Assenede']);
     $message->setTo(['lukasvannuffel02@gmail.com' => 'Lukas Van Nuffel']);
 

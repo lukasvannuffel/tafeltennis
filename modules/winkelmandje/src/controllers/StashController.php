@@ -7,7 +7,7 @@ use craft\elements\Entry;
 use craft\web\Controller;
 use modules\winkelmandje\traits\StashTrait;
 use yii\filters\AccessControl;
-require_once(__DIR__ . '/../../../email.php'); // Navigates up to the modules folder
+require_once(__DIR__ . '/../../../email.php');
 
 class StashController extends Controller
 {
@@ -130,6 +130,11 @@ public function actionMarkAsPaid()
     // Count the items in the stash
     $items = $stash->getFieldValue('stash_items')->all();
     $itemCount = count($items);
+
+    $itemSummary = '';
+        foreach ($items as $item) {
+            $itemSummary .= '- ' . $item->title . "\n";
+        }
     
     // Update the stash title
     $stash->title = "[BETAALD] Rekening van " . $username . " (" . $itemCount . " items)";
@@ -144,7 +149,7 @@ public function actionMarkAsPaid()
         Craft::$app->session->setNotice('Stash marked as paid successfully.');
     }
 
-    sendMail(); // Call the email function to send a notification
+    sendMail('Betaling ontvangen!','Hey '. $user .', we hebben jouw betaling van bestelling met ID: '. $stashId .' ontvangen! Hier nog even een overzicht van de producten in dit winkelmandje: ' . $itemSummary . '');
 
     // Redirect after successful update
         return $this->redirect(Craft::$app->request->referrer);
