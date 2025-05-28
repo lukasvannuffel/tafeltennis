@@ -131,10 +131,30 @@ public function actionMarkAsPaid()
     $items = $stash->getFieldValue('stash_items')->all();
     $itemCount = count($items);
 
-    $itemSummary = '';
-        foreach ($items as $item) {
-            $itemSummary .= '- ' . $item->title . "\n";
-        }
+    $itemSummary = '<table style="width:100%;border-collapse:collapse;margin-top:16px;">
+    <thead>
+        <tr>
+            <th align="left" style="border-bottom:1px solid #e5e7eb;padding:8px;">Drankje</th>
+            <th align="right" style="border-bottom:1px solid #e5e7eb;padding:8px;">Prijs</th>
+        </tr>
+    </thead>
+    <tbody>';
+$total = 0;
+foreach ($items as $item) {
+    $itemTitle = htmlspecialchars($item->title);
+    $prijs = floatval($item->getFieldValue('prijs'));
+    $total += $prijs;
+    $prijsFormatted = '€' . number_format($prijs, 2, ',', '');
+    $itemSummary .= '<tr>
+        <td style="padding:8px;border-bottom:1px solid #f3f4f6;">' . $itemTitle . '</td>
+        <td align="right" style="padding:8px;border-bottom:1px solid #f3f4f6;">' . $prijsFormatted . '</td>
+    </tr>';
+}
+$itemSummary .= '<tr>
+    <td style="padding:8px;font-weight:bold;">Totaal</td>
+    <td align="right" style="padding:8px;font-weight:bold;">€' . number_format($total, 2, ',', '') . '</td>
+</tr>';
+$itemSummary .= '</tbody></table>';
     
     // Update the stash title
     $stash->title = "[BETAALD] Rekening van " . $username . " (" . $itemCount . " items)";
@@ -149,7 +169,15 @@ public function actionMarkAsPaid()
         Craft::$app->session->setNotice('Stash marked as paid successfully.');
     }
 
-    sendMail('Betaling ontvangen!','<h1>Hey '. $user .',</h1> <p>we hebben jouw betaling van bestelling met ID: '. $stashId .' ontvangen! Hier nog even een overzicht van de producten in dit winkelmandje:</p> <ul><li>' . $itemSummary . '</li></ul><p>Bedankt voor je bestelling!</p><p>Met vriendelijke groet,</p><p>HNO Assenede</p>');
+sendMail(
+    'Betaling ontvangen!',
+    '<h1>Hey ' . htmlspecialchars($username) . ',</h1>
+    <p>We hebben jouw betaling van bestelling met ID: ' . $stashId . ' ontvangen! Hier nog even een overzicht van de producten in dit winkelmandje:</p>'
+    . $itemSummary .
+    '<p>Bedankt voor je bestelling!</p>
+    <p>Met vriendelijke groet,</p>
+    <p>HNO Assenede</p>'
+);
 
     // Redirect after successful update
         return $this->redirect(Craft::$app->request->referrer);

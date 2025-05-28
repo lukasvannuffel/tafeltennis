@@ -115,6 +115,18 @@ class WedstrijdenController extends Controller
             return $this->redirect(Craft::$app->request->referrer);
         }
 
+        // Haal de gebruiker op die bij deze planning hoort
+        $speler = $planningEntry->getFieldValue('speler')[0] ?? null;
+        $username = $speler ? $speler->username : 'Onbekend';
+
+        $wedstrijd = Entry::find()
+        ->section('wedstrijden')
+        ->id($wedstrijdId)
+        ->one();
+
+        $title = $wedstrijd ? $wedstrijd->title : 'Onbekend';
+        $datum = $wedstrijd && $wedstrijd->getFieldValue('datum') ? $wedstrijd->getFieldValue('datum')->format('d-m-Y') : 'Onbekend';
+
         // Update the status
         $planningEntry->speler_status = $status;
 
@@ -125,7 +137,14 @@ class WedstrijdenController extends Controller
             Craft::$app->getSession()->setError('Er is een fout opgetreden bij het bijwerken van de spelerstatus.');
         }
 
-        sendMail('Je bent geselecteerd!', 'De spelerstatus is bijgewerkt naar: ' . $status . ' voor de wedstrijd met ID: ' . $wedstrijdId);
+        sendMail(
+            'Je bent geselecteerd!',
+            '<h1>Hey ' . $username . ',</h1>
+            <p>De spelerstatus is bijgewerkt naar: ' . $status . ' voor de wedstrijd: <strong>' . htmlspecialchars($title) . '</strong> op <strong>' . htmlspecialchars($datum) . '</strong>.</p>
+            <p>Tot dan!</p>
+            <p>Met vriendelijke groet,</p>
+            <p>HNO Assenede</p>'
+        );
 
         // Redirect back to the wedstrijd detail page
         return $this->redirect(Craft::$app->request->referrer);
