@@ -149,7 +149,7 @@ public function actionMarkAsPaid()
         Craft::$app->session->setNotice('Stash marked as paid successfully.');
     }
 
-    sendMail('Betaling ontvangen!','Hey '. $user .', we hebben jouw betaling van bestelling met ID: '. $stashId .' ontvangen! Hier nog even een overzicht van de producten in dit winkelmandje: ' . $itemSummary . '');
+    sendMail('Betaling ontvangen!','<h1>Hey '. $user .',</h1> <p>we hebben jouw betaling van bestelling met ID: '. $stashId .' ontvangen! Hier nog even een overzicht van de producten in dit winkelmandje:</p> <ul><li>' . $itemSummary . '</li></ul><p>Bedankt voor je bestelling!</p><p>Met vriendelijke groet,</p><p>HNO Assenede</p>');
 
     // Redirect after successful update
         return $this->redirect(Craft::$app->request->referrer);
