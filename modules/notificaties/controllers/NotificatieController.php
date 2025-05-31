@@ -34,17 +34,17 @@ class NotificatieController extends Controller
                 ->all();
 
             if (!empty($openRekeningen)) {
-                // Kijk of er al een notificatie bestaat voor deze speler
+                // Check if notification already exists for this user
                 $existingNotification = Entry::find()
                     ->section('notificaties')
                     ->relatedTo([
                         'targetElement' => $speler,
                         'field' => 'speler'
                     ])
-                    ->title('*Open Rekening*')
+                    ->title('*Open Rekening*') // Search for existing open rekening notifications by title
                     ->one();
 
-                // Creeer alleen een notificatie als deze nog niet bestaat
+                // Creeer   een notificatie als deze nog niet bestaat
                 if (!$existingNotification) {
                     $this->createOpenRekeningNotification($speler, count($openRekeningen));
                 }
