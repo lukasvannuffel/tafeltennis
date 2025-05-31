@@ -33,35 +33,16 @@ return [
         'wedstrijden-module' => [
             'class' => \modules\wedstrijden\WedstrijdenModule::class,
         ],
+        'notificaties-module' => [
+            'class' => \modules\notificaties\NotificatiesModule::class,
+        ],
         
     ],
     'bootstrap' => [
         'winkelmandje-module',
         'wedstrijden-module',
+        'notificaties-module',
         
     ],
-
-
-
-    // 'components' => [
-    //     'mailer' => function() {
-    //         // Get the stored email settings
-    //         $settings = craft\helpers\App::mailSettings();
-    //         // Override with our local development settings
-    //         $settings->transportType = \craft\mail\transportadapters\Smtp::class;
-    //         $settings->transportSettings = [
-    //             'host' => getenv('MAILPIT_SMTP_HOSTNAME'), // Mailpit's default SMTP host
-    //             'port' => getenv('MAILPIT_SMTP_PORT'), // Mailpit's default SMTP port
-    //             'useAuthentication' => false,
-    //             'encryptionMethod' => null,
-    //         ];
-            
-    //         // You can also override these if needed
-    //         // $settings->fromEmail = 'noreply@tabletennis.local';
-    //         // $settings->fromName = 'Table Tennis Club';
-            
-    //         return craft\helpers\MailerHelper::createMailer($settings);
-    //     },
-    // ],
 
 ];

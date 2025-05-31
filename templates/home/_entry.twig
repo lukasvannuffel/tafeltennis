@@ -51,6 +51,14 @@
     {% if notifications|length > 0 %}
       <div>
         <h3 class="text-xl font-semibold text-blue-900 mb-4">📢 Meldingen</h3>
+        <form method="post">
+        {{ csrfInput() }}
+        {{ actionInput('notificaties-module/notificaties/create-open-rekening-notifications') }}
+
+        <button type="submit" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-500 transition-colors mb-4">
+        Refresh
+        </button>
+        </form>
         {% for notification in notifications %}
           {% set isOpenRekeningNotification = (notification.title == 'Open Rekening' or notification.title == 'Open Rekeningen') %}
           <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-4 rounded-md shadow-sm hover:bg-blue-100 transition-colors duration-200 {% if isOpenRekeningNotification %}cursor-pointer{% endif %}" 

@@ -7,7 +7,7 @@ use craft\web\Controller;
 use craft\elements\Entry;
 use craft\elements\User;
 
-class NotificatieController extends Controller
+class NotificatiesController extends Controller
 {
     /**
      * Maak notificaties aan voor gebruikers met open rekeningen
