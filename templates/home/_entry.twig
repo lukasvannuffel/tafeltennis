@@ -45,19 +45,42 @@
         targetElement: currentUser,
         field: 'speler'
       })
+      .orderBy('dateCreated desc')
       .all() %}
     
     {% if notifications|length > 0 %}
       <div>
+        <h3 class="text-xl font-semibold text-blue-900 mb-4">📢 Meldingen</h3>
         {% for notification in notifications %}
-          <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-4 rounded-md shadow-sm">
-            <h3 class="font-semibold text-blue-900 text-lg">{{ notification.title }}</h3>
-            <p class="text-gray-700">{{ notification.message }}</p>
+          {% set isOpenRekeningNotification = (notification.title == 'Open Rekening' or notification.title == 'Open Rekeningen') %}
+          <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-4 rounded-md shadow-sm hover:bg-blue-100 transition-colors duration-200 {% if isOpenRekeningNotification %}cursor-pointer{% endif %}" 
+               {% if isOpenRekeningNotification %}onclick="window.location.href='/rekeningen'"{% endif %}>
+            <div class="flex justify-between items-start">
+              <div class="flex-1">
+                <h4 class="font-semibold text-blue-900 text-lg flex items-center">
+                  {% if isOpenRekeningNotification %}
+                    💳 {{ notification.title }}
+                  {% else %}
+                    {{ notification.title }}
+                  {% endif %}
+                </h4>
+                <p class="text-gray-700 mt-1">{{ notification.message }}</p>
+                <p class="text-xs text-gray-500 mt-2">{{ notification.dateCreated|date('d/m/Y H:i') }}</p>
+              </div>
+              {% if isOpenRekeningNotification %}
+                <div class="ml-4">
+                  <span class="text-blue-600 text-sm font-medium">Klik om te bekijken →</span>
+                </div>
+              {% endif %}
+            </div>
           </div>
         {% endfor %}
       </div>
     {% else %}
-      <p class="text-gray-500 text-center">Je hebt geen nieuwe meldingen.</p>
+      <div class="text-center py-8">
+        <div class="text-gray-400 text-6xl mb-4">📪</div>
+        <p class="text-gray-500">Je hebt geen nieuwe meldingen.</p>
+      </div>
     {% endif %}
   </div>
 </section>
