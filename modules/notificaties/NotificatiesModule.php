@@ -10,19 +10,13 @@ class NotificatiesModule extends Module implements BootstrapInterface
 {
     public function init()
     {
-
-            
         Craft::setAlias('@modules/notificaties', __DIR__);
-    
+
         parent::init();
     }
 
     public function bootstrap($app)
     {
-
-                
-    if (Craft::$app->getRequest()->getIsConsoleRequest()) {
-            return;
-        }
+    
     }
 }

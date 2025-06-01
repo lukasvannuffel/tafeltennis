@@ -35,7 +35,8 @@ return [
         ],
         'notificaties-module' => [
             'class' => \modules\notificaties\NotificatiesModule::class,
-        ],
+        ]
+
         
     ],
     'bootstrap' => [
