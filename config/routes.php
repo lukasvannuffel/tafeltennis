@@ -28,4 +28,11 @@ return [
         'verb' => 'POST',
     ],
 
+    // Routes voor notificaties
+    [
+        'pattern' => 'notificaties/check-rekeningen',
+        'route' => 'notificaties-module/notificaties/create-rekening-notification',
+        'verb' => 'POST',
+    ],
+
 ];
