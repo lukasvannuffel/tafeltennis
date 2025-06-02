@@ -55,7 +55,7 @@
 
       <form method="post" class="inline">
         {{ csrfInput() }}
-        {# {{ actionInput('notificaties-module/notificaties/refresh-my-notifications') }} #}
+        {{ actionInput('notificaties-module/notificaties/create-rekening-notification') }}
         <button type="submit" class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors">
           Controleer op Nieuwe Meldingen
         </button>
@@ -133,12 +133,6 @@
         <p class="text-gray-600 text-sm">Altijd inzicht in openstaande en betaalde rekeningen. Voor leden én beheerders.</p>
       </div>
     </div>
-
-    {% if currentUser %}
-      {% if currentUser.isInGroup('spelers') %}
-        <h1 class="text-2xl font-bold text-center text-blue-800 mt-16">Dit is een spelersview</h1>
-      {% endif %}
-    {% endif %}
   </div>
 </section>
 

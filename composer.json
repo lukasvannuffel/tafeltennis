@@ -30,7 +30,8 @@
   "autoload": {
     "psr-4": {
       "modules\\winkelmandje\\": "modules/winkelmandje/src/",
-      "modules\\wedstrijden\\": "modules/wedstrijden/"
+      "modules\\wedstrijden\\": "modules/wedstrijden/",
+      "modules\\notificaties\\": "modules/notificaties/"
     }
   },
   "repositories": [

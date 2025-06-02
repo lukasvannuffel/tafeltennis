@@ -17,6 +17,6 @@ class NotificatiesModule extends Module implements BootstrapInterface
 
     public function bootstrap($app)
     {
-    
+        
     }
 }
